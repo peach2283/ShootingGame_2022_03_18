@@ -5,9 +5,12 @@
 #include "ShootingGame.h"
 
 #define MAX_LOADSTRING 100
+#define WIDTH          480
+#define HEIGHT         800
 
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
+HWND hWnd;                                      // 윈도우 핸들입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
 
@@ -24,13 +27,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
-    //초기화    
-    START_DEBUG_CONSOLE();                 //디버그 콘솔창 열기
-    InitGraphic(nullptr, 0, 0, 480, 800);  //그래픽 초기화
-
-    Time::Init();    //타임초기화
-    Random::Init();  //랜덤초기화
-
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_SHOOTINGGAME20220318, szWindowClass, MAX_LOADSTRING);
@@ -41,6 +37,13 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     {
         return FALSE;
     }
+
+    //초기화    
+    START_DEBUG_CONSOLE();                  //디버그 콘솔창 열기
+    InitGraphic(hWnd, 0, 0, WIDTH, HEIGHT); //그래픽 초기화
+
+    Time::Init();    //타임초기화
+    Random::Init();  //랜덤초기화
 
     MSG msg;
 
@@ -105,13 +108,25 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   HWND hWnd = CreateWindowW(szWindowClass, 
+   //윈도우 스타일 변수
+   int style = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX;
+
+   //윈도우 크기 조정하기//
+   RECT rt = {0, 0, WIDTH, HEIGHT};
+   int width, height;
+
+   AdjustWindowRect(&rt, style, FALSE);
+
+   width  = rt.right  - rt.left;  //윈도우 너비
+   height = rt.bottom - rt.top;   //윈도우 높이
+
+   hWnd = CreateWindowW(szWindowClass, 
                              szTitle, 
-                             WS_OVERLAPPEDWINDOW,
+                             style,
                              CW_USEDEFAULT, 
                              0, 
-                             CW_USEDEFAULT, 
-                             0, 
+                             width, 
+                             height, 
                              nullptr, 
                              nullptr, 
                              hInstance, 
