@@ -45,6 +45,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     Time::Init();    //타임초기화
     Random::Init();  //랜덤초기화
 
+    //배경, 플레이어 등...게임객체 로딩
+    ObjectManager::Instantiate(new GameBG(0, 0));
+    ObjectManager::Instantiate(new Player(WIDTH/2 - 34, HEIGHT-150));
+
     MSG msg;
 
     // 기본 메시지 루프입니다:
@@ -69,16 +73,20 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
          //업데이트
          Time::Update();
 
-         //그리기
+         //객체목록 업데이트
+         ObjectManager::Update();
 
+         //그리기
+         ObjectManager::Draw();
 
          //렌더링
          Render();
     }
 
     //프로램종료
-    STOP_DEBUG_CONSOLE();  //디버그 콘솔창 닫기
-    ExitGraphic();         //그래픽 종료
+    STOP_DEBUG_CONSOLE();   //디버그 콘솔창 닫기
+    ExitGraphic();          //그래픽 종료
+    ObjectManager::Clear(); //게임객체 목록..전체 삭제
 
     return (int) msg.wParam;
 }
@@ -151,7 +159,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         {
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+            
+            //윈도우의..PAINT 메세지에서..게임장면..화면에 보내기
+            Render();
+
             EndPaint(hWnd, &ps);
         }
         break;

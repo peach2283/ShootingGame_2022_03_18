@@ -10,6 +10,7 @@ GameBG::~GameBG()
 void GameBG::Start()
 {
 	//이미지 로드//	
+	SetSprite("Asset/게임배경.bmp");
 }
 
 void GameBG::Update()
