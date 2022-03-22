@@ -49,6 +49,67 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
+    ///////////////////////////////////////////////////////////
+    ////////////////////키 입력 테스트하기//////////////////////
+    int state=0;  
+
+    while (true)
+    {
+        if (state == 0) //놓고있는 상태
+        {
+            //printf("놓고있는 상태");
+
+            if (GetAsyncKeyState(VK_SPACE) != 0)
+            {
+                state = 1;  //누르는 상태로..전이
+            }
+            else {
+                state = 0;
+            }
+        }
+        else if (state == 1) //누르는 상태
+        {
+            printf("누르는 상태\n");
+
+            if (GetAsyncKeyState(VK_SPACE) != 0)
+            {
+                state = 2; //누르고 있는 상태로...전이
+            }
+            else {
+                state = 3; //놓는 상태로...전이
+            }
+
+        }
+        else if (state == 2) //누르고 있는 상태
+        {
+           printf(".");
+
+            if (GetAsyncKeyState(VK_SPACE) == 0)
+            {
+                state = 3;  //놓는 상태로..전이
+            }
+            else {
+                state = 2;
+            }
+
+        }
+        else if (state == 3) //놓는 상태
+        {
+            printf("놓는 상태\n");
+
+            if (GetAsyncKeyState(VK_SPACE) == 0)
+            {
+                state = 0; //놓고 있음 상태로..전이
+            }
+            else {
+                state = 1; //누르는 상태로..전이
+            }
+        }
+       
+    }
+
+    ////////////////////////////////////////////////////////////
+
     // 기본 메시지 루프입니다:
     while (true)
     {

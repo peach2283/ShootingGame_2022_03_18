@@ -18,8 +18,8 @@ void Player::Start()
 
 void Player::Update()
 {
-	Move();
-	Fire();
+	//Move();
+	//Fire();
 }
 
 void Player::Move()
