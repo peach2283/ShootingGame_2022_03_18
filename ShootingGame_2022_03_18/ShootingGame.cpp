@@ -5,8 +5,6 @@
 #include "ShootingGame.h"
 
 #define MAX_LOADSTRING 100
-#define WIDTH          480
-#define HEIGHT         800
 
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.

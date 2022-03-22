@@ -12,3 +12,7 @@
 #include "Time.h"
 #include "GameBG.h"
 #include "Player.h"
+#include "Laser.h"
+
+#define WIDTH          480
+#define HEIGHT         800
