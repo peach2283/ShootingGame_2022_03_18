@@ -18,8 +18,8 @@ void Player::Start()
 
 void Player::Update()
 {
-	//Move();
-	//Fire();
+	Move();
+	Fire();
 }
 
 void Player::Move()
@@ -27,7 +27,7 @@ void Player::Move()
 	//이동하기//
 	float dist = Time::deltaTime * speed;
 
-	if (GetAsyncKeyState(VK_UP) != 0)  //VK_UP, VK_DOWN, VK_LEFT, VK_RIGHT
+	if ( Input::GetKey(KeyCode::UpArrow) == true )  
 	{
 		Translate(0, -dist);
 
@@ -37,7 +37,7 @@ void Player::Move()
 		}
 	}
 
-	if (GetAsyncKeyState(VK_DOWN) != 0)
+	if ( Input::GetKey(KeyCode::DownArrow)==true)
 	{
 		Translate(0, dist);
 
@@ -47,7 +47,7 @@ void Player::Move()
 		}
 	}
 
-	if (GetAsyncKeyState(VK_LEFT) != 0)
+	if (Input::GetKey(KeyCode::LeftArrow)==true)
 	{
 		Translate(-dist, 0);
 
@@ -57,7 +57,7 @@ void Player::Move()
 		}
 	}
 
-	if (GetAsyncKeyState(VK_RIGHT) != 0)
+	if (Input::GetKey(KeyCode::RightArrow)==true)
 	{
 		Translate(dist, 0);
 
@@ -70,8 +70,8 @@ void Player::Move()
 
 void Player::Fire()
 {
-	//레이저 발사하기//
-	if (GetAsyncKeyState(VK_SPACE) != 0)
+	//연속 자동 레이저 발사하기//
+	if (Input::GetKey(KeyCode::Space) == true)
 	{
 		fireTimer = fireTimer + Time::deltaTime;
 
@@ -80,26 +80,25 @@ void Player::Fire()
 			float px = GetPx();
 			float py = GetPy();
 
-			/***********레이저 한발 발사*************/
+			/////////////레이저 한발 발사////////////////
 			//레이저 객체...생성하기//
 			Instantiate(new Laser(px + 34 - 3, py - 35));
-			/***************************************/
+			
 
-			/***********레이저 두발 발사*************
+			/////////////레이저 두발 발사////////////////
 			//레이저 객체...생성하기//
-			Instantiate(new Laser(px + 34 - 3 - 7, py - 30));
-			Instantiate(new Laser(px + 34 - 3 + 7, py - 30));
-			***************************************/
+			//Instantiate(new Laser(px + 34 - 3 - 7, py - 30));
+			//Instantiate(new Laser(px + 34 - 3 + 7, py - 30));
+			
 
-			/***********레이저 세발 발사*************
+			///////////////레이저 세발 발사//////////////
 			//레이저 객체...생성하기//
-			Instantiate(new Laser(px + 34 - 3 - 7, py - 28));
-			Instantiate(new Laser(px + 34 - 3,     py - 38));
-			Instantiate(new Laser(px + 34 - 3 + 7, py - 28));
-			***************************************/
-
+			//Instantiate(new Laser(px + 34 - 3 - 7, py - 28));
+			//Instantiate(new Laser(px + 34 - 3,     py - 38));
+			//Instantiate(new Laser(px + 34 - 3 + 7, py - 28));
+			
 			//발사타이머...리셋
 			fireTimer = 0;
 		}
-	}
+	}	
 }

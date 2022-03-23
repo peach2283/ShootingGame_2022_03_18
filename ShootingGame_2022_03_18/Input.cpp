@@ -1,5 +1,7 @@
 #include "ShootingGame.h"
 
+//enum KeyCode            {UpArrow=0,       DownArrow=1     , LeftArrow=2    ,RightArrow=3    , Space=4        , Z=5 };
+
 State Input::state[6] = { State::keyUpRep, State::keyUpRep, State::keyUpRep,State::keyUpRep ,State::keyUpRep ,State::keyUpRep };
 int   Input::vKey[6]  = { VK_UP          , VK_DOWN        , VK_LEFT        , VK_RIGHT        , VK_SPACE      ,   'Z' };
 
@@ -44,9 +46,9 @@ void Input::Update()
     }
 }
 
-bool Input::GetKey(int i) //키가 눌리고 있는 중인지 체크함수
+bool Input::GetKey(KeyCode code) //키가 눌리고 있는 중인지 체크함수
 {
-    if (state[i] == State::keyDownRep)
+    if (state[code] == State::keyDown || state[code] == State::keyDownRep)
     {
         return true;
     }
@@ -55,9 +57,9 @@ bool Input::GetKey(int i) //키가 눌리고 있는 중인지 체크함수
     }
 }
 
-bool Input::GetKeyDown(int i) //키가 눌림 체크함수
+bool Input::GetKeyDown(KeyCode code) //키가 눌림 체크함수
 {
-    if (state[i] == State::keyDown)
+    if (state[code] == State::keyDown)
     {
         return true;
     }
@@ -66,9 +68,9 @@ bool Input::GetKeyDown(int i) //키가 눌림 체크함수
     }
 }
 
-bool Input::GetKeyUp(int i) //키가 놓임 체크함수
+bool Input::GetKeyUp(KeyCode code) //키가 놓임 체크함수
 {
-    if (state[i] == State::keyUp)
+    if (state[code] == State::keyUp)
     {
         return true;
     }
