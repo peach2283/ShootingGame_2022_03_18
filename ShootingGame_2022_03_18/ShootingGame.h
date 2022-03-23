@@ -13,6 +13,7 @@
 #include "GameBG.h"
 #include "Player.h"
 #include "Laser.h"
+#include "Input.h"
 
 #define WIDTH          480
 #define HEIGHT         800
