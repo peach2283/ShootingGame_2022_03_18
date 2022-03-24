@@ -6,7 +6,7 @@
 class Animation : public GameObject
 {
 private:
-	Image sprite;
+	Image sprite[4];
 
 public:
 	Animation(string tag, string name, bool active, float px, float py);

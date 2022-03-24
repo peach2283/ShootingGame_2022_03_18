@@ -53,7 +53,7 @@ void Bitmap::ReadBMP(const char* fileName, Image* img)
 	}
 }
 
-void Bitmap::ReadBMP(const char* fileName, int x, int y, int width, int heihgt, Image* img)
+void Bitmap::ReadBMP(const char* fileName, int x, int y, int width, int height, Image* img)
 {
 	//비트맵 구조체
 	BITMAPFILEHEADER fileHeader; //비트맵 파일헤더
@@ -87,15 +87,28 @@ void Bitmap::ReadBMP(const char* fileName, int x, int y, int width, int heihgt, 
 		printf("biBitCount : %d\n", infoHeader.biBitCount);
 
 		//x, y , width, height 사각형 영역의 부분이미지를 읽어오기//
-		
+		int offset = infoHeader.biWidth * y * 4 + x*4;
+		fseek(stream, offset, SEEK_CUR);
+
+		//동적메모리 할당하기
+		unsigned int* rgb = new unsigned int[width * height]; //width*height*4 바이트 크기
+
+		//이미지 데이타 읽기
+		int gap = (infoHeader.biWidth - width) * 4;
+
+		for (int i = 0; i < height; i++)
+		{
+			fread(rgb + width*i, sizeof(unsigned int), width, stream);
+			fseek(stream, gap, SEEK_CUR);
+		}
 
 		//파일닫기
 		fclose(stream);
 
 		//이미지 구조체에..필요한 정보만 저장함//
-		//img->width = infoHeader.biWidth;
-		//img->height = infoHeader.biHeight;
-		//img->rgb = rgb;
+		img->width  = width;
+		img->height = height;
+		img->rgb    = rgb;
 
 	}
 	else {
