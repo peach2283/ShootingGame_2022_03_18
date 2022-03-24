@@ -14,6 +14,7 @@
 #include "Player.h"
 #include "Laser.h"
 #include "Input.h"
+#include "Animation.h"
 
 #define WIDTH          480
 #define HEIGHT         800

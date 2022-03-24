@@ -47,6 +47,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     ObjectManager::Instantiate(new GameBG(0, 0));
     ObjectManager::Instantiate(new Player(WIDTH/2 - 34, HEIGHT-150));
 
+    //****애니메이션 클래스 테스트하기****
+    ObjectManager::Instantiate(new Animation("", "", true, 200, 100));
+
+
+
     MSG msg;
 
     // 기본 메시지 루프입니다:
