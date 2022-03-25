@@ -15,6 +15,7 @@
 #include "Laser.h"
 #include "Input.h"
 #include "Animation.h"
+#include "Enemy.h"
 
 #define WIDTH          480
 #define HEIGHT         800
