@@ -4,11 +4,11 @@
 //키코드 열거형//
 enum KeyCode { UpArrow = 0, DownArrow = 1, LeftArrow = 2, RightArrow = 3, Space = 4, Z = 5 };
 
-//키 상태 열거형//
-enum State { keyUpRep = 0, keyDown = 1, keyDownRep = 2, keyUp = 3 };
-
 class Input
 {
+	//키 상태 열거형//
+	enum State { keyUpRep = 0, keyDown = 1, keyDownRep = 2, keyUp = 3 };
+
 private:
 	static State state[6];
 	static int   vKey[6];

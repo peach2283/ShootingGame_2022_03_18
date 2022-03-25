@@ -2,8 +2,8 @@
 
 //enum KeyCode            {UpArrow=0,       DownArrow=1     , LeftArrow=2    ,RightArrow=3    , Space=4        , Z=5 };
 
-State Input::state[6] = { State::keyUpRep, State::keyUpRep, State::keyUpRep,State::keyUpRep ,State::keyUpRep ,State::keyUpRep };
-int   Input::vKey[6]  = { VK_UP          , VK_DOWN        , VK_LEFT        , VK_RIGHT        , VK_SPACE      ,   'Z' };
+Input::State Input::state[6] = { State::keyUpRep, State::keyUpRep, State::keyUpRep,State::keyUpRep ,State::keyUpRep ,State::keyUpRep };
+int          Input::vKey[6]  = { VK_UP          , VK_DOWN        , VK_LEFT        , VK_RIGHT        , VK_SPACE      ,   'Z' };
 
 void Input::Update()
 {
