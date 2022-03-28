@@ -16,6 +16,7 @@
 #include "Input.h"
 #include "Animation.h"
 #include "Enemy.h"
+#include "EnemyBullet.h"
 
 #define WIDTH          480
 #define HEIGHT         800
