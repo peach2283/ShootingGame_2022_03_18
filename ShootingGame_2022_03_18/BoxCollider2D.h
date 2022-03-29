@@ -6,7 +6,7 @@ class BoxCollider2D
 private:
 	float x;
 	float y;
-	float widt;
+	float width;
 	float height;
 
 public:
@@ -14,5 +14,7 @@ public:
 	BoxCollider2D(float x, float y, float width, float height);
 	
 	virtual ~BoxCollider2D();
+
+	void GetBox(float& x, float& y, float& width, float& height);
 };
 

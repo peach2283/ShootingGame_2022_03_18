@@ -46,9 +46,15 @@ public:
 	//기타 활용 함수//
 	void Translate(float x, float y);
 
+	//충돌 박스..기즈모 그리기 함수..
+	void OnDrawGizmos();
+
 	//게임오브젝트 추가/삭제하기//
 	void Instantiate(GameObject* obj);
 	void Destroy(GameObject* obj);
+
+	//충돌체 추가하기//
+	void AddBoxCollider2D(float x, float y, float width, float height);
 
 };
 

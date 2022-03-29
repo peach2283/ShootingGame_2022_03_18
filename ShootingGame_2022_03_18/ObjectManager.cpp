@@ -21,7 +21,8 @@ void ObjectManager::Draw()
 {
 	for (int i = 0; i < gameObjects.size(); i++)
 	{
-		gameObjects[i]->Draw();
+		gameObjects[i]->Draw();			//객체 그리기
+		gameObjects[i]->OnDrawGizmos(); //기즈모..그리기
 	}
 }
 

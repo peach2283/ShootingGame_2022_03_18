@@ -26,6 +26,9 @@ void Player::Start()
 	Bitmap::ReadBMP("Asset/∆“≈“¿Ãµø2.bmp", 64 * 4 , 0, 62, 80, &sprite[4]);
 	Bitmap::ReadBMP("Asset/∆“≈“¿Ãµø2.bmp", 64 * 5 , 0, 62, 80, &sprite[5]);
 	Bitmap::ReadBMP("Asset/∆“≈“¿Ãµø2.bmp", 64 * 6 , 0, 62, 80, &sprite[6]);
+
+	//√Êµπ√º √ﬂ∞°«œ±‚//
+	AddBoxCollider2D(0, 0, 62, 80);
 }
 
 void Player::Update()
