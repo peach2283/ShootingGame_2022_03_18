@@ -8,6 +8,9 @@ Player::Player(float px, float py) : GameObject("","", true, px, py)
 	this->fireDelay = 0.2; //발사지연 세팅 변수
 
 	this->index = 3;  //기울어 지지 않은 플레이어 이미지
+
+	this->animTimer = 0;   //애니메니션 시간 측정 변수
+	this->animDelay = 0.1f;//애니메니션 지연 지정 변수
 }
 
 Player::~Player()
@@ -74,11 +77,18 @@ void Player::Move()
 		}
 
 		//이미지 변경//
-		index--;
+		animTimer = animTimer + Time::deltaTime;
 
-		if (index < 0)
+		if (animTimer >= animDelay)
 		{
-			index = 0;
+			index--;
+
+			if (index < 0)
+			{
+				index = 0;
+			}
+
+			animTimer = 0;
 		}
 	}
 
@@ -92,12 +102,38 @@ void Player::Move()
 		}
 
 		//이미지 변경//
-		index++;
+		animTimer = animTimer + Time::deltaTime;
 
-		if (index > 6)
+		if (animTimer >= animDelay)
 		{
-			index = 6;
+			index++;
+
+			if (index > 6)
+			{
+				index = 6;
+			}
+
+			animTimer = 0;
 		}
+	}
+
+	if (Input::GetKey(KeyCode::LeftArrow) != true && Input::GetKey(KeyCode::RightArrow) != true)
+	{
+		animTimer = animTimer + Time::deltaTime;
+		
+		if (animTimer >= animDelay)
+		{
+			if (index < 3)
+			{
+				index++;
+			}
+			else if (index > 3)
+			{
+				index--;
+			}
+
+			animTimer = 0;
+		}		
 	}
 }
 

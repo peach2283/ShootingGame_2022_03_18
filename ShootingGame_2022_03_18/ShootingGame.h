@@ -17,6 +17,7 @@
 #include "Animation.h"
 #include "Enemy.h"
 #include "EnemyBullet.h"
+#include "BoxCollider2D.h"
 
 #define WIDTH          480
 #define HEIGHT         800

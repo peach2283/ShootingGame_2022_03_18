@@ -18,6 +18,10 @@ private:
 	//스프라이트 그리기 인덱스
 	int index;
 
+	//이미지변경(애니메이션) 시간 변수
+	float animTimer;
+	float animDelay;
+
 public:
 	Player(float px, float py);
 	~Player();

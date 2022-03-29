@@ -1,0 +1,18 @@
+#pragma once
+
+//박스 충돌체 ... 컴포넌트 클래스//
+class BoxCollider2D
+{
+private:
+	float x;
+	float y;
+	float widt;
+	float height;
+
+public:
+	BoxCollider2D();
+	BoxCollider2D(float x, float y, float width, float height);
+	
+	virtual ~BoxCollider2D();
+};
+

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "BoxCollider2D.h"
 
 using namespace std;
 
@@ -13,6 +14,9 @@ private:
 
 	//변환속성(트랜스폼 - Transform)//
 	float px, py;
+
+	//박스 콜라이어 2D (BoxCollider2D)..추가하기//
+	BoxCollider2D collider;
 
 public:
 	//생성자, 소멸자//
