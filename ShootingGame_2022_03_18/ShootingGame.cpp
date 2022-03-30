@@ -44,7 +44,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     Random::Init();  //랜덤초기화
 
     //배경, 플레이어 등...게임객체 로딩
-    ObjectManager::Instantiate(new GameBG(0, 0));
+    //ObjectManager::Instantiate(new GameBG(0, 0));
     ObjectManager::Instantiate(new Player(WIDTH/2 - 34, HEIGHT-150));
 
     //적기 추가하기
@@ -71,7 +71,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
          //****************게임실행...부분*****************//
          //화면클리어
-         Clear(255, 0, 0);
+         Clear(0, 0, 0);
 
          //업데이트
          Time::Update();

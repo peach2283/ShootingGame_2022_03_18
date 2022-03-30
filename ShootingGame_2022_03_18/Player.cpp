@@ -1,6 +1,6 @@
 #include "ShootingGame.h"
 
-Player::Player(float px, float py) : GameObject("","", true, px, py)
+Player::Player(float px, float py) : GameObject("플레이어","", true, px, py)
 {
 	this->speed = 250;  //이동스피드
 

@@ -1,3 +1,4 @@
+#include "framework.h"
 #include "ShootingGame.h"
 
 //오브젝트 STL vector (static 으로 공유됨)
@@ -19,8 +20,37 @@ void ObjectManager::Update()
 
 void ObjectManager::CheckCollision()
 {
-	//......충돌 검사.......//
+	printf("------------------------------------\n");
 
+	for (int i = 0; i < gameObjects.size(); i++)
+	{
+		for (int j = 0; j < gameObjects.size(); j++)
+		{
+			if (i > j)
+			{
+				//객체의 충돌체 가져오기//
+				BoxCollider2D boxi = gameObjects[i]->GetCollider();
+				BoxCollider2D boxj = gameObjects[j]->GetCollider();
+
+				//충돌체의 사각형 좌표 가져오기//
+				float xi, yi, widthi, heighti;
+				float xj, yj, widthj, heightj;
+
+				boxi.GetBox(xi, yi, widthi, heighti);
+				boxj.GetBox(xj, yj, widthj, heightj);
+
+
+				string tagi = gameObjects[i]->GetTag();
+				string tagj = gameObjects[j]->GetTag();
+
+				printf("(%s , %s) ", tagi.data(), tagj.data());
+			}
+		}
+
+		printf("\n");
+	}
+
+	printf("\n");
 }
 
 void ObjectManager::Draw()

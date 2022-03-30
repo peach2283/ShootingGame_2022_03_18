@@ -91,6 +91,11 @@ void GameObject::AddBoxCollider2D(float x, float y, float width, float height)
 	collider = BoxCollider2D(x + px, y + py, width, height);
 }
 
+BoxCollider2D GameObject::GetCollider()
+{
+	return collider;
+}
+
 void GameObject::OnDrawGizmos()
 {
 	//박스 충돌체..사각형 그리기//

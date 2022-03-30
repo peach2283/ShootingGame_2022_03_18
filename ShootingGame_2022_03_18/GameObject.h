@@ -56,5 +56,7 @@ public:
 	//충돌체 추가하기//
 	void AddBoxCollider2D(float x, float y, float width, float height);
 
+	//충돌체 게터//
+	BoxCollider2D GetCollider();
 };
 

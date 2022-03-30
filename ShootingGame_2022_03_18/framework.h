@@ -14,8 +14,6 @@
 #include <memory.h>
 #include <tchar.h>
 #include <time.h>
-
-//C++ 헤더파일
 #include <iostream>
 
 //네임스페이스

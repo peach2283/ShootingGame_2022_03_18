@@ -1,6 +1,6 @@
 #include "GameBG.h"
 
-GameBG::GameBG(float px, float py):Sprite("", "", true, px, py)
+GameBG::GameBG(float px, float py):Sprite("게임배경", "", true, px, py)
 {
 }
 
