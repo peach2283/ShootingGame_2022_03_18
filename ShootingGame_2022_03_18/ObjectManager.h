@@ -17,6 +17,9 @@ public:
 	//게임 목록 업데이트 함수
 	static void Update();
 
+	//게임 객체 충돌검사 함수
+	static void CheckCollision();
+
 	//게임 목록 그리기
 	static void Draw();
 

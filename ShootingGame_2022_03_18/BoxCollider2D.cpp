@@ -30,3 +30,9 @@ void BoxCollider2D::GetBox(float& x, float& y, float& width, float& height)
 	width  = this->width;
 	height = this->height;
 }
+
+void BoxCollider2D::Translate(float x, float y)
+{
+	this->x += x; //this->x = this->x + x;
+	this->y += y; //this->y = this->y + y;
+}

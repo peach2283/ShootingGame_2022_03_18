@@ -57,12 +57,23 @@ void GameObject::SetActive(bool active)
 
 void GameObject::SetPx(float px)
 {
-	this->px = px;
+	//새로운 위치값(px) - 변경이전의 x 좌표(this->px) = 이동값(dx)//
+	float dx = px - this->px; //이동량
+
+	this->px = px; //게임오브젝트 위치 지정
+
+	//충돌체에..이동량 적용하기//
+	collider.Translate(dx, 0);
 }
 
 void GameObject::SetPy(float py)
 {
-	this->py = py;
+	float dy = py - this->py; //이동량
+
+	this->py = py; //게임오브젝트 위치 지정
+
+	//충돌체..이동량 적용하기//
+	collider.Translate(0, dy);
 }
 
 void GameObject::Translate(float x, float y)
@@ -72,6 +83,7 @@ void GameObject::Translate(float x, float y)
 	py = py + y;
 
 	//충돌체...좌표 이동//	
+	collider.Translate(x, y);
 }
 
 void GameObject::AddBoxCollider2D(float x, float y, float width, float height)

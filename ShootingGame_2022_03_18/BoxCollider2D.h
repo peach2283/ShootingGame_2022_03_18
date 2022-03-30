@@ -16,5 +16,6 @@ public:
 	virtual ~BoxCollider2D();
 
 	void GetBox(float& x, float& y, float& width, float& height);
+	void Translate(float x, float y);
 };
 

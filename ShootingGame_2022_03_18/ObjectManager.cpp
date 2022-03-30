@@ -17,6 +17,12 @@ void ObjectManager::Update()
 	}
 }
 
+void ObjectManager::CheckCollision()
+{
+	//......충돌 검사.......//
+
+}
+
 void ObjectManager::Draw()
 {
 	for (int i = 0; i < gameObjects.size(); i++)
