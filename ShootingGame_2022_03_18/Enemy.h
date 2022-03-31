@@ -27,6 +27,6 @@ public:
 	void Fire();
 
 	//충돌이벤트 처리 함수 오버라이딩//
-	void OnTriggerStay2D();
+	void OnTriggerStay2D(GameObject * other);
 };
 

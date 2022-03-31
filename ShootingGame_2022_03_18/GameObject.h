@@ -60,6 +60,6 @@ public:
 	BoxCollider2D GetCollider();
 
 	//충돌 정보 처리함수//
-	virtual void OnTriggerStay2D();
+	virtual void OnTriggerStay2D(GameObject * other);
 };
 

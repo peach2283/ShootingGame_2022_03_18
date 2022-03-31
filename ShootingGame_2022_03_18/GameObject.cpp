@@ -115,7 +115,7 @@ void GameObject::OnDrawGizmos()
 
 }
 
-void GameObject::OnTriggerStay2D()
+void GameObject::OnTriggerStay2D(GameObject * other)
 {	
 }
 

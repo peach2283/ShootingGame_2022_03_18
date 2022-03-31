@@ -102,7 +102,10 @@ void Enemy::Fire()
 	}
 }
 
-void Enemy::OnTriggerStay2D()
+void Enemy::OnTriggerStay2D(GameObject * other)
 {
+	string tag = other->GetTag();
+
 	printf("----적기 클래스 충돌처리 함수----\n");
+	printf("    충돌 상대 태그 %s\n", tag.data());
 }

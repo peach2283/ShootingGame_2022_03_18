@@ -20,17 +20,19 @@ void ObjectManager::Update()
 
 void ObjectManager::CheckCollision()
 {
-	//printf("------------------------------------\n");
-
 	for (int i = 0; i < gameObjects.size(); i++)
 	{
 		for (int j = 0; j < gameObjects.size(); j++)
 		{
 			if (i > j)
 			{
+				//충돌검사 객체..포인터 저장장하기//
+				GameObject* obji = gameObjects[i];
+				GameObject* objj = gameObjects[j];
+
 				//객체의 충돌체 가져오기//
-				BoxCollider2D boxi = gameObjects[i]->GetCollider();
-				BoxCollider2D boxj = gameObjects[j]->GetCollider();
+				BoxCollider2D boxi = obji->GetCollider();
+				BoxCollider2D boxj = objj->GetCollider();
 
 				//충돌체의 사각형 좌표 가져오기//
 				float xi, yi, widthi, heighti;
@@ -48,22 +50,12 @@ void ObjectManager::CheckCollision()
 				if (y0 < b1 && y1>b0 && x1 > a0&& x0 < a1)
 				{
 					//충돌 이벤트 발생//
-					gameObjects[i]->OnTriggerStay2D();
-					gameObjects[j]->OnTriggerStay2D();
+					obji->OnTriggerStay2D(objj);
+					objj->OnTriggerStay2D(obji);
 				}
-
-
-				//string tagi = gameObjects[i]->GetTag();
-				//string tagj = gameObjects[j]->GetTag();
-
-				//printf("(%s , %s) ", tagi.data(), tagj.data());
 			}
 		}
-
-		//printf("\n");
 	}
-
-	//printf("\n");
 }
 
 void ObjectManager::Draw()

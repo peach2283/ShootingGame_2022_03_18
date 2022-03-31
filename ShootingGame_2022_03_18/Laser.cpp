@@ -11,6 +11,7 @@ Laser::~Laser()
 void Laser::Start()
 {
 	SetSprite("Asset/·¹ÀÌÀú.bmp");
+	AddBoxCollider2D(0, 0, 6, 33);
 }
 
 void Laser::Update()

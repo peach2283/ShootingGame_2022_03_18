@@ -175,7 +175,10 @@ void Player::Fire()
 	}	
 }
 
-void Player::OnTriggerStay2D()
+void Player::OnTriggerStay2D(GameObject * other)
 {
+	string tag = other->GetTag();
+
 	printf("---플레이어 클래스 충돌처리----\n");
+	printf("   충돌 상대 태그 %s\n", tag.data());
 }
