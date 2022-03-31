@@ -7,6 +7,8 @@ Enemy::Enemy(float px, float py) : Animation("적기","", true, px, py)
 
 	this->fireTimer = 0;
 	this->fireDelay = 0.5;
+
+	this->hp = 100;
 }
 
 Enemy::~Enemy()
@@ -98,4 +100,9 @@ void Enemy::Fire()
 			fireTimer = 0;
 		}
 	}
+}
+
+void Enemy::OnTriggerStay2D()
+{
+	printf("----적기 클래스 충돌처리 함수----\n");
 }

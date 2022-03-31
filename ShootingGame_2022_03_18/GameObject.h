@@ -58,5 +58,8 @@ public:
 
 	//충돌체 게터//
 	BoxCollider2D GetCollider();
+
+	//충돌 정보 처리함수//
+	virtual void OnTriggerStay2D();
 };
 

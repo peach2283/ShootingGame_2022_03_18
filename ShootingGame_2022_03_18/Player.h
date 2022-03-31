@@ -22,6 +22,9 @@ private:
 	float animTimer;
 	float animDelay;
 
+	//플레이어 체력
+	float hp;
+
 public:
 	Player(float px, float py);
 	~Player();
@@ -33,5 +36,8 @@ public:
 	//플레이어 기능 추가함수//
 	void Move();
 	void Fire();
+
+	//충돌이벤트 처리 함수 오버라이딩//
+	void OnTriggerStay2D();
 };
 

@@ -20,7 +20,7 @@ void ObjectManager::Update()
 
 void ObjectManager::CheckCollision()
 {
-	printf("------------------------------------\n");
+	//printf("------------------------------------\n");
 
 	for (int i = 0; i < gameObjects.size(); i++)
 	{
@@ -39,18 +39,31 @@ void ObjectManager::CheckCollision()
 				boxi.GetBox(xi, yi, widthi, heighti);
 				boxj.GetBox(xj, yj, widthj, heightj);
 
+				//i ÀÎµ¦½º °´Ã¼ ¹Ú½º ÁÂÇ¥//
+				float a0 = xi, b0 = yi, a1 = a0 + widthi, b1 = b0 + heighti;
 
-				string tagi = gameObjects[i]->GetTag();
-				string tagj = gameObjects[j]->GetTag();
+				//j ÀÎµ¦½º °´Ã¼ ¹Ú½º ÁÂÇ¥
+				float x0 = xj, y0 = yj, x1 = x0 + widthj, y1 = y0 + heightj;
 
-				printf("(%s , %s) ", tagi.data(), tagj.data());
+				if (y0 < b1 && y1>b0 && x1 > a0&& x0 < a1)
+				{
+					//Ãæµ¹ ÀÌº¥Æ® ¹ß»ý//
+					gameObjects[i]->OnTriggerStay2D();
+					gameObjects[j]->OnTriggerStay2D();
+				}
+
+
+				//string tagi = gameObjects[i]->GetTag();
+				//string tagj = gameObjects[j]->GetTag();
+
+				//printf("(%s , %s) ", tagi.data(), tagj.data());
 			}
 		}
 
-		printf("\n");
+		//printf("\n");
 	}
 
-	printf("\n");
+	//printf("\n");
 }
 
 void ObjectManager::Draw()

@@ -115,6 +115,10 @@ void GameObject::OnDrawGizmos()
 
 }
 
+void GameObject::OnTriggerStay2D()
+{	
+}
+
 void GameObject::Instantiate(GameObject* obj)
 {
 	ObjectManager::Instantiate(obj);

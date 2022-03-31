@@ -11,6 +11,8 @@ Player::Player(float px, float py) : GameObject("플레이어","", true, px, py)
 
 	this->animTimer = 0;   //애니메니션 시간 측정 변수
 	this->animDelay = 0.1f;//애니메니션 지연 지정 변수
+
+	this->hp = 100;  //플레이어 체력
 }
 
 Player::~Player()
@@ -171,4 +173,9 @@ void Player::Fire()
 			fireTimer = 0;
 		}
 	}	
+}
+
+void Player::OnTriggerStay2D()
+{
+	printf("---플레이어 클래스 충돌처리----\n");
 }

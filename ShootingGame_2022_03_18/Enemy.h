@@ -14,6 +14,8 @@ private:
 	float fireTimer;
 	float fireDelay;
 
+	float hp;
+
 public:
 	Enemy(float px, float py);
 	~Enemy();
@@ -23,5 +25,8 @@ public:
 
 	void Move();
 	void Fire();
+
+	//충돌이벤트 처리 함수 오버라이딩//
+	void OnTriggerStay2D();
 };
 
