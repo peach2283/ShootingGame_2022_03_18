@@ -23,3 +23,8 @@ void LaserExp::Start()
 
 void LaserExp::Update()
 {}
+
+void LaserExp::OnAnimationEnd()
+{	
+	Destroy(this);
+}

@@ -52,6 +52,8 @@ void ObjectManager::CheckCollision()
 					//충돌 이벤트 발생//
 					obji->OnTriggerStay2D(objj);
 					objj->OnTriggerStay2D(obji);
+
+					////위 객체가 모두 사용 완료 이후에..삭제///
 				}
 			}
 		}
@@ -69,6 +71,9 @@ void ObjectManager::Draw()
 
 void ObjectManager::Destroy(GameObject* obj)
 {
+	obj->SetDead(true);
+
+	/****************************************************
 	for (int i = 0; i < gameObjects.size(); i++)
 	{
 		if (gameObjects[i] == obj)
@@ -82,6 +87,7 @@ void ObjectManager::Destroy(GameObject* obj)
 			break;
 		}
 	}
+	********************************************************/
 }
 
 void ObjectManager::Clear()

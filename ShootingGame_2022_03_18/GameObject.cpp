@@ -9,6 +9,8 @@ GameObject::GameObject(string tag, string name, bool active, float px, float py)
 
 	this->px = px;
 	this->py = py;
+
+	this->isDead = false;  //삭제대상 아님 표시
 }
 
 GameObject::~GameObject()
@@ -28,6 +30,11 @@ string GameObject::GetName()
 bool GameObject::GetActive()
 {
 	return active;
+}
+
+bool GameObject::GetDead()
+{
+	return isDead;
 }
 
 float GameObject::GetPx()
@@ -53,6 +60,11 @@ void GameObject::SetName(string name)
 void GameObject::SetActive(bool active)
 {
 	this->active = active;
+}
+
+void GameObject::SetDead(bool dead)
+{
+	this->isDead = dead;
 }
 
 void GameObject::SetPx(float px)

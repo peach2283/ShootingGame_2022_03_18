@@ -35,5 +35,8 @@ public:
 
 	//애니메이션 속도 조정//
 	void Speed(float speed);
+
+	//애니메이션 완료 이벤트..가상함수//
+	virtual void OnAnimationEnd();
 };
 

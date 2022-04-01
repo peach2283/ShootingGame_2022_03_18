@@ -18,6 +18,9 @@ private:
 	//박스 콜라이어 2D (BoxCollider2D)..추가하기//
 	BoxCollider2D collider;
 
+	//객체 삭제 표시 변수
+	bool isDead;  // true는 삭제 대상, false는 삭제 대상이 아님
+
 public:
 	//생성자, 소멸자//
 	GameObject(string tag, string name, bool active, float px, float py);
@@ -27,6 +30,7 @@ public:
 	string GetTag();
 	string GetName();
 	bool   GetActive();
+	bool   GetDead();
 
 	float GetPx();
 	float GetPy();
@@ -34,6 +38,7 @@ public:
 	void SetTag(string tag);
 	void SetName(string name);
 	void SetActive(bool active);
+	void SetDead(bool deal);
 
 	void SetPx(float px);
 	void SetPy(float py);

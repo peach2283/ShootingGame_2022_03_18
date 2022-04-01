@@ -111,8 +111,13 @@ void Enemy::OnTriggerStay2D(GameObject * other)
 		hp = hp - 10;  //적기 체력에..피해(Damage)양 적용하기
 
 		printf("적기 체력 %f\n", hp);
-
 		
+		//레이저 폭발효과//
+		float px = other->GetPx();
+		float py = other->GetPy();
+
+		Instantiate(new LaserExp(px, py));
+
 		Destroy(other);  //레이저 삭제하기//
 
 	}

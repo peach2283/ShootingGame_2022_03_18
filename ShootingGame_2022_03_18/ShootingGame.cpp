@@ -51,10 +51,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     //ObjectManager::Instantiate(new Enemy(150, -200));
 
     ObjectManager::Instantiate(new Enemy(150, 200));
-
-    //레이저 폭발 테스트
-    ObjectManager::Instantiate(new LaserExp(100, 100));
-
+    
     MSG msg;
 
     // 기본 메시지 루프입니다:

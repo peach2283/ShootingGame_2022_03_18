@@ -46,6 +46,9 @@ void Animation::Draw()
 		if ( index >= sprite[animId].size() )
 		{
 			index = 0;
+
+			//애니메션 완료..이벤트//
+			OnAnimationEnd();
 		}
 
 		animTimer = 0;  //타이머 리셋
@@ -56,3 +59,6 @@ void Animation::Speed(float speed)
 {
 	animDelay = animDelay / speed;
 }
+
+void Animation::OnAnimationEnd()
+{}
