@@ -106,6 +106,18 @@ void Enemy::OnTriggerStay2D(GameObject * other)
 {
 	string tag = other->GetTag();
 
-	printf("----적기 클래스 충돌처리 함수----\n");
-	printf("    충돌 상대 태그 %s\n", tag.data());
+	if (tag == "레이저")
+	{
+		hp = hp - 10;  //적기 체력에..피해(Damage)양 적용하기
+
+		printf("적기 체력 %f\n", hp);
+
+		
+		Destroy(other);  //레이저 삭제하기//
+
+	}
+	else if (tag == "플레이어")
+	{
+		//printf("----적기에..플레이어가 충돌함---\n");
+	}
 }

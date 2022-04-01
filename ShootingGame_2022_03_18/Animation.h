@@ -10,6 +10,7 @@ class Animation : public GameObject
 {
 private:
 	vector<Image> sprite[3];
+	
 	int   index;
 
 	//애니메이션 타이머//
@@ -31,5 +32,8 @@ public:
 
 	//애니메이션 출력 함수//
 	void Draw();
+
+	//애니메이션 속도 조정//
+	void Speed(float speed);
 };
 

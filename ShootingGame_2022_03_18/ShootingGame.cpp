@@ -44,13 +44,16 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     Random::Init();  //랜덤초기화
 
     //배경, 플레이어 등...게임객체 로딩
-    //ObjectManager::Instantiate(new GameBG(0, 0));
+    ObjectManager::Instantiate(new GameBG(0, 0));
     ObjectManager::Instantiate(new Player(WIDTH/2 - 34, HEIGHT-150));
 
     //적기 추가하기
     //ObjectManager::Instantiate(new Enemy(150, -200));
 
     ObjectManager::Instantiate(new Enemy(150, 200));
+
+    //레이저 폭발 테스트
+    ObjectManager::Instantiate(new LaserExp(100, 100));
 
     MSG msg;
 

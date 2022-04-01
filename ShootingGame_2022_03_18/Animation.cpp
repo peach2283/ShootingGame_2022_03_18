@@ -51,3 +51,8 @@ void Animation::Draw()
 		animTimer = 0;  //타이머 리셋
 	}
 }
+
+void Animation::Speed(float speed)
+{
+	animDelay = animDelay / speed;
+}
