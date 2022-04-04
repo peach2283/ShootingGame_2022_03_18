@@ -136,11 +136,14 @@ void Enemy::OnTriggerStay2D(GameObject * other)
 		else if (hp <= 0)
 		{
 			//적기 폭발
+			px = this->GetPx();
+			py = this->GetPy();
+
+			Instantiate(new EnemyExp(px-18, py-90));
 
 			//적기 제거
 			Destroy(this);
 		}
-
 	}
 	else if (tag == "플레이어")
 	{

@@ -47,11 +47,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     ObjectManager::Instantiate(new GameBG(0, 0));
     ObjectManager::Instantiate(new Player(WIDTH/2 - 34, HEIGHT-150));
 
-    //적기 추가하기
-    //ObjectManager::Instantiate(new Enemy(150, -200));
-
     ObjectManager::Instantiate(new Enemy(150, 200));
-    
+
+    //적기 폭발 효과..테스트
+    //ObjectManager::Instantiate(new EnemyExp(100, 100));
+
     MSG msg;
 
     // 기본 메시지 루프입니다:
