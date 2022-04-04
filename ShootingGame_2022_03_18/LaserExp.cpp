@@ -9,7 +9,7 @@ LaserExp::~LaserExp()
 void LaserExp::Start()
 {
 	//폭발 이미지..로드하기//
-	for (int y = 0; y < 5; y++)
+	for (int y = 2; y < 5; y++)
 	{
 		for (int x = 0; x < 5; x++)
 		{

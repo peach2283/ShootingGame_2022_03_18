@@ -51,9 +51,7 @@ void ObjectManager::CheckCollision()
 				{
 					//충돌 이벤트 발생//
 					obji->OnTriggerStay2D(objj);
-					objj->OnTriggerStay2D(obji);
-
-					////위 객체가 모두 사용 완료 이후에..삭제///
+					objj->OnTriggerStay2D(obji);				
 				}
 			}
 		}
@@ -66,6 +64,22 @@ void ObjectManager::Draw()
 	{
 		gameObjects[i]->Draw();			//객체 그리기
 		gameObjects[i]->OnDrawGizmos(); //기즈모..그리기
+	}
+}
+
+void ObjectManager::ClearDeadObject()
+{
+	for (int i = 0; i < gameObjects.size(); i++)
+	{
+		GameObject* obj = gameObjects[i];
+
+		if (obj->GetDead() == true)
+		{
+			gameObjects.erase(gameObjects.begin() + i);  //목록에서 제거
+			delete obj;                                  //객체 삭제 (소멸자)
+
+			i--;
+		}
 	}
 }
 

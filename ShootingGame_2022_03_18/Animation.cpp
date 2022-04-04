@@ -12,7 +12,15 @@ Animation::Animation(string tag, string name, bool active, float px, float py)
 }
 
 Animation::~Animation()
-{}
+{
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < sprite[i].size(); j++)
+		{
+			delete[] sprite[i][j].rgb;
+		}
+	}
+}
 
 void Animation::AddSprite(const char* fileName, int x, int y, int width, int height, int id)
 {

@@ -116,9 +116,30 @@ void Enemy::OnTriggerStay2D(GameObject * other)
 		float px = other->GetPx();
 		float py = other->GetPy();
 
-		Instantiate(new LaserExp(px, py));
+		Instantiate(new LaserExp(px-14, py));
 
 		Destroy(other);  //레이저 삭제하기//
+
+		//적기..피해 애니메니션 판단하기//
+		if (80 <= hp && hp <= 100)
+		{
+			Play(0);  //피해없는 애니메이션
+		}
+		else if (50 <= hp && hp < 80)
+		{
+			Play(1);  //중간피해 애니메이션
+		}
+		else if (0 < hp && hp < 50)
+		{
+			Play(2);  //심각한피해 애니메이션
+		}
+		else if (hp <= 0)
+		{
+			//적기 폭발
+
+			//적기 제거
+			Destroy(this);
+		}
 
 	}
 	else if (tag == "플레이어")

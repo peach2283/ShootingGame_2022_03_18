@@ -83,6 +83,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
          //객체 충돌검사
          ObjectManager::CheckCollision();
 
+         //삭제 대상 객체 제거하기//
+         ObjectManager::ClearDeadObject();
+
          //그리기
          ObjectManager::Draw();
 
