@@ -75,7 +75,10 @@ void GameObject::SetPx(float px)
 	this->px = px; //게임오브젝트 위치 지정
 
 	//충돌체에..이동량 적용하기//
-	collider.Translate(dx, 0);
+	for (int i = 0; i < collider.size(); i++)
+	{
+		collider[i].Translate(dx, 0);
+	}
 }
 
 void GameObject::SetPy(float py)
@@ -85,7 +88,10 @@ void GameObject::SetPy(float py)
 	this->py = py; //게임오브젝트 위치 지정
 
 	//충돌체..이동량 적용하기//
-	collider.Translate(0, dy);
+	for (int i = 0; i < collider.size(); i++)
+	{
+		collider[i].Translate(0, dy);
+	}
 }
 
 void GameObject::Translate(float x, float y)
@@ -95,36 +101,41 @@ void GameObject::Translate(float x, float y)
 	py = py + y;
 
 	//충돌체...좌표 이동//	
-	collider.Translate(x, y);
+	for (int i = 0; i < collider.size(); i++)
+	{
+		collider[i].Translate(x, y);
+	}
 }
 
 void GameObject::AddBoxCollider2D(float x, float y, float width, float height)
 {
-	collider = BoxCollider2D(x + px, y + py, width, height);
+	collider.push_back( BoxCollider2D(x + px, y + py, width, height) );
 }
 
-BoxCollider2D GameObject::GetCollider()
+vector<BoxCollider2D> GameObject::GetCollider()
 {
 	return collider;
 }
 
 void GameObject::OnDrawGizmos()
 {
-	//박스 충돌체..사각형 그리기//
-	float x, y, width, height;
+	for (int i = 0; i < collider.size(); i++)
+	{
+		//박스 충돌체..사각형 그리기//
+		float x, y, width, height;
 
-	collider.GetBox(x, y, width, height);
+		collider[i].GetBox(x, y, width, height);
 
-	//오른쪽 하단 좌표
-	float x2 = x + width;
-	float y2 = y + height;
+		//오른쪽 하단 좌표
+		float x2 = x + width;
+		float y2 = y + height;
 
-	//직선그리기
-	DrawLine(x ,  y, x2,  y, 255, 0, 0);
-	DrawLine(x2,  y, x2, y2, 255, 0, 0);
-	DrawLine(x , y2, x2, y2, 255, 0, 0);
-	DrawLine(x,   y, x , y2, 255, 0, 0);
-
+		//직선그리기
+		DrawLine(x, y, x2, y, 255, 0, 0);
+		DrawLine(x2, y, x2, y2, 255, 0, 0);
+		DrawLine(x, y2, x2, y2, 255, 0, 0);
+		DrawLine(x, y, x, y2, 255, 0, 0);
+	}
 }
 
 void GameObject::OnTriggerStay2D(GameObject * other)

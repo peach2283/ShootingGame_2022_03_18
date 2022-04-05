@@ -30,7 +30,8 @@ void Player::Start()
 	Bitmap::ReadBMP("Asset/팬텀이동2.bmp", 64 * 6 , 0, 62, 80, &sprite[6]);
 
 	//충돌체 추가하기//
-	AddBoxCollider2D(0, 0, 62, 80);
+	AddBoxCollider2D(25, 10, 12, 60);  //몸통
+	AddBoxCollider2D(10, 40, 42, 15);  //날개
 }
 
 void Player::Update()

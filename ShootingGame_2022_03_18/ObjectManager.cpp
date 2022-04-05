@@ -20,6 +20,7 @@ void ObjectManager::Update()
 
 void ObjectManager::CheckCollision()
 {
+	/*********************************************************
 	for (int i = 0; i < gameObjects.size(); i++)
 	{
 		for (int j = 0; j < gameObjects.size(); j++)
@@ -56,6 +57,7 @@ void ObjectManager::CheckCollision()
 			}
 		}
 	}
+	********************************************************/
 }
 
 void ObjectManager::Draw()

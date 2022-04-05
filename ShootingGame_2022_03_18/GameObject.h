@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 #include "BoxCollider2D.h"
 
 using namespace std;
@@ -16,7 +17,7 @@ private:
 	float px, py;
 
 	//박스 콜라이어 2D (BoxCollider2D)..추가하기//
-	BoxCollider2D collider;
+	vector<BoxCollider2D> collider;
 
 	//객체 삭제 표시 변수
 	bool isDead;  // true는 삭제 대상, false는 삭제 대상이 아님
@@ -62,7 +63,7 @@ public:
 	void AddBoxCollider2D(float x, float y, float width, float height);
 
 	//충돌체 게터//
-	BoxCollider2D GetCollider();
+	vector<BoxCollider2D> GetCollider();
 
 	//충돌 정보 처리함수//
 	virtual void OnTriggerStay2D(GameObject * other);
