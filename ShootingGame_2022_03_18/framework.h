@@ -15,6 +15,7 @@
 #include <tchar.h>
 #include <time.h>
 #include <iostream>
+#include <vector>
 
 //네임스페이스
 using namespace std;

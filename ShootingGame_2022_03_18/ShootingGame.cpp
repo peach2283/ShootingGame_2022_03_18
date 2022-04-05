@@ -47,10 +47,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     ObjectManager::Instantiate(new GameBG(0, 0));
     ObjectManager::Instantiate(new Player(WIDTH/2 - 34, HEIGHT-150));
 
-    ObjectManager::Instantiate(new Enemy(150, 200));
+    ObjectManager::Instantiate(new Enemy(150, -200));
 
-    //적기 폭발 효과..테스트
-    //ObjectManager::Instantiate(new EnemyExp(100, 100));
+    //적기 총알 폭발 효과..테스트
+    ObjectManager::Instantiate(new EnemyBulletExp(100, 100));
 
     MSG msg;
 

@@ -20,6 +20,7 @@
 #include "BoxCollider2D.h"
 #include "LaserExp.h"
 #include "EnemyExp.h"
+#include "EnemyBulletExp.h"
 
 #define WIDTH          480
 #define HEIGHT         800

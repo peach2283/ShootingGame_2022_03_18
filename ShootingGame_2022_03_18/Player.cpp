@@ -180,5 +180,9 @@ void Player::OnTriggerStay2D(GameObject * other)
 {
 	string tag = other->GetTag();
 
-	
+	if (tag == "적기총알")
+	{	
+		//적기 총알 폭발 및 제거//
+		Destroy(other);
+	}	
 }

@@ -40,8 +40,8 @@ void Enemy::Start()
 
 void Enemy::Update()
 {	
-	//Move();
-	//Fire();
+	Move();
+	Fire();
 }
 
 void Enemy::Move()
