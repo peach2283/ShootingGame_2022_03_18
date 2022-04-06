@@ -2,7 +2,8 @@
 
 Player::Player(float px, float py) : GameObject("플레이어","", true, px, py)
 {
-	this->speed = 250;  //이동스피드
+	this->speed       = 250;  //이동스피드
+	this->showUpSpeed = 150;  //showUP 이동 속도
 
 	this->fireTimer = 0  ; //발사타이머 측정 변수
 	this->fireDelay = 0.2; //발사지연 세팅 변수
@@ -12,7 +13,8 @@ Player::Player(float px, float py) : GameObject("플레이어","", true, px, py)
 	this->animTimer = 0;   //애니메니션 시간 측정 변수
 	this->animDelay = 0.1f;//애니메니션 지연 지정 변수
 
-	this->hp = 100;  //플레이어 체력
+	this->hp    = 100;            //플레이어 체력
+	this->state = State::showUp;  //상태 초기화
 }
 
 Player::~Player()
@@ -36,8 +38,20 @@ void Player::Start()
 
 void Player::Update()
 {
-	Move();
-	Fire();
+	if (state == State::showUp)
+	{
+		Translate(0, -showUpSpeed * Time::deltaTime);
+
+		if (GetPy() <= HEIGHT - 150)
+		{
+			state = State::control;
+		}
+	}
+	else if (state == State::control)
+	{
+		Move();
+		Fire();
+	}
 }
 
 void Player::Draw()
@@ -180,26 +194,32 @@ void Player::OnTriggerStay2D(GameObject * other)
 {
 	string tag = other->GetTag();
 
-	if (tag == "적기총알")
-	{	
-		//적기 총알 폭발 및 제거//
-		float px, py;
-		other->GetPosition(px, py);
-
-		Instantiate(new EnemyBulletExp(px -(40-17)/2 , py - (40-15)/2 ));
-		Destroy(other);
-
-		//적기총알 피해 적용하기//
-		hp -= 100;
-
-		if (hp <= 0)
+	if (state == State::control)  //임시로...콘트롤..상태만..충돌처리
+	{
+		if (tag == "적기총알")
 		{
-			//플레이어 폭발 및 제거
-			this->GetPosition(px, py);
+			//적기 총알 폭발 및 제거//
+			float px, py;
+			other->GetPosition(px, py);
 
-			Instantiate(new PlayerExp(px-(224-62)/2, py-(320-80)/2));
+			Instantiate(new EnemyBulletExp(px - (40 - 17) / 2, py - (40 - 15) / 2));
+			Destroy(other);
 
-			Destroy(this);
+			//적기총알 피해 적용하기//
+			hp -= 100;
+
+			if (hp <= 0)
+			{
+				//플레이어 폭발 및 제거
+				this->GetPosition(px, py);
+
+				Instantiate(new PlayerExp(px - (224 - 62) / 2, py - (320 - 80) / 2));
+
+				Destroy(this);
+
+				//[임시]플레이어 리스폰하기//
+				Instantiate(new Player(WIDTH / 2 - 34, HEIGHT + 100));
+			}
 		}
-	}	
+	}
 }

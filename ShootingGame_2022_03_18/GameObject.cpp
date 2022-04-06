@@ -123,6 +123,9 @@ vector<BoxCollider2D> GameObject::GetCollider()
 	return collider;
 }
 
+void GameObject::Draw()
+{}
+
 void GameObject::OnDrawGizmos()
 {
 	for (int i = 0; i < collider.size(); i++)

@@ -45,12 +45,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     //배경, 플레이어 등...게임객체 로딩
     ObjectManager::Instantiate(new GameBG(0, 0));
-    ObjectManager::Instantiate(new Player(WIDTH/2 - 34, HEIGHT-150));
+    ObjectManager::Instantiate(new Player(WIDTH/2 - 34, HEIGHT+100));
+    ObjectManager::Instantiate(new EnemySpawner(100, 100));
 
-    ObjectManager::Instantiate(new Enemy(150, -200));
-
-    //적기 총알 폭발 효과..테스트
-    //ObjectManager::Instantiate(new EnemyBulletExp(100, 100));
+    //ObjectManager::Instantiate(new Enemy(150, -200));
 
     MSG msg;
 

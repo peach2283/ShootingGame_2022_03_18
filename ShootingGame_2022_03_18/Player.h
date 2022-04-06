@@ -3,10 +3,14 @@
 
 class Player : public GameObject
 {
+	//플레이어..동작 상태//
+	enum State {showUp=0, control=1};
+
 private:
 	
 	//이동속력//
 	float speed;
+	float showUpSpeed;
 
 	//발사시간 측정 변수//
 	float fireTimer;
@@ -24,6 +28,9 @@ private:
 
 	//플레이어 체력
 	float hp;
+
+	//상태 변수
+	State state;
 
 public:
 	Player(float px, float py);

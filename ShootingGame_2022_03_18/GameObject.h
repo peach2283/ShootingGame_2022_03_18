@@ -48,7 +48,7 @@ public:
 	//기본 가상함수//
 	virtual void Start()  = 0;
 	virtual void Update() = 0;
-	virtual void Draw()   = 0;
+	virtual void Draw();
 
 	//기타 활용 함수//
 	void Translate(float x, float y);
