@@ -35,6 +35,7 @@ public:
 
 	float GetPx();
 	float GetPy();
+	void  GetPosition(float& px, float& py);
 
 	void SetTag(string tag);
 	void SetName(string name);

@@ -47,6 +47,12 @@ float GameObject::GetPy()
 	return py;
 }
 
+void GameObject::GetPosition(float& px, float& py)
+{
+	px = this->px;
+	py = this->py;
+}
+
 void GameObject::SetTag(string tag)
 {
 	this->tag = tag;

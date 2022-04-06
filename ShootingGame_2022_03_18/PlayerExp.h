@@ -2,12 +2,12 @@
 
 #include "Animation.h"
 
-class EnemyBulletExp : public Animation
+class PlayerExp : public Animation
 {
 private:
 public:
-	EnemyBulletExp(float px, float py);
-	~EnemyBulletExp();
+	PlayerExp(float px, float py);
+	~PlayerExp();
 
 	void Start();
 	void Update();

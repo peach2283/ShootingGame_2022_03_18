@@ -164,6 +164,7 @@
     <ClInclude Include="LaserExp.h" />
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerExp.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ShootingGame.h" />
@@ -188,6 +189,7 @@
     <ClCompile Include="LaserExp.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerExp.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="ShootingGame.cpp" />
     <ClCompile Include="Sprite.cpp" />
