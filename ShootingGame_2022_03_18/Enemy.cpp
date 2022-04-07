@@ -2,7 +2,11 @@
 
 Enemy::Enemy(float px, float py) : Animation("적기","", true, px, py)
 {
-	this->speed = 100;
+	this->speed     = 100;
+	
+	this->fallSpeed   = 300;
+	this->fallTimeOut = 3;
+
 	this->state = State::moveDown;
 
 	this->fireTimer = 0;
@@ -82,6 +86,26 @@ void Enemy::Move()
 		}
 		break;
 
+		case State::fall:
+		{
+			//추락 이동하기//
+			Translate(0, fallSpeed * Time::deltaTime);		
+
+			//타임아웃 측정//
+			fallTimeOut -= Time::deltaTime;
+			
+			if (fallTimeOut < 0)
+			{
+				//적기 제거//
+				Destroy(this);
+
+				//적기 스포너..객체 가져오기..제거 카운드 증가
+				EnemySpawner* spawner = EnemySpawner::Instance();
+				spawner->AddDestroy();
+			}
+		}
+
+		break;
 	}
 }
 
@@ -133,7 +157,8 @@ void Enemy::OnTriggerStay2D(GameObject * other)
 		}
 		else if (0 < hp && hp < 50)
 		{
-			Play(2);  //심각한피해 애니메이션
+			Play(2);              //심각한피해 애니메이션
+			state = State::fall;  //적기 추락상태로..전이(transition)
 		}
 		else if (hp <= 0)
 		{

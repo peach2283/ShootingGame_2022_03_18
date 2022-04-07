@@ -16,11 +16,8 @@ EnemySpawner::~EnemySpawner()
 
 void EnemySpawner::Start()
 {
-	//자기 자신객체..포인터를... spawner 변수에 저장함 [참고..유니티에서는 Start보다 먼저 동작하는 Awake에서 함]
-	if (spawner == nullptr)
-	{
-		spawner = this;
-	}
+	//자기 자신객체..포인터를... spawner 변수에 저장함 [참고..유니티에서는 Start보다 먼저 동작하는 Awake에서 함]	
+	spawner = this;	
 }
 
 void EnemySpawner::Update()

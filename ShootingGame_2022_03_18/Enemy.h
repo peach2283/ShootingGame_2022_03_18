@@ -4,11 +4,15 @@
 
 class Enemy : public Animation
 {
-	enum State { moveDown = 0, moveLeft = 1, moveRight = 2 };
+	enum State { moveDown = 0, moveLeft = 1, moveRight = 2, fall=3 };
 
 private:
 
 	float speed;
+	float fallSpeed;
+
+	float fallTimeOut;
+
 	State state;
 
 	float fireTimer;
