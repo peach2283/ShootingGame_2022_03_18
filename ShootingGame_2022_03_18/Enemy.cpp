@@ -145,6 +145,10 @@ void Enemy::OnTriggerStay2D(GameObject * other)
 
 			//적기 제거
 			Destroy(this);
+
+			//적기 제거 카운트 하기
+			EnemySpawner * spawner=EnemySpawner::Instance();	
+			spawner->AddDestroy();
 		}
 	}
 	else if (tag == "플레이어")

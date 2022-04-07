@@ -54,7 +54,7 @@ public:
 	void Translate(float x, float y);
 
 	//충돌 박스..기즈모 그리기 함수..
-	void OnDrawGizmos();
+	virtual void OnDrawGizmos();
 
 	//게임오브젝트 추가/삭제하기//
 	void Instantiate(GameObject* obj);

@@ -206,7 +206,7 @@ void Player::OnTriggerStay2D(GameObject * other)
 			Destroy(other);
 
 			//적기총알 피해 적용하기//
-			hp -= 100;
+			//hp -= 100;
 
 			if (hp <= 0)
 			{
