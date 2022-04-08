@@ -188,6 +188,15 @@ void Player::Fire()
 			fireTimer = 0;
 		}
 	}	
+
+	//ÆøÅº ¹ß»çÇÏ±â//
+	if (Input::GetKeyDown(KeyCode::Z) == true)
+	{
+		float px = GetPx();
+		float py = GetPy();
+
+		Instantiate(new Bomb(px+16, py));
+	}
 }
 
 void Player::OnTriggerStay2D(GameObject * other)

@@ -62,8 +62,7 @@ void ObjectManager::CheckCollision()
 				}
 			}
 		}
-	}
-	
+	}	
 }
 
 void ObjectManager::Draw()
