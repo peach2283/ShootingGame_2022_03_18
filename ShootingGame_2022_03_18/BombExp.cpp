@@ -1,6 +1,6 @@
 #include "ShootingGame.h"
 
-BombExp::BombExp(float px, float py) : Animation("","", true, px, py)
+BombExp::BombExp(float px, float py) : Animation("气藕气惯","", true, px, py)
 {}
 
 BombExp::~BombExp()
@@ -15,7 +15,14 @@ void BombExp::Start()
 			AddSprite("Asset/气藕气惯.bmp", c * 130, r * 130, 128, 128, 0);
 		}
 	}
+
+	AddBoxCollider2D((128-90)/2, (128-90)/2, 90, 90);
 }
 
 void BombExp::Update()
 {}
+
+void BombExp::OnAnimationEnd()
+{
+	Destroy(this);
+}

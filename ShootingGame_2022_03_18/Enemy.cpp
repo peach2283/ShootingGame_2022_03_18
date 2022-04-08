@@ -13,6 +13,9 @@ Enemy::Enemy(float px, float py) : Animation("적기","", true, px, py)
 	this->fireDelay = 0.5;
 
 	this->hp = 100;
+
+	this->isBombExpCollided = false;
+	this->isLaserCollided   = false;
 }
 
 Enemy::~Enemy()
@@ -46,6 +49,10 @@ void Enemy::Update()
 {	
 	Move();
 	Fire();
+
+	//중복 충돌 판단 변수 리셋
+	isBombExpCollided = false;
+	isLaserCollided   = false;
 }
 
 void Enemy::Move()
@@ -134,45 +141,70 @@ void Enemy::OnTriggerStay2D(GameObject * other)
 
 	if (tag == "레이저")
 	{
-		hp = hp - 10;  //적기 체력에..피해(Damage)양 적용하기
-
-		printf("적기 체력 %f\n", hp);
-		
-		//레이저 폭발효과//
-		float px = other->GetPx();
-		float py = other->GetPy();
-
-		Instantiate(new LaserExp(px-14, py));
-
-		Destroy(other);  //레이저 삭제하기//
-
-		//적기..피해 애니메니션 판단하기//
-		if (80 <= hp && hp <= 100)
+		if (isLaserCollided == false)
 		{
-			Play(0);  //피해없는 애니메이션
+			isLaserCollided = true;
+
+			hp = hp - 10;  //적기 체력에..피해(Damage)양 적용하기
+
+			printf("적기 체력 %f\n", hp);
+
+			//레이저 폭발효과//
+			float px = other->GetPx();
+			float py = other->GetPy();
+
+			Instantiate(new LaserExp(px - 14, py));
+
+			Destroy(other);  //레이저 삭제하기//
+
+			//적기..피해 애니메니션 판단하기//
+			if (80 <= hp && hp <= 100)
+			{
+				Play(0);  //피해없는 애니메이션
+			}
+			else if (50 <= hp && hp < 80)
+			{
+				Play(1);  //중간피해 애니메이션
+			}
+			else if (0 < hp && hp < 50)
+			{
+				Play(2);              //심각한피해 애니메이션
+				state = State::fall;  //적기 추락상태로..전이(transition)
+			}
+			else if (hp <= 0)
+			{
+				//적기 폭발
+				px = this->GetPx();
+				py = this->GetPy();
+
+				Instantiate(new EnemyExp(px - 18, py - 90));
+
+				//적기 제거
+				Destroy(this);
+
+				//적기 제거 카운트 하기
+				EnemySpawner* spawner = EnemySpawner::Instance();
+				spawner->AddDestroy();
+			}
 		}
-		else if (50 <= hp && hp < 80)
+	}
+	else if (tag == "폭탄폭발")
+	{
+		if (isBombExpCollided == false)  //이전에...충돌처리가 안되었을때만..
 		{
-			Play(1);  //중간피해 애니메이션
-		}
-		else if (0 < hp && hp < 50)
-		{
-			Play(2);              //심각한피해 애니메이션
-			state = State::fall;  //적기 추락상태로..전이(transition)
-		}
-		else if (hp <= 0)
-		{
+			isBombExpCollided = true;  //충돌처리 했음을...표시
+
 			//적기 폭발
-			px = this->GetPx();
-			py = this->GetPy();
+			float px = this->GetPx();
+			float py = this->GetPy();
 
-			Instantiate(new EnemyExp(px-18, py-90));
+			Instantiate(new EnemyExp(px - 18, py - 90));
 
 			//적기 제거
 			Destroy(this);
 
 			//적기 제거 카운트 하기
-			EnemySpawner * spawner=EnemySpawner::Instance();	
+			EnemySpawner* spawner = EnemySpawner::Instance();
 			spawner->AddDestroy();
 		}
 	}
