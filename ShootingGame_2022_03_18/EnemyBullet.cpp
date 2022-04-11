@@ -28,3 +28,20 @@ void EnemyBullet::Update()
 		Destroy(this);
 	}
 }
+
+void EnemyBullet::OnTriggerStay2D(GameObject* other)
+{
+	string tag = other->GetTag();
+
+	if (tag == "폭탄폭발" || tag=="플레이어")
+	{
+		//적기 총알 효과
+		float px = GetPx();
+		float py = GetPy();
+
+		Instantiate(new EnemyBulletExp(px - (40 - 17) / 2, py - (40 - 15) / 2));
+
+		//적기총알 제거
+		Destroy(this);
+	}
+}

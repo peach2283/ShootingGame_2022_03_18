@@ -28,17 +28,32 @@ void EnemySpawner::Update()
 
 		if (spawnTimer >= spawnDelay)
 		{
-			//적기 스폰하기//
-			float px, py;
-			GetPosition(px, py);
+			if (spawnCount < 10)  //적기 스폰
+			{
+				//랜값선택값 
+				int sel = Random::Range(0, 3);
+				int offsetX[3] = { 0, -130, 130 };
 
-			Instantiate(new Enemy(px - 95, py - 137));
+				//적기 스폰하기//
+				float px, py;
+				GetPosition(px, py);
 
-			//타이머 리셋
-			spawnTimer = 0;
+				//Instantiate(new Enemy(px       - 95, py - 137)); //가운데 스폰위치
+				//Instantiate(new Enemy(px - 130 - 95, py - 137)); //왼쪽   스폰위치
+				//Instantiate(new Enemy(px + 130 - 95, py - 137)); //오른쪽 스폰위치
 
-			//스폰카운트 증가
-			spawnCount++;
+				Instantiate(new Enemy(px + offsetX[sel] - 95, py - 137));
+
+				//타이머 리셋
+				spawnTimer = 0;
+
+				//스폰카운트 증가
+				spawnCount++;
+			}
+			else  //보스 스폰
+			{
+				printf("보스 스폰하기\n");				
+			}
 		}
 	}
 }

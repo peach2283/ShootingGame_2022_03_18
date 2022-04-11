@@ -23,6 +23,8 @@ private:
 	bool isBombExpCollided;  //폭탄 폭발과 충돌처리..판단변수
 	bool isLaserCollided;    //레이저 충돌 처리 .. 판단변수
 
+	int  downEndPos;         //moveDown 상태종료..랜덤 위치
+
 public:
 	Enemy(float px, float py);
 	~Enemy();

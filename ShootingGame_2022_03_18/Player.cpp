@@ -207,19 +207,13 @@ void Player::OnTriggerStay2D(GameObject * other)
 	{
 		if (tag == "적기총알")
 		{
-			//적기 총알 폭발 및 제거//
-			float px, py;
-			other->GetPosition(px, py);
-
-			Instantiate(new EnemyBulletExp(px - (40 - 17) / 2, py - (40 - 15) / 2));
-			Destroy(other);
-
 			//적기총알 피해 적용하기//
 			//hp -= 100;
 
 			if (hp <= 0)
 			{
 				//플레이어 폭발 및 제거
+				float px, py;
 				this->GetPosition(px, py);
 
 				Instantiate(new PlayerExp(px - (224 - 62) / 2, py - (320 - 80) / 2));

@@ -43,6 +43,9 @@ void Enemy::Start()
 	AddBoxCollider2D(0  , 80, 190, 25);   //가운데 날개 
 	AddBoxCollider2D(65 , 10,  60,  15);  //꼬리 날개 
 	AddBoxCollider2D(85 , 25,  20,  110); //몸통
+
+	//moveDown 상태 종료 위치 랜덤만들기
+	downEndPos = Random::Range(20, 150);
 }
 
 void Enemy::Update()
@@ -64,7 +67,7 @@ void Enemy::Move()
 		{
 			Translate(0, speed * Time::deltaTime);
 
-			if (GetPy() > 50)
+			if (GetPy() > downEndPos)
 			{
 				state = State::moveLeft;
 			}
