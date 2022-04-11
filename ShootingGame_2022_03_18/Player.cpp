@@ -221,7 +221,7 @@ void Player::OnTriggerStay2D(GameObject * other)
 				Destroy(this);
 
 				//[임시]플레이어 리스폰하기//
-				Instantiate(new Player(WIDTH / 2 - 34, HEIGHT + 100));
+				Instantiate(new Player(WIDTH / 2 - 34, HEIGHT + 100), 1);
 			}
 		}
 	}

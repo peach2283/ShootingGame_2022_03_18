@@ -7,11 +7,11 @@ using namespace std;
 class ObjectManager
 {
 private:
-	static vector<GameObject*> gameObjects;
+	static vector<GameObject*> gameObjects[6];
 public:
 
 	//게임 Instance 추가 및 제거 //
-	static void Instantiate(GameObject* obj);
+	static void Instantiate(GameObject* obj, int layer=0);
 	static void Destroy(GameObject* obj);
 
 	//게임 목록 업데이트 함수

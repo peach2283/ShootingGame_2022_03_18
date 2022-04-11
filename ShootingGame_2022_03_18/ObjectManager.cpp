@@ -2,25 +2,28 @@
 #include "ShootingGame.h"
 
 //오브젝트 STL vector (static 으로 공유됨)
-vector<GameObject*> ObjectManager::gameObjects;
+vector<GameObject*> ObjectManager::gameObjects[6];
 
-void ObjectManager::Instantiate(GameObject* obj)
+void ObjectManager::Instantiate(GameObject* obj, int layer)
 {
-	gameObjects.push_back(obj);
+	gameObjects[layer].push_back(obj);
 	obj->Start();
 }
 
 void ObjectManager::Update()
 {
-	for (int i = 0; i < gameObjects.size(); i++)
+	for (int layer = 0; layer < 6; layer++)
 	{
-		gameObjects[i]->Update();
+		for (int i = 0; i < gameObjects[layer].size(); i++)
+		{
+			gameObjects[layer][i]->Update();
+		}
 	}
 }
 
 void ObjectManager::CheckCollision()
 {
-	
+	/*******************************************************
 	for (int i = 0; i < gameObjects.size(); i++)
 	{
 		for (int j = 0; j < gameObjects.size(); j++)
@@ -63,29 +66,36 @@ void ObjectManager::CheckCollision()
 			}
 		}
 	}	
+	*********************************************************/
 }
 
 void ObjectManager::Draw()
 {
-	for (int i = 0; i < gameObjects.size(); i++)
+	for (int layer = 0; layer < 6; layer++)
 	{
-		gameObjects[i]->Draw();			//객체 그리기
-		gameObjects[i]->OnDrawGizmos(); //기즈모..그리기
+		for (int i = 0; i < gameObjects[layer].size(); i++)
+		{
+			gameObjects[layer][i]->Draw();			//객체 그리기
+			gameObjects[layer][i]->OnDrawGizmos(); //기즈모..그리기
+		}
 	}
 }
 
 void ObjectManager::ClearDeadObject()
 {
-	for (int i = 0; i < gameObjects.size(); i++)
+	for (int layer = 0; layer < 6; layer++)
 	{
-		GameObject* obj = gameObjects[i];
-
-		if (obj->GetDead() == true)
+		for (int i = 0; i < gameObjects[layer].size(); i++)
 		{
-			gameObjects.erase(gameObjects.begin() + i);  //목록에서 제거
-			delete obj;                                  //객체 삭제 (소멸자)
+			GameObject* obj = gameObjects[layer][i];
 
-			i--;
+			if (obj->GetDead() == true)
+			{
+				gameObjects[layer].erase(gameObjects[layer].begin() + i);  //목록에서 제거
+				delete obj;                                  //객체 삭제 (소멸자)
+
+				i--;
+			}
 		}
 	}
 }
@@ -113,12 +123,15 @@ void ObjectManager::Destroy(GameObject* obj)
 
 void ObjectManager::Clear()
 {
-	//목록에 있는 객체..삭제하기//
-	for (int i = 0; i < gameObjects.size(); i++)
+	for (int layer = 0; layer < 6; layer++)
 	{
-		delete gameObjects[i];
-	}
+		//목록에 있는 객체..삭제하기//
+		for (int i = 0; i < gameObjects[layer].size(); i++)
+		{
+			delete gameObjects[layer][i];
+		}
 
-	//객체 포인터 저장 공간만..전체 삭제//
-	gameObjects.clear(); //STL vector에 전체삭제..함수
+		//객체 포인터 저장 공간만..전체 삭제//
+		gameObjects[layer].clear(); //STL vector에 전체삭제..함수
+	}
 }
