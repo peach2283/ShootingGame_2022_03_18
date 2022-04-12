@@ -4,10 +4,12 @@
 
 using namespace std;
 
+#define MAX_LAYER 8
+
 class ObjectManager
 {
 private:
-	static vector<GameObject*> gameObjects[6];
+	static vector<GameObject*> gameObjects[MAX_LAYER];
 public:
 
 	//게임 Instance 추가 및 제거 //
@@ -19,6 +21,7 @@ public:
 
 	//게임 객체 충돌검사 함수
 	static void CheckCollision();
+	static void CheckCollisionObjectPair(GameObject* obji, GameObject* objj);
 
 	//게임 목록 그리기
 	static void Draw();
