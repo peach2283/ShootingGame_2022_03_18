@@ -2,7 +2,15 @@
 
 BulletItem::BulletItem(float px, float py) : Sprite("총알아이템", "", true, px, py)
 {
+	this->state   = State::moveDown;
 	this->visible = true;
+
+	this->blinkTimer = 0;
+	this->blinkDelay = 0.3;
+
+	this->speed	 = 100;
+
+	this->moveTimeOut = 2;
 }
 
 BulletItem::~BulletItem()
@@ -16,18 +24,49 @@ void BulletItem::Start()
 
 void BulletItem::Update()
 {
-	switch (visible)
+	if (state == State::moveDown)
 	{
-		case true:
-		{
-		
-		}
-		break;
+		Translate(0, speed * Time::deltaTime);
 
-		case false:
+		moveTimeOut = moveTimeOut - Time::deltaTime;
+
+		if (moveTimeOut <= 0)
 		{
-		
+			state = State::blink;
 		}
-		break;
+	}
+	else if (state == State::blink)
+	{
+			//////////깜빡임 서브스테이트 머신///////////
+			switch (visible)
+			{
+				case true:
+				{
+					blinkTimer = blinkTimer + Time::deltaTime;
+
+					if (blinkTimer >= blinkDelay)
+					{
+						enabled = false;  //숨기(스플라이트..사용 중지//
+						visible = false;  //숨김 상태..전이
+
+						blinkTimer = 0;    //타이머..리셋
+					}
+				}
+				break;
+
+				case false:
+				{
+					blinkTimer = blinkTimer + Time::deltaTime;
+
+					if (blinkTimer >= blinkDelay)
+					{
+						enabled = true;   //보임(스플라이트..사용 가능)//
+						visible = true;   //보임 상태..전이
+
+						blinkTimer = 0;  //타이머..리셋
+					}
+				}
+				break;
+			}
 	}
 }
