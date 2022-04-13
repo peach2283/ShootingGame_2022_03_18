@@ -16,6 +16,8 @@ Enemy::Enemy(float px, float py) : Animation("적기","", true, px, py)
 
 	this->isBombExpCollided = false;
 	this->isLaserCollided   = false;
+
+	this->dropBulletItem    = false;
 }
 
 Enemy::~Enemy()
@@ -138,6 +140,11 @@ void Enemy::Fire()
 	}
 }
 
+void Enemy::SetDropBulletItem(bool drop)
+{
+	dropBulletItem = drop;
+}
+
 void Enemy::OnTriggerStay2D(GameObject * other)
 {
 	string tag = other->GetTag();
@@ -180,7 +187,7 @@ void Enemy::OnTriggerStay2D(GameObject * other)
 				px = this->GetPx();
 				py = this->GetPy();
 
-				Instantiate(new EnemyExp(px - 18, py - 90));
+				Instantiate(new EnemyExp(px - 18, py - 90), 1);
 
 				//적기 제거
 				Destroy(this);
@@ -188,6 +195,19 @@ void Enemy::OnTriggerStay2D(GameObject * other)
 				//적기 제거 카운트 하기
 				EnemySpawner* spawner = EnemySpawner::Instance();
 				spawner->AddDestroy();
+
+				//총알(레이저) 아이템 떨기기//
+				//int p = Random::Range(0, 10000);
+				//
+				//if (p < 1000)
+				//{
+				//	Instantiate(new BulletItem(px + 80, py + 40));
+				//}
+
+				if (dropBulletItem == true)
+				{
+					Instantiate(new BulletItem(px + 80, py + 40));
+				}
 			}
 		}
 	}

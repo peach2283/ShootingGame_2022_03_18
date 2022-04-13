@@ -16,6 +16,10 @@ private:
 	//자기 객체..포인터를 저장하는 스태틱 변수//
 	static EnemySpawner* spawner;
 
+	//총알(레이저) 아이템..떨기기..지정..배열//
+	bool dropBulletItem[20] = { false, false, false, false, true ,   false, false, true, false , false,
+								true , false, false, true , false,   false, true , false, true , true};
+
 public:
 	EnemySpawner(float px, float py);
 	~EnemySpawner();
