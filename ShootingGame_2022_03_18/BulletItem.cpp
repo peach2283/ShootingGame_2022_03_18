@@ -10,7 +10,8 @@ BulletItem::BulletItem(float px, float py) : Sprite("ÃÑ¾Ë¾ÆÀÌÅÛ", "", true, px, 
 
 	this->speed	 = 100;
 
-	this->moveTimeOut = 2;
+	this->moveTimeOut  = 2;
+	this->blinkTimeOut = 3;
 }
 
 BulletItem::~BulletItem()
@@ -67,6 +68,14 @@ void BulletItem::Update()
 					}
 				}
 				break;
+			}
+
+			/////////±ôºıÀÓ Å¸ÀÓ¾Æ¿ô ÃøÁ¤//////////
+			blinkTimeOut -= Time::deltaTime;
+
+			if (blinkTimeOut <= 0)
+			{
+				Destroy(this);
 			}
 	}
 }

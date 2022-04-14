@@ -19,6 +19,9 @@ private:
 	//ÀÌµ¿ Å¸ÀÓ¾Æ¿ô//
 	float moveTimeOut;
 
+	//±ôºıÀÎ Å¸¿ò ¾Æ¿ô//
+	float blinkTimeOut;
+
 public:
 	BulletItem(float px, float py);
 	~BulletItem();
