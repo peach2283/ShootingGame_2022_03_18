@@ -37,27 +37,15 @@ void EnemySpawner::Update()
 				//적기 스폰하기//
 				float px, py;
 				GetPosition(px, py);
+		
+				Enemy* e = new Enemy(px + offsetX[sel] - 95, py - 137);
 
-				//Instantiate(new Enemy(px       - 95, py - 137)); //가운데 스폰위치
-				//Instantiate(new Enemy(px - 130 - 95, py - 137)); //왼쪽   스폰위치
-				//Instantiate(new Enemy(px + 130 - 95, py - 137)); //오른쪽 스폰위치
+				e->SetDropBulletItem( dropBulletItem[spawnCount] );
+				e->SetDropBombItem  ( dropBombItem[spawnCount]   );
 
-				if (dropBulletItem[spawnCount] == true)
-				{
-					Enemy * e=new Enemy(px + offsetX[sel] - 95, py - 137);
+				Instantiate(e);  //블릿 아이템 떨구는 적기
 
-					e->SetDropBulletItem(true);
-
-					Instantiate(e);  //블릿 아이템 떨구는 적기
-				}
-				else {
-
-					Enemy* e = new Enemy(px + offsetX[sel] - 95, py - 137);
-
-					e->SetDropBulletItem(false);
-
-					Instantiate(e);  //블릿 아이템 떨구지 않는 적기
-				}
+				//Instantiate( new Enemy(px + offsetX[sel] - 95, py - 137) )
 
 				//타이머 리셋
 				spawnTimer = 0;

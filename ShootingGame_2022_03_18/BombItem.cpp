@@ -11,9 +11,16 @@ BombItem::~BombItem()
 void BombItem::Start()
 {
 	SetSprite("Asset/폭탄아이템.bmp");
+	AddBoxCollider2D(0, 0, 22, 40);
 }
 
 void BombItem::Update()
 {
 	Translate(0, speed * Time::deltaTime);
+
+	//화면 하단에서..제거하기//
+	if (GetPy() >= HEIGHT)
+	{
+		Destroy(this);
+	}
 }

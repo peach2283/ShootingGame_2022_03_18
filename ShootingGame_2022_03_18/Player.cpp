@@ -214,6 +214,8 @@ void Player::Fire()
 
 			Instantiate(new Bomb(px + 16, py));
 			bombCount--;
+
+			printf("ÆøÅº °¹¼ö °¨¼Ò %d\n", bombCount);
 		}
 		else {
 			printf("³²Àº ÆøÅºÀÌ ¾øÀ½\n");
@@ -261,6 +263,17 @@ void Player::OnTriggerStay2D(GameObject * other)
 					bulletCount++;
 				}
 			}
+		}
+		else if (tag == "ÆøÅº¾ÆÀÌÅÛ")
+		{			
+			//¾ÆÀÌÅÛ Á¦°Å
+			Destroy(other);
+
+			//ÆøÅº °¹¼ö Áõ°¡
+			bombCount++;
+
+			printf("ÆøÅº °¹¼ö Áõ°¡ %d\n", bombCount);
+
 		}
 	}
 }

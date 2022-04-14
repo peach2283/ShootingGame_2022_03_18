@@ -145,6 +145,11 @@ void Enemy::SetDropBulletItem(bool drop)
 	dropBulletItem = drop;
 }
 
+void Enemy::SetDropBombItem(bool drop)
+{
+	dropBombItem = drop;
+}
+
 void Enemy::Explosion()
 {
 	//적기 폭발
@@ -172,6 +177,12 @@ void Enemy::Explosion()
 	{
 		Instantiate(new BulletItem(px + 80, py + 40));
 	}
+
+	//폭탄 아이템..떨기기//
+	if (dropBombItem == true)
+	{
+		Instantiate(new BombItem(px + (190 - 22) / 2, py + (137 - 40) / 2));
+	}
 }
 
 void Enemy::OnTriggerStay2D(GameObject * other)
@@ -185,9 +196,7 @@ void Enemy::OnTriggerStay2D(GameObject * other)
 			isLaserCollided = true;
 
 			hp = hp - 10;  //적기 체력에..피해(Damage)양 적용하기
-
-			printf("적기 체력 %f\n", hp);
-
+		
 			//레이저 폭발효과//
 			float px = other->GetPx();
 			float py = other->GetPy();
