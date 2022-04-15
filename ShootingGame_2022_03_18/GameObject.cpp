@@ -151,9 +151,10 @@ void GameObject::OnTriggerStay2D(GameObject * other)
 {	
 }
 
-void GameObject::Instantiate(GameObject* obj, int layer)
+GameObject * GameObject::Instantiate(GameObject* obj, int layer)
 {
 	ObjectManager::Instantiate(obj, layer);
+	return obj;
 }
 
 void GameObject::Destroy(GameObject* obj)

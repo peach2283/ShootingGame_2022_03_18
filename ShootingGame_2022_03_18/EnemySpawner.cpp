@@ -37,15 +37,11 @@ void EnemySpawner::Update()
 				//적기 스폰하기//
 				float px, py;
 				GetPosition(px, py);
-		
-				Enemy* e = new Enemy(px + offsetX[sel] - 95, py - 137);
+				
+				Enemy *e = (Enemy *)Instantiate(new Enemy(px + offsetX[sel] - 95, py - 137));
 
-				e->SetDropBulletItem( dropBulletItem[spawnCount] );
-				e->SetDropBombItem  ( dropBombItem[spawnCount]   );
-
-				Instantiate(e);  //블릿 아이템 떨구는 적기
-
-				//Instantiate( new Enemy(px + offsetX[sel] - 95, py - 137) )
+				e->SetDropBulletItem(dropBulletItem[spawnCount]);
+				e->SetDropBombItem(dropBombItem[spawnCount]);
 
 				//타이머 리셋
 				spawnTimer = 0;

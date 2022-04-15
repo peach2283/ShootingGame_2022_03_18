@@ -30,6 +30,14 @@ void Animation::AddSprite(const char* fileName, int x, int y, int width, int hei
 	sprite[id].push_back(img);
 }
 
+void Animation::AddSprite(const char* fileName, int id)
+{
+	Image img;
+
+	Bitmap::ReadBMP(fileName, &img);
+	sprite[id].push_back(img);
+}
+
 void Animation::Play(int id)
 {
 	animId = id;
