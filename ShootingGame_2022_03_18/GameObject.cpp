@@ -85,6 +85,12 @@ void GameObject::SetPx(float px)
 	{
 		collider[i].Translate(dx, 0);
 	}
+
+	//자식객체에..이동량 적용하기//
+	for (int i = 0; i < childObjects.size(); i++)
+	{
+		childObjects[i]->Translate(dx, 0);
+	}
 }
 
 void GameObject::SetPy(float py)
@@ -98,6 +104,12 @@ void GameObject::SetPy(float py)
 	{
 		collider[i].Translate(0, dy);
 	}
+
+	//자식객체에..이동량 적용하기//
+	for (int i = 0; i < childObjects.size(); i++)
+	{
+		childObjects[i]->Translate(0, dy);
+	}
 }
 
 void GameObject::Translate(float x, float y)
@@ -110,6 +122,12 @@ void GameObject::Translate(float x, float y)
 	for (int i = 0; i < collider.size(); i++)
 	{
 		collider[i].Translate(x, y);
+	}
+
+	//자식객체..좌표 이동//
+	for (int i = 0; i < childObjects.size(); i++)
+	{
+		childObjects[i]->Translate(x, y);
 	}
 }
 
@@ -160,4 +178,14 @@ GameObject * GameObject::Instantiate(GameObject* obj, int layer)
 void GameObject::Destroy(GameObject* obj)
 {
 	ObjectManager::Destroy(obj);
+}
+
+void GameObject::AddChildObject(GameObject* child, int layer)
+{
+	childObjects.push_back(child);
+
+	//자식객체를 부모 좌표 기준으로..이동시키기
+	child->Translate(px, py);
+
+	ObjectManager::Instantiate(child, layer);
 }

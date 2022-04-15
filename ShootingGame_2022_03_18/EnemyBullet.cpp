@@ -33,7 +33,7 @@ void EnemyBullet::OnTriggerStay2D(GameObject* other)
 {
 	string tag = other->GetTag();
 
-	if (tag == "ÆøÅºÆø¹ß" || tag=="ÇÃ·¹ÀÌ¾î")
+	if (tag == "ÆøÅºÆø¹ß" || tag=="ÇÃ·¹ÀÌ¾î" || tag == "¹æÆĞ")
 	{
 		//Àû±â ÃÑ¾Ë È¿°ú
 		float px = GetPx();

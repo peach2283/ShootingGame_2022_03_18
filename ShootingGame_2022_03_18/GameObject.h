@@ -22,6 +22,9 @@ private:
 	//객체 삭제 표시 변수
 	bool isDead;  // true는 삭제 대상, false는 삭제 대상이 아님
 
+	//자식객체들..저장 포인터 vector
+	vector<GameObject*> childObjects;
+
 public:
 	//생성자, 소멸자//
 	GameObject(string tag, string name, bool active, float px, float py);
@@ -68,5 +71,8 @@ public:
 
 	//충돌 정보 처리함수//
 	virtual void OnTriggerStay2D(GameObject * other);
+
+	//자식객체 추가 함수//
+	void AddChildObject(GameObject* child, int layer=0);
 };
 
