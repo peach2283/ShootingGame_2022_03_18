@@ -71,6 +71,11 @@ void GameObject::SetActive(bool active)
 void GameObject::SetDead(bool dead)
 {
 	this->isDead = dead;
+
+	for (int i = 0; i < childObjects.size(); i++)
+	{
+		childObjects[i]->SetDead(dead);
+	}
 }
 
 void GameObject::SetPx(float px)

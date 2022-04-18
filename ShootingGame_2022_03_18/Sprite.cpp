@@ -23,6 +23,11 @@ void Sprite::SetSprite(const char* fileName)
 	Bitmap::ReadBMP(fileName, &sprite);
 }
 
+void Sprite::SetSprite(const char* fileName, int x, int y, int width, int height)
+{
+	Bitmap::ReadBMP(fileName, x, y, width, height, &sprite);
+}
+
 void Sprite::Draw()
 {
 	if (enabled == true)

@@ -55,6 +55,7 @@ public:
 	//플레이어 기능 추가함수//
 	void Move();
 	void Fire();
+	void ShiledTimer();
 
 	//충돌이벤트 처리 함수 오버라이딩//
 	void OnTriggerStay2D(GameObject * other);
