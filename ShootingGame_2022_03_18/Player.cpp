@@ -20,6 +20,8 @@ Player::Player(float px, float py) : GameObject("플레이어","", true, px, py)
 	this->bombCount   = 5;  //플레이어 남은 폭탄 갯수
 
 	this->isBulletItemCollided = false;  //충돌 안됨으로..초기화
+
+	this->shieldTimeOut = 3; //방패 제거 시간
 }
 
 Player::~Player()
@@ -59,6 +61,23 @@ void Player::Update()
 	{
 		Move();
 		Fire();
+
+		//방패 시간 측정하기//
+		shieldTimeOut = shieldTimeOut - Time::deltaTime;
+
+		if (shieldTimeOut <= 0)
+		{
+			//방패를 제거..(비활성화)
+			Shield* shield =(Shield *) Find("방패");
+
+			if (shield != nullptr)
+			{
+				shield->SetActive(false);  //방패 비활성화
+			}
+			else {
+				printf("방패 자식객체를 찾지 못함\n");
+			}
+		}
 	}
 
 	//충돌확인 변수 ... 리셋//
@@ -235,7 +254,7 @@ void Player::OnTriggerStay2D(GameObject * other)
 		if (tag == "적기총알")
 		{
 			//적기총알 피해 적용하기//
-			//hp -= 100;
+			hp -= 100;
 
 			if (hp <= 0)
 			{

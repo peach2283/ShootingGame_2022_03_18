@@ -26,36 +26,35 @@ void ObjectManager::Update()
 
 void ObjectManager::CheckCollisionObjectPair(GameObject * obji, GameObject * objj)
 {
-	//충돌검사 객체..포인터 저장장하기//
-	//GameObject* obji = gameObjects[layerI][i];
-	//GameObject* objj = gameObjects[layerJ][j];
-
-	//객체의 충돌체 가져오기//
-	vector<BoxCollider2D> boxi = obji->GetCollider();
-	vector<BoxCollider2D> boxj = objj->GetCollider();
-
-	for (int ii = 0; ii < boxi.size(); ii++)
+	if (obji->GetActive() == true && objj->GetActive() == true) //쌍의..두 게임오브젝트가..모두 활성화일때..충돌검사 실행
 	{
-		for (int jj = 0; jj < boxj.size(); jj++)
+		//객체의 충돌체 가져오기//
+		vector<BoxCollider2D> boxi = obji->GetCollider();
+		vector<BoxCollider2D> boxj = objj->GetCollider();
+
+		for (int ii = 0; ii < boxi.size(); ii++)
 		{
-			//충돌체의 사각형 좌표 가져오기//
-			float xi, yi, widthi, heighti;
-			float xj, yj, widthj, heightj;
-
-			boxi[ii].GetBox(xi, yi, widthi, heighti);
-			boxj[jj].GetBox(xj, yj, widthj, heightj);
-
-			//i 인덱스 객체 박스 좌표//
-			float a0 = xi, b0 = yi, a1 = a0 + widthi, b1 = b0 + heighti;
-
-			//j 인덱스 객체 박스 좌표
-			float x0 = xj, y0 = yj, x1 = x0 + widthj, y1 = y0 + heightj;
-
-			if (y0 < b1 && y1>b0 && x1 > a0 && x0 < a1)
+			for (int jj = 0; jj < boxj.size(); jj++)
 			{
-				//충돌 이벤트 발생//
-				obji->OnTriggerStay2D(objj);
-				objj->OnTriggerStay2D(obji);
+				//충돌체의 사각형 좌표 가져오기//
+				float xi, yi, widthi, heighti;
+				float xj, yj, widthj, heightj;
+
+				boxi[ii].GetBox(xi, yi, widthi, heighti);
+				boxj[jj].GetBox(xj, yj, widthj, heightj);
+
+				//i 인덱스 객체 박스 좌표//
+				float a0 = xi, b0 = yi, a1 = a0 + widthi, b1 = b0 + heighti;
+
+				//j 인덱스 객체 박스 좌표
+				float x0 = xj, y0 = yj, x1 = x0 + widthj, y1 = y0 + heightj;
+
+				if (y0 < b1 && y1>b0 && x1 > a0 && x0 < a1)
+				{
+					//충돌 이벤트 발생//
+					obji->OnTriggerStay2D(objj);
+					objj->OnTriggerStay2D(obji);
+				}
 			}
 		}
 	}

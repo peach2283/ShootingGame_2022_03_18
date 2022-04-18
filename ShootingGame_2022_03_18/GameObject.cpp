@@ -189,3 +189,17 @@ void GameObject::AddChildObject(GameObject* child, int layer)
 
 	ObjectManager::Instantiate(child, layer);
 }
+
+GameObject* GameObject::Find(string name)
+{
+	for (int i = 0; i < childObjects.size(); i++)
+	{
+		if (childObjects[i]->GetName() == name)
+		{
+			return childObjects[i];  //찾은 자식 객체 포인터를 반환함
+		}
+	}
+
+	//찾으려는 자식 객체가 목록에 없음
+	return nullptr;
+}

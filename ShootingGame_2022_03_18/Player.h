@@ -41,6 +41,9 @@ private:
 	//총알(레이저) 아이템..충돌 확인 변수//
 	bool isBulletItemCollided;
 
+	//방패 제거 시간
+	float shieldTimeOut;
+
 public:
 	Player(float px, float py);
 	~Player();
