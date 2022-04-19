@@ -29,6 +29,8 @@
 #include "BombItem.h"
 #include "Shield.h"
 #include "Boss.h"
+#include "Propeller.h"
+#include "Wing.h"
 
 #define WIDTH          480
 #define HEIGHT         800

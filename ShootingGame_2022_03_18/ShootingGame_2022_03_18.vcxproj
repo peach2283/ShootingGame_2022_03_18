@@ -171,6 +171,7 @@
     <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerExp.h" />
+    <ClInclude Include="Propeller.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Shield.h" />
@@ -178,6 +179,7 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Time.h" />
+    <ClInclude Include="Wing.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
@@ -203,11 +205,13 @@
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerExp.cpp" />
+    <ClCompile Include="Propeller.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="ShootingGame.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Wing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ShootingGame_2022_03_18.rc" />
