@@ -33,6 +33,25 @@ void Boss::Start()
 	AddChildObject(new Wing(158, 94,   5));
 	AddChildObject(new Wing(110, 90,   6));
 	AddChildObject(new Wing( 62, 85,   7));
+
+	//보스 건 ... 자식 객체 추가하기
+	AddChildObject(new Gun( 94, 71));
+	AddChildObject(new Gun(142, 71));
+	AddChildObject(new Gun(190, 71));
+
+	AddChildObject(new Gun(238, 63));
+
+	AddChildObject(new Gun(286, 71));
+	AddChildObject(new Gun(334, 71));
+	AddChildObject(new Gun(382, 71));
+
+	//보스 대포..자식 객체 추가하기
+	AddChildObject(new Cannon(265 + 5, 97 + 10));
+	AddChildObject(new Cannon(206 - 5, 97 + 10));
+
+	//레이더..자식 객체 추가하기
+	AddChildObject(new Radar(241, 105));
+	AddChildObject(new Radar(241, 117));
 }
 
 void Boss::Update()
