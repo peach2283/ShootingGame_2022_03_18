@@ -1,20 +1,19 @@
 #pragma once
 #include "Sprite.h"
 
-class Cannon : public Sprite
+class BossChildSprite : public Sprite
 {
 private:
 	float hp;
 
 public:
-	Cannon(float px, float py);
-	~Cannon();
+	BossChildSprite(string tag, string name, bool active, float px, float py);
+	~BossChildSprite();
 
-	void Start();
 	void Update();
 
 	void Explosion();
-
 	void OnTriggerStay2D(GameObject* other);
+
 };
 

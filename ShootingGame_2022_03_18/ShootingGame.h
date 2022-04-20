@@ -35,6 +35,7 @@
 #include "Cannon.h"
 #include "Radar.h"
 #include "BossChildExp.h"
+#include "BossChildSprite.h"
 
 #define WIDTH          480
 #define HEIGHT         800
