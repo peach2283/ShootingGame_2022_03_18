@@ -14,5 +14,7 @@ public:
 
 	void Start();
 	void Update();
+
+	void OnTriggerStay2D(GameObject* other);
 };
 

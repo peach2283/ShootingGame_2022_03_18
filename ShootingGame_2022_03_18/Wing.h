@@ -18,6 +18,7 @@ private:
 	};
 
 	int idx;
+	float hp;
 
 public:
 	Wing(float px, float py, int idx);
@@ -25,5 +26,7 @@ public:
 
 	void Start();
 	void Update();
+
+	void OnTriggerStay2D(GameObject* other);
 };
 

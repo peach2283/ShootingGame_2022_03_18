@@ -196,15 +196,7 @@ void Enemy::OnTriggerStay2D(GameObject * other)
 			isLaserCollided = true;
 
 			hp = hp - 10;  //적기 체력에..피해(Damage)양 적용하기
-		
-			//레이저 폭발효과//
-			float px = other->GetPx();
-			float py = other->GetPy();
-
-			Instantiate(new LaserExp(px - 14, py));
-
-			Destroy(other);  //레이저 삭제하기//
-
+	
 			//적기..피해 애니메니션 판단하기//
 			if (80 <= hp && hp <= 100)
 			{
