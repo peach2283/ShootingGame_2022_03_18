@@ -26,6 +26,9 @@ private:
 	vector<GameObject*> childObjects;
 
 public:
+	//게임오브젝트가..자식으로..추가될 경우..부모..포인터를 저장하는 변수//
+	GameObject* parent;
+
 	//생성자, 소멸자//
 	GameObject(string tag, string name, bool active, float px, float py);
 	virtual ~GameObject();

@@ -6,6 +6,19 @@ Boss::Boss(float px, float py) : Sprite("","", true, px, py)
 Boss::~Boss()
 {}
 
+//상속에 의해서... Boss 클래스에서...
+//void GameObject::AddChildObject(GameObject* child, int layer)
+//{
+//	child->parent = this;  //this는 child 객체의 부모..객체포인터
+//
+//	childObjects.push_back(child);
+//
+	//자식객체를 부모 좌표 기준으로..이동시키기
+//	child->Translate(px, py);
+//
+//	ObjectManager::Instantiate(child, layer);
+//}
+
 void Boss::Start()
 {
 	//폭발하지 않은 보스 이미지//
