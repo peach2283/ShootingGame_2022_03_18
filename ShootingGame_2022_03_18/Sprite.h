@@ -18,5 +18,6 @@ public:
 	void SetSprite(const char* fileName, int x, int y, int width, int height);
 
 	void Draw();
+	void ImageRect(int& width, int& height);
 };
 

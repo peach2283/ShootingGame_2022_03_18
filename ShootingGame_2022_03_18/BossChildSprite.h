@@ -5,6 +5,7 @@ class BossChildSprite : public Sprite
 {
 private:
 	float hp;
+	float damage;
 
 public:
 	BossChildSprite(string tag, string name, bool active, float px, float py);
@@ -15,5 +16,6 @@ public:
 	void Explosion();
 	void OnTriggerStay2D(GameObject* other);
 
+	void SetDamage(float damage);
 };
 

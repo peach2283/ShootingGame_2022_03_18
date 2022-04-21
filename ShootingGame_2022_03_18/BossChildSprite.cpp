@@ -3,7 +3,8 @@
 BossChildSprite::BossChildSprite(string tag, string name, bool active, float px, float py)
 				:Sprite(tag, name, active, px, py)
 {
-	this->hp = 100;
+	this->hp     = 100;
+	this->damage = 10;
 }
 
 BossChildSprite::~BossChildSprite()
@@ -18,10 +19,22 @@ void BossChildSprite::Explosion()
 	float px = GetPx();
 	float py = GetPy();
 
-	Instantiate(new BossChildExp(px - 17, py - 30));
+	//폭발 효과 이동 오프셋(offset)구하기//
+	int width, height;        //스플라이트 이미지 크기
+	ImageRect(width, height);
+
+	float offx = (width  - 64) / 2;
+	float offy = (height - 64) / 2;
+
+	Instantiate(new BossChildExp(px + offx, py + offy));
 
 	//날개가..제거//
 	Destroy(this);
+}
+
+void BossChildSprite::SetDamage(float damage)
+{
+	this->damage = damage;
 }
 
 void BossChildSprite::OnTriggerStay2D(GameObject* other)
@@ -31,7 +44,7 @@ void BossChildSprite::OnTriggerStay2D(GameObject* other)
 	if (tag == "레이저")
 	{
 		//체력 줄이기//
-		hp = hp - 10;
+		hp = hp - damage;
 
 		if (hp <= 0)
 		{

@@ -35,7 +35,7 @@ void Laser::OnTriggerStay2D(GameObject* other)
 {
 	string tag = other->GetTag();
 
-	if (tag == "적기" || tag == "날개" || tag == "대포")
+	if (tag == "적기" || tag == "보스자식")
 	{
 		//레이저 폭발효과//
 		float px = this->GetPx();

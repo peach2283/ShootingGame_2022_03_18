@@ -1,7 +1,7 @@
 #pragma once
-#include "Sprite.h"
+#include "BossChildSprite.h"
 
-class Radar : public Sprite
+class Radar : public BossChildSprite
 {
 private:
 public:
@@ -9,6 +9,5 @@ public:
 	~Radar();
 
 	void Start();
-	void Update();
 };
 

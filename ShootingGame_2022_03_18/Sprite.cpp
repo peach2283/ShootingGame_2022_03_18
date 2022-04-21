@@ -39,3 +39,9 @@ void Sprite::Draw()
 		Bitmap::DrawBMP(px, py, &sprite);
 	}
 }
+
+void Sprite::ImageRect(int& width, int& height)
+{
+	width = sprite.width;
+	height = sprite.height;
+}
