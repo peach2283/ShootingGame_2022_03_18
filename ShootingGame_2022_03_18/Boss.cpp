@@ -26,9 +26,6 @@ void Boss::Start()
 	//폭발하지 않은 보스 이미지//
 	SetSprite("Asset/보스.bmp", 0, 0, 493, 206 );
 
-	//폭발 이후..보스 이미지
-	//SetSprite("Asset/보스.bmp", 0, 613, 385, 182);
-
 	//프로펠러..자식객체 추가하기
 	AddChildObject(new Propeller( 63, 41));
 	AddChildObject(new Propeller(111, 41));
@@ -78,11 +75,17 @@ void Boss::OnChildDestroy(string name)
 	deadChildCount++;
 	printf("제거된 자식 카운트 : %d\n", deadChildCount);
 
-	if (deadChildCount == 25)  //보스의..모든 자식객체가..제거됨
+	if (deadChildCount == 1)  //보스의..모든 자식객체가..제거됨 (전체..자식갯수는 25개)
 	{
 		//보스..폭발...
+		float px = GetPx();
+		float py = GetPy();
 
-		//보스..제거...
-		Destroy(this);
+		Instantiate(new EnemyExp(px + (493 - 224) / 2  - 180  , py + (206 - 320) / 2));
+		Instantiate(new EnemyExp(px + (493 - 224) / 2         , py + (206 - 320) / 2));
+		Instantiate(new EnemyExp(px + (493 - 224) / 2  + 180  , py + (206 - 320) / 2));
+
+		//보스가...폭발후..이미지로...변경		
+		SetSprite("Asset/보스.bmp", 0, 613, 385, 182);
 	}
 }
