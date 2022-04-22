@@ -1,6 +1,6 @@
 #include "ShootingGame.h"
 
-Radar::Radar(float px, float py) : BossChildSprite("보스자식","", true, px, py)
+Radar::Radar(float px, float py) : BossChildSprite("보스자식","레이더", true, px, py)
 {}
 
 Radar::~Radar()

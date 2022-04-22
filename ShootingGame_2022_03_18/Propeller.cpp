@@ -1,6 +1,6 @@
 #include "ShootingGame.h"
 
-Propeller::Propeller(float px, float py) : Animation("보스자식", "", true, px, py)
+Propeller::Propeller(float px, float py) : Animation("보스자식", "프로펠러", true, px, py)
 {
 	this->hp = 100;
 }
@@ -41,6 +41,9 @@ void Propeller::Start()
 
 void Propeller::Update()
 {
+	//부모..포인터..확인하기//
+	//string tag = parent->GetTag();
+	//printf("프로펠러의 부모 객체 태그 %s\n", tag.data());
 }
 
 void Propeller::Explosion()
@@ -58,6 +61,7 @@ void Propeller::Explosion()
 	Destroy(this);
 
 	//프로펠러의 부모객체인 보스에..프로펠러가..제거되었음을 알려줌//
+	((Boss*)parent)->OnChildDestroy( this->GetName() );
 }
 
 void Propeller::OnTriggerStay2D(GameObject* other)
@@ -70,7 +74,7 @@ void Propeller::OnTriggerStay2D(GameObject* other)
 		hp = hp - 10;
 
 		//남은 체력에 따라서..애니메니션 변경 및 폭발 제거//
-		if (hp<0 && hp <= 50)
+		if (0 < hp && hp <= 50)
 		{
 			Play(1);  //연기나는 프로펠러..애니메이션으로..변경
 		}

@@ -1,7 +1,9 @@
 #include "ShootingGame.h"
 
-Boss::Boss(float px, float py) : Sprite("","", true, px, py)
-{}
+Boss::Boss(float px, float py) : Sprite("보스","", true, px, py)
+{
+	this->deadChildCount = 0;
+}
 
 Boss::~Boss()
 {}
@@ -69,3 +71,18 @@ void Boss::Start()
 
 void Boss::Update()
 {}
+
+void Boss::OnChildDestroy(string name)
+{
+	//제거된..자식 카운트..증가시키기//
+	deadChildCount++;
+	printf("제거된 자식 카운트 : %d\n", deadChildCount);
+
+	if (deadChildCount == 25)  //보스의..모든 자식객체가..제거됨
+	{
+		//보스..폭발...
+
+		//보스..제거...
+		Destroy(this);
+	}
+}

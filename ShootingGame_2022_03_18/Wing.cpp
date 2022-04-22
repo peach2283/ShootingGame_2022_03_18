@@ -1,6 +1,6 @@
 #include "ShootingGame.h"
 
-Wing::Wing(float px, float py, int idx) : BossChildSprite("보스자식","",true, px, py)
+Wing::Wing(float px, float py, int idx) : BossChildSprite("보스자식","날개",true, px, py)
 {
 	this->idx = idx;
 }

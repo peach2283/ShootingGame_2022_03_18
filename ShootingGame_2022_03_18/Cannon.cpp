@@ -1,6 +1,6 @@
 #include "ShootingGame.h"
 
-Cannon::Cannon(float px, float py) : BossChildSprite("보스자식","", true, px, py)
+Cannon::Cannon(float px, float py) : BossChildSprite("보스자식","대포", true, px, py)
 {
 	this->hp = 100;
 }

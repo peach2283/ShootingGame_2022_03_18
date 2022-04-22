@@ -1,6 +1,6 @@
 #include "ShootingGame.h"
 
-Gun::Gun(float px, float py) : BossChildSprite("보스자식","", true, px, py)
+Gun::Gun(float px, float py) : BossChildSprite("보스자식","건", true, px, py)
 {}
 
 Gun::~Gun()

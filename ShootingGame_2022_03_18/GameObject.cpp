@@ -181,8 +181,35 @@ GameObject * GameObject::Instantiate(GameObject* obj, int layer)
 	return obj;
 }
 
+/**************************************************
+void GameObject::SetDead(bool dead)
+{
+	this->isDead = dead;
+
+	for (int i = 0; i < childObjects.size(); i++)
+	{
+		childObjects[i]->SetDead(dead);
+	}
+}
+*************************************************/
+
 void GameObject::Destroy(GameObject* obj)
 {
+	//자식객체가..제거될때..부모..객체의..목록에서...제거함 .. obj가 자식객체...obj의 부모..obj->parent
+	if (obj->parent != nullptr)
+	{
+		vector<GameObject*> &child = obj->parent->childObjects;
+
+		for (int i = 0; i < child.size(); i++)
+		{
+			if (child[i] == obj)
+			{
+				child.erase(child.begin() + i);
+				i--;
+			}
+		}
+	}
+
 	ObjectManager::Destroy(obj);
 }
 

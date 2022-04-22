@@ -30,6 +30,9 @@ void BossChildSprite::Explosion()
 
 	//날개가..제거//
 	Destroy(this);
+
+	//부모..객체인..보스에게..자식이 제거되었음을 알림//
+	((Boss*)parent)->OnChildDestroy(this->GetName());
 }
 
 void BossChildSprite::SetDamage(float damage)
