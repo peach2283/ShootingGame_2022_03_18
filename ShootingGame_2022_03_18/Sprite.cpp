@@ -18,14 +18,20 @@ Sprite::~Sprite()
 	}
 }
 
-void Sprite::SetSprite(const char* fileName)
+void Sprite::SetSprite(const char* fileName, int pvx, int pvy)
 {
 	Bitmap::ReadBMP(fileName, &sprite);
+
+	sprite.pvx = pvx;
+	sprite.pvy = pvy;
 }
 
-void Sprite::SetSprite(const char* fileName, int x, int y, int width, int height)
+void Sprite::SetSprite(const char* fileName, int x, int y, int width, int height, int pvx, int pvy)
 {
 	Bitmap::ReadBMP(fileName, x, y, width, height, &sprite);
+
+	sprite.pvx = pvx;
+	sprite.pvy = pvy;
 }
 
 void Sprite::Draw()

@@ -22,19 +22,27 @@ Animation::~Animation()
 	}
 }
 
-void Animation::AddSprite(const char* fileName, int x, int y, int width, int height, int id)
+void Animation::AddSprite(const char* fileName, int x, int y, int width, int height, int id, int pvx, int pvy)
 {
 	Image img;
 
 	Bitmap::ReadBMP(fileName, x, y, width, height, &img);
+
+	img.pvx = pvx;
+	img.pvy = pvy;
+
 	sprite[id].push_back(img);
 }
 
-void Animation::AddSprite(const char* fileName, int id)
+void Animation::AddSprite(const char* fileName, int id, int pvx, int pvy)
 {
 	Image img;
 
 	Bitmap::ReadBMP(fileName, &img);
+
+	img.pvx = pvx;
+	img.pvy = pvy;
+
 	sprite[id].push_back(img);
 }
 

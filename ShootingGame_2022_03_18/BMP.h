@@ -3,6 +3,9 @@
 //게임에서 실제로 사용되는 이미지 정보 구조체//
 struct Image
 {
+	int pvx; //피봇(x)
+	int pvy; //피봇(y)
+
 	int width;
 	int height;
 	unsigned int* rgb;

@@ -25,8 +25,8 @@ public:
 	~Animation();
 
 	//애니메이션 추가 함수//
-	void AddSprite(const char* fileName, int x, int y, int width, int height,  int id);
-	void AddSprite(const char* fileName, int id);
+	void AddSprite(const char* fileName, int x, int y, int width, int height,  int id, int pvx=0, int pvy=0);
+	void AddSprite(const char* fileName, int id, int pvx=0, int pvy=0);
 
 	//동작 애니메이션 지정함수//
 	void Play(int id);

@@ -123,8 +123,7 @@ void Bitmap::DrawBMP(float px, float py, Image* img)
 		for (int x = 0; x < img->width; x++)
 		{
 			unsigned int pixel = img->rgb[y * img->width + x];
-			SetPixel(x + px, y + py, pixel);
+			SetPixel(x + px - img->pvx , y + py - img->pvy, pixel);
 		}
 	}
 }
-
