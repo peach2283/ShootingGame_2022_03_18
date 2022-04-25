@@ -11,32 +11,34 @@ Propeller::~Propeller()
 void Propeller::Start()
 {
 	//피해없는 애니메이션 - 0번//
-	AddSprite("Asset/보스.bmp",   7, 439, 32, 12,     0);
-	AddSprite("Asset/보스.bmp",  42, 439, 30, 12,     0);
-	//AddSprite("Asset/보스.bmp",  75, 439, 28, 12,     0);
-	//AddSprite("Asset/보스.bmp", 106, 439, 23, 12,     0);
+	AddSprite("Asset/프로펠러1.bmp",   5, 5, 32, 12,   0,    16, 6);
+	AddSprite("Asset/프로펠러1.bmp",  39, 5, 32, 12,   0,    16, 6);
+	AddSprite("Asset/프로펠러1.bmp",  72, 5, 30, 12,   0,    15, 6);
+	AddSprite("Asset/프로펠러1.bmp", 104, 5, 24, 12,   0,    12, 6);
 
-	//AddSprite("Asset/보스.bmp", 133, 439, 19, 12,     0);
-	//AddSprite("Asset/보스.bmp", 156, 439, 24, 12,     0);
-	//AddSprite("Asset/보스.bmp", 184, 439, 27, 12,     0);
-	//AddSprite("Asset/보스.bmp", 215, 439, 29, 12,     0);
+	AddSprite("Asset/프로펠러1.bmp", 131, 5, 20, 12,   0,    10, 6);
+	AddSprite("Asset/프로펠러1.bmp", 153, 5, 26, 12,   0,    13, 6);
+	AddSprite("Asset/프로펠러1.bmp", 182, 5, 28, 12,   0,    14, 6);
+	AddSprite("Asset/프로펠러1.bmp", 213, 5, 30, 12,   0,    15, 6);
+	
 
 	//연기나는 애니메이션 - 1번//
-	//AddSprite("Asset/보스.bmp",   7, 457, 32, 47,      1);
-	//AddSprite("Asset/보스.bmp",  42, 457, 31, 47,      1);
-	//AddSprite("Asset/보스.bmp",  76, 457, 29, 47,      1);
-	//AddSprite("Asset/보스.bmp", 108, 457, 31, 47,      1);
+	AddSprite("Asset/프로펠러2.bmp",   7, 4, 32, 48, 1, 16, 6);
+	AddSprite("Asset/프로펠러2.bmp",  42, 4, 31, 48, 1, 15, 6);
+	AddSprite("Asset/프로펠러2.bmp",  76, 4, 29, 48, 1, 15, 6);
+	AddSprite("Asset/프로펠러2.bmp", 108, 4, 31, 48, 1, 18, 6);
 
-	AddSprite("Asset/보스.bmp", 142, 457, 31, 47,      1);
-	AddSprite("Asset/보스.bmp", 176, 457, 31, 47,      1);
-	AddSprite("Asset/보스.bmp", 210, 457, 31, 47,      1);
-	AddSprite("Asset/보스.bmp", 244, 457, 32, 47,      1);
+	AddSprite("Asset/프로펠러2.bmp", 142, 4, 31, 48, 1, 17, 6);
+	AddSprite("Asset/프로펠러2.bmp", 176, 4, 32, 48, 1, 16, 6);
+	AddSprite("Asset/프로펠러2.bmp", 210, 4, 31, 48, 1, 16, 6);
+	AddSprite("Asset/프로펠러2.bmp", 244, 4, 32, 48, 1, 16, 6);
+
 
 	Play(0);   //0번 애니메이션(클립)부터..시작
 	Speed(2);
 
 	//충돌체 추가하기//
-	AddBoxCollider2D(0, 0, 32, 12);
+	AddBoxCollider2D(-16, -6, 32, 12);
 }
 
 void Propeller::Update()

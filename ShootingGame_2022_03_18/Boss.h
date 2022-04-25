@@ -3,8 +3,16 @@
 
 class Boss : public Sprite
 {
+	enum State {moveDown=0, attack=1, fall=2};
+
 private:
+	float speed;
 	int deadChildCount;
+	float attackPos;
+
+	float fallTimeOut;
+
+	State state;
 
 public:
 	Boss(float px, float py);
