@@ -129,6 +129,9 @@
     <ClInclude Include="BossChildSprite.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="BossBullet.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Debug.cpp">
@@ -234,6 +237,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="BossChildSprite.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBullet.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

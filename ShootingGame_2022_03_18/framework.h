@@ -16,6 +16,8 @@
 #include <time.h>
 #include <iostream>
 #include <vector>
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 //네임스페이스
 using namespace std;
