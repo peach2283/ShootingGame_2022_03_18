@@ -50,10 +50,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     //ObjectManager::Instantiate(new EnemySpawner(WIDTH/2, 10        ));
     
     //보스 테스트하기
-    //ObjectManager::Instantiate(new Boss(-6.5, -200));
+    ObjectManager::Instantiate(new Boss(-6.5, -200));  //원래위치는 -200
 
     //보스..총알 테스트하기
-    ObjectManager::Instantiate(new BossBullet(230, 300));
+    //ObjectManager::Instantiate(new BossBullet(230, 300));
 
     MSG msg;
 

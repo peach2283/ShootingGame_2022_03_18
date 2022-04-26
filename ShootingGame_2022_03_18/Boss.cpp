@@ -50,8 +50,8 @@ void Boss::Start()
 	AddChildObject(new Gun(382, 71));
 
 	//보스 대포..자식 객체 추가하기
-	AddChildObject(new Cannon(265 + 5, 97 + 10));
-	AddChildObject(new Cannon(206 - 5, 97 + 10));
+	AddChildObject(new Cannon(265 + 5, 97 + 10, "오른쪽대포"));  //오른쪽 대포
+	AddChildObject(new Cannon(206 - 5, 97 + 10, "왼쪽대포"));    //왼쪽 대포
 
 	//레이더..자식 객체 추가하기
 	AddChildObject(new Radar(241, 105));
@@ -71,7 +71,8 @@ void Boss::Update()
 	}
 	else if (state == State::attack)
 	{
-	
+		//캐논..자식..객체를..찾아서..발사..시작을..알려줌...//
+
 	}
 	else if (state == State::fall)
 	{

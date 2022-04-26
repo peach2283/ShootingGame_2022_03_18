@@ -5,10 +5,15 @@ class BossBullet : public Sprite
 {
 private:
 	float speed;
+	float angle;
+
+	float lifeTime;
 
 public:
 	BossBullet(float px, float py);
 	~BossBullet();
+
+	void SetAngle(float angle);
 
 	void Start();
 	void Update();
