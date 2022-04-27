@@ -8,6 +8,7 @@ public:
 	Gun(float px, float py);
 	~Gun();
 
-	void Start();	
+	void Start();
+	void Update();
 };
 

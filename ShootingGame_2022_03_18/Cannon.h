@@ -8,6 +8,7 @@ private:
 
 	float fireTimer;
 	float fireDelay;
+	bool  doFire; 
 
 public:
 	Cannon(float px, float py, string name);
@@ -15,5 +16,9 @@ public:
 
 	void Start();
 	void Update();
+
+	//발사 시작 이벤트 함수//
+	void OnStartFire();
+
 };
 

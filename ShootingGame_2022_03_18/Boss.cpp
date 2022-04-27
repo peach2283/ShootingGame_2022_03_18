@@ -72,6 +72,18 @@ void Boss::Update()
 	else if (state == State::attack)
 	{
 		//캐논..자식..객체를..찾아서..발사..시작을..알려줌...//
+		string cannons[2] = { "오른쪽대포" , "왼쪽대포" };
+		
+		for (int i = 0; i < 2; i++)
+		{
+			Cannon * c=(Cannon*)Find(cannons[i]);
+
+			if (c != nullptr)
+			{
+				c->OnStartFire();
+			}
+		}
+
 
 	}
 	else if (state == State::fall)

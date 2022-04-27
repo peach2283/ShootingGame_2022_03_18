@@ -6,6 +6,8 @@ Cannon::Cannon(float px, float py, string name) : BossChildSprite("보스자식",nam
 
 	this->fireTimer = 0;
 	this->fireDelay = 2;
+
+	this->doFire = false;
 }
 
 Cannon::~Cannon()
@@ -17,25 +19,35 @@ void Cannon::Start()
 	AddBoxCollider2D(5, 0, 11, 22);
 
 	SetDamage(20);  //피해량 지정하기
+
+	this->fireDelay = Random::Range(2, 5);
 }
 
 void Cannon::Update()
 {
-	fireTimer += Time::deltaTime;
-
-	if (fireTimer >= fireDelay)
+	if (doFire == true)
 	{
-		float px = GetPx();
-		float py = GetPy();
+		fireTimer += Time::deltaTime;
 
-		BossBullet* bullet;
-
-		for (int i = 0; i < 30; i++)
+		if (fireTimer >= fireDelay)
 		{
-			bullet = (BossBullet*)Instantiate(new BossBullet(px + 2, py + 15));
-			bullet->SetAngle(i*12);
+			float px = GetPx();
+			float py = GetPy();
+
+			BossBullet* bullet;
+
+			for (int i = 0; i < 30; i++)
+			{
+				bullet = (BossBullet*)Instantiate(new BossBullet(px + 2, py + 15));
+				bullet->SetAngle(i * 12);
+			}
+
+			fireTimer = 0;
 		}
-	
-		fireTimer = 0;
 	}
+}
+
+void Cannon::OnStartFire()
+{
+	doFire = true;
 }

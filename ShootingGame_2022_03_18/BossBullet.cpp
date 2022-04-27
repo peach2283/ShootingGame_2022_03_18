@@ -5,7 +5,7 @@ BossBullet::BossBullet(float px, float py) : Sprite("","",true, px, py)
 {
 	this->speed    = 150;
 	this->angle    = 0;
-	this->lifeTime = 3;
+	this->lifeTime = 4;
 }
 
 BossBullet::~BossBullet()
