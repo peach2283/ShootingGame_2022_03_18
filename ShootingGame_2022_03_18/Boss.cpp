@@ -8,6 +8,11 @@ Boss::Boss(float px, float py) : Sprite("보스","", true, px, py)
 
 	this->fallTimeOut    = 5;
 	this->deadChildCount = 0;
+
+	this->gunFireTimer = 0;
+	this->gunFireDeley = 0.2;
+
+	this->gunPatternIdx = 0;
 }
 
 Boss::~Boss()
@@ -39,15 +44,15 @@ void Boss::Start()
 	AddChildObject(new Wing( 62, 85,   7));
 
 	//보스 건 ... 자식 객체 추가하기
-	AddChildObject(new Gun( 94, 71));
-	AddChildObject(new Gun(142, 71));
-	AddChildObject(new Gun(190, 71));
+	AddChildObject(new Gun( 94, 71, "건0"));
+	AddChildObject(new Gun(142, 71, "건1"));
+	AddChildObject(new Gun(190, 71, "건2"));
 
-	AddChildObject(new Gun(238, 63));
+	AddChildObject(new Gun(238, 63, "건3"));
 
-	AddChildObject(new Gun(286, 71));
-	AddChildObject(new Gun(334, 71));
-	AddChildObject(new Gun(382, 71));
+	AddChildObject(new Gun(286, 71, "건4"));
+	AddChildObject(new Gun(334, 71, "건5"));
+	AddChildObject(new Gun(382, 71, "건6"));
 
 	//보스 대포..자식 객체 추가하기
 	AddChildObject(new Cannon(265 + 5, 97 + 10, "오른쪽대포"));  //오른쪽 대포
@@ -73,18 +78,45 @@ void Boss::Update()
 	{
 		//캐논..자식..객체를..찾아서..발사..시작을..알려줌...//
 		string cannons[2] = { "오른쪽대포" , "왼쪽대포" };
-		
+
 		for (int i = 0; i < 2; i++)
 		{
-			Cannon * c=(Cannon*)Find(cannons[i]);
+			Cannon* c = (Cannon*)Find(cannons[i]);
 
 			if (c != nullptr)
 			{
-				c->OnStartFire();
+				//c->OnStartFire();
 			}
 		}
 
+		//건..자식..객체를..찾아서..발사..제어하기//
+		gunFireTimer += Time::deltaTime;
 
+		if (gunFireTimer >= gunFireDeley)
+		{
+			string guns[7] = { "건0", "건1" ,"건2" , "건3" , "건4" ,"건5" ,"건6" };
+
+			for (int i = 0; i < 7; i++)
+			{
+				if (gunPattern[gunPatternIdx][i] == true)
+				{
+					Gun* g = (Gun*)Find(guns[i]);
+
+					if (g != nullptr)
+					{
+						g->OnFire();
+					}
+				}
+			}
+
+			gunFireTimer = 0;
+			gunPatternIdx++;
+
+			if (gunPatternIdx >= 20)
+			{
+				gunPatternIdx = 0;
+			}
+		}
 	}
 	else if (state == State::fall)
 	{

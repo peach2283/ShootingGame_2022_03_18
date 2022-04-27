@@ -14,6 +14,37 @@ private:
 
 	State state;
 
+	float gunFireTimer;
+	float gunFireDeley;
+
+	//건 발사..패턴 배열//
+	bool gunPattern[20][7] = { 
+								{true, true, true,    true,     true,  true,  true}, 
+								{true, true, true,    true,     true,  true,  true},
+								{true, true, true,    true,     true,  true,  true},
+								{true, true, true,    true,     true,  true,  true},
+								{true, true, true,    true,     true,  true,  true},
+
+								{true, true, true,    true,     true,  true,  true},
+								{true, true, true,    true,     true,  true,  true},
+								{true, true, true,    true,     true,  true,  true},
+								{true, true, true,    true,     true,  true,  true},
+								{true, true, true,    true,     true,  true,  true},
+
+								{true, true, true,    true,     true,  true,  true},
+								{true, true, true,    true,     true,  true,  true},
+								{true, true, true,    true,     true,  true,  true},
+								{true, true, true,    true,     true,  true,  true},
+								{true, true, true,    true,     true,  true,  true},
+
+								{true, true, true,    true,     true,  true,  true},
+								{true, true, true,    true,     true,  true,  true},
+								{true, true, true,    true,     true,  true,  true},
+								{true, true, true,    true,     true,  true,  true},
+								{true, true, true,    true,     true,  true,  true}
+						  };
+	int gunPatternIdx;
+
 public:
 	Boss(float px, float py);
 	~Boss();
