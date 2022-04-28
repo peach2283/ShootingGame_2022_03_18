@@ -57,6 +57,9 @@ public:
 	void Fire();
 	void ShiledTimer();
 
+	//플레이어 폭발 함수//
+	void Explosion();
+
 	//충돌이벤트 처리 함수 오버라이딩//
 	void OnTriggerStay2D(GameObject * other);
 };

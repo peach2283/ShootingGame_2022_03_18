@@ -19,29 +19,29 @@ private:
 
 	//건 발사..패턴 배열//
 	bool gunPattern[20][7] = { 
-								{true, true, true,    true,     true,  true,  true}, 
-								{true, true, true,    true,     true,  true,  true},
-								{true, true, true,    true,     true,  true,  true},
-								{true, true, true,    true,     true,  true,  true},
-								{true, true, true,    true,     true,  true,  true},
+								{true, true, true,    false,     false,  false,  false},
+								{true, true, true,    false,     false,  false,  false},
+								{true, true, true,    false,     false,  false,  false},
+								{true, true, true,    false,     false,  false,  false},
+								{true, true, true,    false,     false,  false,  false},
 
-								{true, true, true,    true,     true,  true,  true},
-								{true, true, true,    true,     true,  true,  true},
-								{true, true, true,    true,     true,  true,  true},
-								{true, true, true,    true,     true,  true,  true},
-								{true, true, true,    true,     true,  true,  true},
+								{false, false, false,    false,     true,  true,  true},
+								{false, false, false,    false,     true,  true,  true},
+								{false, false, false,    false,     true,  true,  true},
+								{false, false, false,    false,     true,  true,  true},
+								{false, false, false,    false,     true,  true,  true},
 
-								{true, true, true,    true,     true,  true,  true},
-								{true, true, true,    true,     true,  true,  true},
-								{true, true, true,    true,     true,  true,  true},
-								{true, true, true,    true,     true,  true,  true},
-								{true, true, true,    true,     true,  true,  true},
+								{true, false, false,    true,     false,  false,  true},
+								{true, false, false,    true,     false,  false,  true},
+								{true, false, false,    true,     false,  false,  true},
+								{true, false, false,    true,     false,  false,  true},
+								{true, false, false,    true,     false,  false,  true},
 
-								{true, true, true,    true,     true,  true,  true},
-								{true, true, true,    true,     true,  true,  true},
-								{true, true, true,    true,     true,  true,  true},
-								{true, true, true,    true,     true,  true,  true},
-								{true, true, true,    true,     true,  true,  true}
+								{false, false, true,    true,     true,  false,  false},
+								{false, false, true,    true,     true,  false,  false},
+								{false, false, true,    true,     true,  false,  false},
+								{false, false, true,    true,     true,  false,  false},
+								{false, false, true,    true,     true,  false,  false}
 						  };
 	int gunPatternIdx;
 

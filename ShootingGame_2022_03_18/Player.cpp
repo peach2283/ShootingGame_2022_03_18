@@ -249,30 +249,42 @@ void Player::Fire()
 	}
 }
 
+void Player::Explosion()
+{
+	//플레이어 폭발 및 제거
+	float px, py;
+	this->GetPosition(px, py);
+
+	Instantiate(new PlayerExp(px - (224 - 62) / 2, py - (320 - 80) / 2));
+
+	Destroy(this);
+
+	//[임시]플레이어 리스폰하기//
+	Instantiate(new Player(WIDTH / 2 - 34, HEIGHT + 100), 1);
+}
+
 void Player::OnTriggerStay2D(GameObject * other)
 {
 	string tag = other->GetTag();
 
 	if (state == State::control)  //임시로...콘트롤..상태만..충돌처리
 	{
-		if (tag == "적기총알")
+		if (tag == "적기총알" || tag=="보스총알")
 		{
-			//적기총알 피해 적용하기//
-			hp -= 10;
-
-			if (hp <= 0)
+			if (shieldTimeOut < 0)  //실드가 완전히..제거되었을경우만..피해를 적용함
 			{
-				//플레이어 폭발 및 제거
-				float px, py;
-				this->GetPosition(px, py);
+				//적기총알 피해 적용하기//
+				hp -= 10;
 
-				Instantiate(new PlayerExp(px - (224 - 62) / 2, py - (320 - 80) / 2));
-
-				Destroy(this);
-
-				//[임시]플레이어 리스폰하기//
-				Instantiate(new Player(WIDTH / 2 - 34, HEIGHT + 100), 1);
+				if (hp <= 0)
+				{
+					Explosion();
+				}
 			}
+		}
+		else if (tag=="적기" || tag == "보스자식")
+		{
+			Explosion();
 		}
 		else if (tag == "총알아이템")
 		{

@@ -1,7 +1,7 @@
 #include "framework.h"
 #include "ShootingGame.h"
 
-BossBullet::BossBullet(float px, float py) : Sprite("","",true, px, py)
+BossBullet::BossBullet(float px, float py) : Sprite("보스총알","",true, px, py)
 {
 	this->speed    = 150;
 	this->angle    = 0;
@@ -14,6 +14,7 @@ BossBullet::~BossBullet()
 void BossBullet::Start()
 {
 	SetSprite("Asset/총알2.bmp");
+	AddBoxCollider2D(0, 0, 17, 17);
 }
 
 void BossBullet::Update()
@@ -37,4 +38,21 @@ void BossBullet::Update()
 void BossBullet::SetAngle(float angle)
 {
 	this->angle = angle;
+}
+
+void BossBullet::OnTriggerStay2D(GameObject* other)
+{
+	string tag = other->GetTag();
+
+	if (tag == "폭탄폭발" || tag == "플레이어" || tag == "방패")
+	{
+		//적기 총알 효과
+		float px = GetPx();
+		float py = GetPy();
+
+		Instantiate(new EnemyBulletExp(px - (40 - 17) / 2, py - (40 - 15) / 2));
+
+		//적기총알 제거
+		Destroy(this);
+	}
 }

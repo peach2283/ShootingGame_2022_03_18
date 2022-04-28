@@ -104,7 +104,7 @@ void Boss::Update()
 
 					if (g != nullptr)
 					{
-						g->OnFire();
+						//g->OnFire();
 					}
 				}
 			}
