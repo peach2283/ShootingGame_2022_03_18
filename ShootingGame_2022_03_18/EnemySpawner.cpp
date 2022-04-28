@@ -51,7 +51,8 @@ void EnemySpawner::Update()
 			}
 			else  //보스 스폰
 			{
-				printf("보스 스폰하기\n");				
+				Instantiate(new Boss(-6.5, -200));  //원래위치는 -200
+				Destroy(this);  //스포너..역할을 끝내고..제거함
 			}
 		}
 	}

@@ -44,6 +44,9 @@ private:
 	//방패 제거 시간
 	float shieldTimeOut;
 
+	//플레이어 카운트
+	int count;
+
 public:
 	Player(float px, float py);
 	~Player();
