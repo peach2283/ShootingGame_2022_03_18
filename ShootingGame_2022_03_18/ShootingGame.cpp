@@ -43,18 +43,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     Time::Init();    //타임초기화
     Random::Init();  //랜덤초기화
 
+    //게임매니저..추가하기//
+    ObjectManager::Instantiate(new GameManager());
+
     //배경, 플레이어 등...게임객체 로딩 
     ObjectManager::Instantiate(new GameBG(0, 0));
     ObjectManager::Instantiate(new Player(WIDTH/2 - 34 , HEIGHT+100), 1);
      
     ObjectManager::Instantiate(new EnemySpawner(WIDTH/2, 10        ));
     
-    //보스 테스트하기
-    //ObjectManager::Instantiate(new Boss(-6.5, -200));  //원래위치는 -200
-
-    //보스..총알 테스트하기
-    //ObjectManager::Instantiate(new BossBullet(230, 300));
-
     MSG msg;
 
     // 기본 메시지 루프입니다:

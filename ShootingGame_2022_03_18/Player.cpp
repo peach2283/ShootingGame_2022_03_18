@@ -22,8 +22,6 @@ Player::Player(float px, float py) : GameObject("플레이어","", true, px, py)
 	this->isBulletItemCollided = false;  //충돌 안됨으로..초기화
 
 	this->shieldTimeOut = 3; //방패 제거 시간
-
-	this->count = 3;
 }
 
 Player::~Player()
@@ -261,10 +259,15 @@ void Player::Explosion()
 
 	Destroy(this);
 
+	//플레이어 카운트..감소하기//
+	GameManager * manager=GameManager::Instance();
+
+	manager->playerCount--;
+
+	printf("플레이어 카운트..%d\n", manager->playerCount);
+
 	//[임시]플레이어 리스폰하기//
 	Instantiate(new Player(WIDTH / 2 - 34, HEIGHT + 100), 1);
-
-	count--;
 }
 
 void Player::OnTriggerStay2D(GameObject * other)
