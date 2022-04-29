@@ -38,6 +38,7 @@
 #include "BossChildSprite.h"
 #include "BossBullet.h"
 #include "GameManager.h"
+#include "GameOver.h"
 
 #define WIDTH          480
 #define HEIGHT         800

@@ -7,16 +7,17 @@ class GameManager : public GameObject
 private:
 	
 	static GameManager* instance;
+	int playerCount;  //플레이어 카운트
 
 public:
-
-	int playerCount;  //플레이어 카운트
 
 	GameManager();
 	~GameManager();
 
 	void Start();
 	void Update();
+
+	void SpawnPlayer();
 
 	static GameManager* Instance();
 };

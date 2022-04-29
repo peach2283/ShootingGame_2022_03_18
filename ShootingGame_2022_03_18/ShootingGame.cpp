@@ -52,6 +52,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
      
     ObjectManager::Instantiate(new EnemySpawner(WIDTH/2, 10        ));
     
+    //게임오버..테스트//
+    //ObjectManager::Instantiate(new GameOver(30, 200), 5);
+
     MSG msg;
 
     // 기본 메시지 루프입니다:

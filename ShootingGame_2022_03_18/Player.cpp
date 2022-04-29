@@ -251,23 +251,20 @@ void Player::Fire()
 
 void Player::Explosion()
 {
-	//플레이어 폭발 및 제거
-	float px, py;
-	this->GetPosition(px, py);
+	if (GetDead() == false)
+	{
+		//플레이어 폭발 및 제거
+		float px, py;
+		this->GetPosition(px, py);
 
-	Instantiate(new PlayerExp(px - (224 - 62) / 2, py - (320 - 80) / 2));
+		Instantiate(new PlayerExp(px - (224 - 62) / 2, py - (320 - 80) / 2));
 
-	Destroy(this);
+		Destroy(this);
 
-	//플레이어 카운트..감소하기//
-	GameManager * manager=GameManager::Instance();
-
-	manager->playerCount--;
-
-	printf("플레이어 카운트..%d\n", manager->playerCount);
-
-	//[임시]플레이어 리스폰하기//
-	Instantiate(new Player(WIDTH / 2 - 34, HEIGHT + 100), 1);
+		//플레이어 리스폰 하기//
+		GameManager* manager = GameManager::Instance();
+		manager->SpawnPlayer();
+	}
 }
 
 void Player::OnTriggerStay2D(GameObject * other)
