@@ -39,6 +39,7 @@
 #include "BossBullet.h"
 #include "GameManager.h"
 #include "GameOver.h"
+#include "Button.h"
 
 #define WIDTH          480
 #define HEIGHT         800

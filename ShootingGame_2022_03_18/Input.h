@@ -10,8 +10,8 @@ class Input
 	enum State { keyUpRep = 0, keyDown = 1, keyDownRep = 2, keyUp = 3 };
 
 private:
-	static State state[6];
-	static int   vKey[6];
+	static State state[6 + 3];  //6개 키보드 버튼 + 3개 마우스 버튼
+	static int   vKey [6 + 3];
 
 public:
 	static void Update(); //키입력 상태 갱신
@@ -20,5 +20,10 @@ public:
 	static bool GetKey    (KeyCode code); //키가 눌리고 있는 중인지 체크함수
 	static bool GetKeyDown(KeyCode code); //키가 눌림 체크함수
 	static bool GetKeyUp  (KeyCode code); //키가 놓임 체크함수
+
+	//마우스...상태..체크 함수//
+	static bool GetMouseButton(int button);
+	static bool GetMouseButtonDown(int button);
+	static bool GetMouseButtonUp(int button);
 };
 

@@ -2,12 +2,12 @@
 
 //enum KeyCode            {UpArrow=0,       DownArrow=1     , LeftArrow=2    ,RightArrow=3    , Space=4        , Z=5 };
 
-Input::State Input::state[6] = { State::keyUpRep, State::keyUpRep, State::keyUpRep,State::keyUpRep ,State::keyUpRep ,State::keyUpRep };
-int          Input::vKey[6]  = { VK_UP          , VK_DOWN        , VK_LEFT        , VK_RIGHT        , VK_SPACE      ,   'Z' };
+Input::State Input::state[6+3] = { State::keyUpRep, State::keyUpRep, State::keyUpRep,State::keyUpRep ,State::keyUpRep ,State::keyUpRep, State::keyUpRep , State::keyUpRep , State::keyUpRep };
+int          Input::vKey [6+3] = { VK_UP          , VK_DOWN        , VK_LEFT        , VK_RIGHT        , VK_SPACE      ,   'Z' ,         VK_LBUTTON       , VK_RBUTTON     ,   VK_MBUTTON };
 
 void Input::Update()
 {
-    for (int i = 0; i < 6; i++)
+    for (int i = 0; i < 6 + 3; i++)
     {
         if (state[i] == State::keyUpRep) //놓고있는 상태
         {
@@ -71,6 +71,39 @@ bool Input::GetKeyDown(KeyCode code) //키가 눌림 체크함수
 bool Input::GetKeyUp(KeyCode code) //키가 놓임 체크함수
 {
     if (state[code] == State::keyUp)
+    {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+bool Input::GetMouseButton(int button)
+{
+    if (state[button + 6] == State::keyDownRep)
+    {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+bool Input::GetMouseButtonDown(int button)
+{
+    if (state[button + 6] == State::keyDown)
+    {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+bool Input::GetMouseButtonUp(int button)
+{
+    if (state[button + 6] == State::keyUp)
     {
         return true;
     }

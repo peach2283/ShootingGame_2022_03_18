@@ -50,10 +50,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     ObjectManager::Instantiate(new GameBG(0, 0));
     ObjectManager::Instantiate(new Player(WIDTH/2 - 34 , HEIGHT+100), 1);
      
-    ObjectManager::Instantiate(new EnemySpawner(WIDTH/2, 10        ));
+    //ObjectManager::Instantiate(new EnemySpawner(WIDTH/2, 10        ));
     
-    //게임오버..테스트//
-    //ObjectManager::Instantiate(new GameOver(30, 200), 5);
+    //버튼..테스트하기//
+    ObjectManager::Instantiate(new Button(150, 300), 6);
 
     MSG msg;
 
