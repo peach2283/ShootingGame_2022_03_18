@@ -4,6 +4,13 @@
 //키코드 열거형//
 enum KeyCode { UpArrow = 0, DownArrow = 1, LeftArrow = 2, RightArrow = 3, Space = 4, Z = 5 };
 
+//마우스 좌표..저장 구조체//
+struct MousePosition
+{
+	int x;
+	int y;
+};
+
 class Input
 {
 	//키 상태 열거형//
@@ -14,6 +21,10 @@ private:
 	static int   vKey [6 + 3];
 
 public:
+
+	//마우스..좌표...저장 변수..
+	static MousePosition mousePosition;
+
 	static void Update(); //키입력 상태 갱신
 
 	//키 상태 체크 함수//

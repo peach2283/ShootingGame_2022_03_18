@@ -168,6 +168,20 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+    case WM_MOUSEMOVE:
+    case WM_LBUTTONDOWN:
+    case WM_RBUTTONDOWN:
+    case WM_MBUTTONDOWN:
+        {
+            //마우스 좌표..구하기//
+            int x = LOWORD(lParam);
+            int y = HIWORD(lParam);
+
+            Input::mousePosition.x = x;
+            Input::mousePosition.y = y;
+        }
+    break;
+
     case WM_PAINT:
         {
             PAINTSTRUCT ps;

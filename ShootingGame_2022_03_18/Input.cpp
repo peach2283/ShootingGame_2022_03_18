@@ -5,6 +5,8 @@
 Input::State Input::state[6+3] = { State::keyUpRep, State::keyUpRep, State::keyUpRep,State::keyUpRep ,State::keyUpRep ,State::keyUpRep, State::keyUpRep , State::keyUpRep , State::keyUpRep };
 int          Input::vKey [6+3] = { VK_UP          , VK_DOWN        , VK_LEFT        , VK_RIGHT        , VK_SPACE      ,   'Z' ,         VK_LBUTTON       , VK_RBUTTON     ,   VK_MBUTTON };
 
+MousePosition Input::mousePosition = { 0,0 };
+
 void Input::Update()
 {
     for (int i = 0; i < 6 + 3; i++)
