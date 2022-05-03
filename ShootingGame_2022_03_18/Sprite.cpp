@@ -20,6 +20,11 @@ Sprite::~Sprite()
 
 void Sprite::SetSprite(const char* fileName, int pvx, int pvy)
 {
+	if (sprite.rgb != nullptr)
+	{
+		delete[] sprite.rgb;  //기존에 로드한 이미지 메모리 삭제
+	}
+
 	Bitmap::ReadBMP(fileName, &sprite);
 
 	sprite.pvx = pvx;
@@ -28,6 +33,11 @@ void Sprite::SetSprite(const char* fileName, int pvx, int pvy)
 
 void Sprite::SetSprite(const char* fileName, int x, int y, int width, int height, int pvx, int pvy)
 {
+	if (sprite.rgb != nullptr)
+	{
+		delete[] sprite.rgb;  //기존에 로드한 이미지 메모리 삭제
+	}
+
 	Bitmap::ReadBMP(fileName, x, y, width, height, &sprite);
 
 	sprite.pvx = pvx;
