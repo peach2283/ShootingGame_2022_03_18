@@ -171,6 +171,9 @@
     <ClInclude Include="Button.h">
       <Filter>헤더 파일\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Pause.h">
+      <Filter>헤더 파일\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp">
@@ -288,6 +291,9 @@
       <Filter>소스 파일\Application</Filter>
     </ClCompile>
     <ClCompile Include="Button.cpp">
+      <Filter>소스 파일\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Pause.cpp">
       <Filter>소스 파일\UI</Filter>
     </ClCompile>
   </ItemGroup>

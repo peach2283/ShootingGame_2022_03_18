@@ -23,7 +23,7 @@ void Button::Update()
 			state = State::hover;
 
 			//hover 이미지로..변경//
-			SetSprite("Asset/UI/Menu2/hover.bmp"); //버튼..hover 이미지
+			SetSprite( hoverImg.data() ); //버튼..hover 이미지
 		}
 	}
 	else if (state == State::hover)
@@ -34,7 +34,7 @@ void Button::Update()
 			state = State::normal;
 
 			//normal 이미지로..변경
-			SetSprite("Asset/UI/Menu2/normal.bmp"); //버튼..normal 이미지
+			SetSprite( normalImg.data() ); //버튼..normal 이미지
 		}
 		
 		if (Input::GetMouseButtonDown(0) == true)
@@ -43,9 +43,11 @@ void Button::Update()
 			state = State::click;
 
 			//click 이미지로..변경//
-			SetSprite("Asset/UI/Menu2/active.bmp"); //버튼..click 이미지
-		}
+			SetSprite( clickImg.data() ); //버튼..click 이미지
 
+			//이미지..클릭 효과로..이동 시키기//
+			Translate(1, 1);
+		}
 	}
 	else if (state == State::click)
 	{	
@@ -57,7 +59,10 @@ void Button::Update()
 			state = State::normal;
 
 			//normal 이미지로..변경
-			SetSprite("Asset/UI/Menu2/normal.bmp"); //버튼..normal 이미지
+			SetSprite( normalImg.data() ); //버튼..normal 이미지
+
+			//이미지..클릭 효과..원래 위치로..이동 시키기//
+			Translate(-1, -1);
 		}
 	}
 }
@@ -87,4 +92,19 @@ bool Button::IsInImageRect()
 	else {
 		return false;
 	}
+}
+
+void Button::SetNormalImg(string fileName)
+{
+	this->normalImg = fileName;
+}
+
+void Button::SetHoverImg(string fileName)
+{
+	this->hoverImg = fileName;
+}
+
+void Button::SetClickImg(string fileName)
+{
+	this->clickImg = fileName;
 }

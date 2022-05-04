@@ -40,6 +40,7 @@
 #include "GameManager.h"
 #include "GameOver.h"
 #include "Button.h"
+#include "Pause.h"
 
 #define WIDTH          480
 #define HEIGHT         800

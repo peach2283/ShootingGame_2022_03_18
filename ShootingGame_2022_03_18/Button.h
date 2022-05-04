@@ -9,6 +9,11 @@ class Button : public Sprite
 private:
 	State state;  //버튼..상태 변수
 
+	//normal, hover, click 이미지..경로//
+	string normalImg;
+	string hoverImg;
+	string clickImg;
+
 public:
 	Button(float px, float py);
 	~Button();
@@ -18,5 +23,9 @@ public:
 
 	//마우스..좌표가..이미지 안에 있는지 검사하는 함수//
 	bool IsInImageRect();
+
+	void SetNormalImg(string fileName);
+	void SetHoverImg (string fileName);
+	void SetClickImg (string fileName);
 };
 

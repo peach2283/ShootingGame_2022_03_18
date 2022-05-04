@@ -52,8 +52,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
      
     //ObjectManager::Instantiate(new EnemySpawner(WIDTH/2, 10        ));
     
-    //버튼..테스트하기//
-    ObjectManager::Instantiate(new Button(150, 300), 6);
+    //일시중지 버튼..추가하기
+    ObjectManager::Instantiate(new Pause(430, 5), 6);
 
     MSG msg;
 
