@@ -55,6 +55,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     //일시중지 버튼..추가하기
     ObjectManager::Instantiate(new Pause(430, 5), 6);
 
+    //팝업 메뉴..추가하기
+    ObjectManager::Instantiate(new PopupMenu(122, 300), 6);
+
     MSG msg;
 
     // 기본 메시지 루프입니다:

@@ -41,6 +41,7 @@
 #include "GameOver.h"
 #include "Button.h"
 #include "Pause.h"
+#include "PopupMenu.h"
 
 #define WIDTH          480
 #define HEIGHT         800
