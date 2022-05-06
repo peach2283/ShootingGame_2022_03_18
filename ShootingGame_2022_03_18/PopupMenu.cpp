@@ -19,6 +19,9 @@ void PopupMenu::Start()
 	AddChildObject(new PopupRestart(13, 15        ), 6);
 	AddChildObject(new PopupTitle  (13, 15 + 40   ), 6);
 	AddChildObject(new PopupQuit   (13, 15 + 40+40), 6);
+
+	//팝업메뉴..비활성화 시키기//
+	SetActive(false);
 }
 
 void PopupMenu::Update()
@@ -79,6 +82,7 @@ void PopupTitle::Start()
 	SetNormalImg("Asset/UI/Menu2/normal.bmp");
 	SetHoverImg("Asset/UI/Menu2/hover.bmp");
 	SetClickImg("Asset/UI/Menu2/active.bmp");
+
 }
 
 void PopupTitle::OnClick()

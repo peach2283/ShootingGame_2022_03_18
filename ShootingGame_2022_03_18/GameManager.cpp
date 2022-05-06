@@ -4,7 +4,8 @@ GameManager* GameManager::instance = nullptr;
 
 GameManager::GameManager() : GameObject("", "", true, 0,0)
 {
-	this->playerCount = 3; //플레이어 갯수
+	this->playerCount = 3;     //플레이어 갯수
+	this->pause       = false; //게임이 중지 아님
 }
 
 GameManager::~GameManager()
@@ -29,6 +30,16 @@ void GameManager::SpawnPlayer()
 	else {
 		Instantiate(new GameOver(30, 200), 5);
 	}
+}
+
+void GameManager::SetPause(bool pause)
+{
+	this->pause = pause;
+}
+
+bool GameManager::GetPause()
+{
+	return pause;
 }
 
 GameManager* GameManager::Instance()

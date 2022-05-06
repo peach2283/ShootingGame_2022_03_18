@@ -231,20 +231,25 @@ void Player::Fire()
 	}	
 
 	//ÆøÅº ¹ß»çÇÏ±â//
-	if (Input::GetKeyDown(KeyCode::Z) == true)
+	GameManager* manager = GameManager::Instance();
+
+	if (manager->GetPause() == false) //°ÔÀÓÀÌ ÁßÁöÀÏ¶§´Â...ÆøÅº ¹ß»ç¸¦ ¸·À½
 	{
-		if (bombCount > 0)
+		if (Input::GetKeyDown(KeyCode::Z) == true)
 		{
-			float px = GetPx();
-			float py = GetPy();
+			if (bombCount > 0)
+			{
+				float px = GetPx();
+				float py = GetPy();
 
-			Instantiate(new Bomb(px + 16, py));
-			bombCount--;
+				Instantiate(new Bomb(px + 16, py - 100));
+				bombCount--;
 
-			printf("ÆøÅº °¹¼ö °¨¼Ò %d\n", bombCount);
-		}
-		else {
-			printf("³²Àº ÆøÅºÀÌ ¾øÀ½\n");
+				printf("ÆøÅº °¹¼ö °¨¼Ò %d\n", bombCount);
+			}
+			else {
+				printf("³²Àº ÆøÅºÀÌ ¾øÀ½\n");
+			}
 		}
 	}
 }

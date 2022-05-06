@@ -4,10 +4,11 @@
 
 class GameManager : public GameObject
 {
-private:
-	
+private:	
 	static GameManager* instance;
-	int playerCount;  //플레이어 카운트
+	
+	int   playerCount;  //플레이어 카운트
+	bool  pause;        //게임 일시 정지 ... 저장 변수(true 게임정지, false 게임진행)
 
 public:
 
@@ -18,6 +19,9 @@ public:
 	void Update();
 
 	void SpawnPlayer();
+
+	void SetPause(bool pause);
+	bool GetPause();
 
 	static GameManager* Instance();
 };

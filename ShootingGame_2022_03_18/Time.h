@@ -11,5 +11,6 @@ public:
 	static void  Update();
 
 	static float deltaTime;	
+	static float timeScale;
 };
 

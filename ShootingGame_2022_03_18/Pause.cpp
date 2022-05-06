@@ -18,5 +18,16 @@ void Pause::Start()
 
 void Pause::OnClick()
 {
-	printf("일지 중지..버튼 클릭\n");
+	GameManager* manager = GameManager::Instance();
+	
+	if (manager->GetPause() == true)  //게임이 현재 ... 정지상태임
+	{
+		Time::timeScale = 1;
+		manager->SetPause(false);  //게임 진행중 지정함
+	}
+	else { //게임이 현재..진행 상태임
+	
+		Time::timeScale = 0;
+		manager->SetPause(true);  //게임 중지 지정함
+	}
 }
