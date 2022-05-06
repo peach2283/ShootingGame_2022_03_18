@@ -27,5 +27,8 @@ public:
 	void SetNormalImg(string fileName);
 	void SetHoverImg (string fileName);
 	void SetClickImg (string fileName);
+
+	//부모 클래스에..클릭 가상함수//
+	virtual void OnClick();
 };
 

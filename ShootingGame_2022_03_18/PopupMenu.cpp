@@ -13,10 +13,12 @@ void PopupMenu::Start()
 	SetSprite("Asset/UI/Menu2/bg.bmp");
 
 	//팝업 헤더..자식 객체 추가하기//
-	AddChildObject(new PopupHeader(0, -35), 6);
+	AddChildObject(new PopupHeader(0, -36), 6);
 
 	//메뉴..아이템..버튼들 자식객체 추가하기//
-	AddChildObject(new PopupRestart(46, 20), 6);
+	AddChildObject(new PopupRestart(13, 15        ), 6);
+	AddChildObject(new PopupTitle  (13, 15 + 40   ), 6);
+	AddChildObject(new PopupQuit   (13, 15 + 40+40), 6);
 }
 
 void PopupMenu::Update()
@@ -54,4 +56,55 @@ void PopupRestart::Start()
 	SetNormalImg("Asset/UI/Menu2/normal.bmp");
 	SetHoverImg ("Asset/UI/Menu2/hover.bmp");
 	SetClickImg ("Asset/UI/Menu2/active.bmp");
+}
+
+void PopupRestart::OnClick()
+{
+	printf("게임 다시 시작하기\n");
+}
+
+////////////////팝업 메뉴..아이템... 타이틀로 나가기 메뉴 /////////////////
+PopupTitle::PopupTitle(float px, float py) : Button(px, py)
+{}
+
+PopupTitle::~PopupTitle()
+{}
+
+void PopupTitle::Start()
+{
+	//버튼..시작이미지..로드하기//
+	SetSprite("Asset/UI/Menu2/normal.bmp");
+
+	//normal, hover, click..이미지 경로..지정하기//
+	SetNormalImg("Asset/UI/Menu2/normal.bmp");
+	SetHoverImg("Asset/UI/Menu2/hover.bmp");
+	SetClickImg("Asset/UI/Menu2/active.bmp");
+}
+
+void PopupTitle::OnClick()
+{
+	printf("타이틀로..나가기\n");
+}
+
+////////////////팝업 메뉴..아이템... 종료하기 /////////////////
+PopupQuit::PopupQuit(float px, float py) : Button(px, py)
+{}
+
+PopupQuit::~PopupQuit()
+{}
+
+void PopupQuit::Start()
+{
+	//버튼..시작이미지..로드하기//
+	SetSprite("Asset/UI/Menu2/normal.bmp");
+
+	//normal, hover, click..이미지 경로..지정하기//
+	SetNormalImg("Asset/UI/Menu2/normal.bmp");
+	SetHoverImg("Asset/UI/Menu2/hover.bmp");
+	SetClickImg("Asset/UI/Menu2/active.bmp");
+}
+
+void PopupQuit::OnClick()
+{
+	printf("종료 하기\n");
 }

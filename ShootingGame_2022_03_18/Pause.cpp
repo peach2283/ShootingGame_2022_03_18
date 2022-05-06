@@ -15,3 +15,8 @@ void Pause::Start()
 	SetHoverImg ("Asset/UI/Button/Pause.bmp");
 	SetClickImg ("Asset/UI/Button/Pause.bmp");
 }
+
+void Pause::OnClick()
+{
+	printf("일지 중지..버튼 클릭\n");
+}

@@ -36,4 +36,29 @@ public:
 	~PopupRestart();
 
 	void Start();
+	void OnClick();
+};
+
+////팝업 메뉴...아이템 버튼..타이틀로 나가기///
+class PopupTitle : public Button
+{
+private:
+public:
+	PopupTitle(float px, float py);
+	~PopupTitle();
+
+	void Start();
+	void OnClick();
+};
+
+////팝업 메뉴...아이템 버튼..종료(윈도우로..나감)로 나가기///
+class PopupQuit : public Button
+{
+private:
+public:
+	PopupQuit(float px, float py);
+	~PopupQuit();
+
+	void Start();
+	void OnClick();
 };

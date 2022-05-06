@@ -9,5 +9,8 @@ public:
 	~Pause();
 
 	void Start();
+
+	//부모..클래스의 OnClick 오버라이딩//
+	void OnClick();
 };
 

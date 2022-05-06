@@ -4,7 +4,6 @@
 class Wing : public BossChildSprite
 {
 private:
-
 	int rect[8][4] = 
 	{ 
 		{298, 425, 30, 18},

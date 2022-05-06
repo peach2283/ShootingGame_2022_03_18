@@ -51,8 +51,6 @@ void Button::Update()
 	}
 	else if (state == State::click)
 	{	
-		//버튼..관련 동작 실행//
-
 		if (Input::GetMouseButtonUp(0) == true)
 		{
 			//normal 상태로..전이
@@ -63,6 +61,9 @@ void Button::Update()
 
 			//이미지..클릭 효과..원래 위치로..이동 시키기//
 			Translate(-1, -1);
+
+			//버튼..관련 동작 실행//
+			OnClick();
 		}
 	}
 }
@@ -108,3 +109,6 @@ void Button::SetClickImg(string fileName)
 {
 	this->clickImg = fileName;
 }
+
+void Button::OnClick()
+{}
