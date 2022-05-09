@@ -43,6 +43,8 @@
 #include "Pause.h"
 #include "PopupMenu.h"
 #include "UIManager.h"
+#include "Application.h"
+#include "HPBar.h"
 
 #define WIDTH          480
 #define HEIGHT         800

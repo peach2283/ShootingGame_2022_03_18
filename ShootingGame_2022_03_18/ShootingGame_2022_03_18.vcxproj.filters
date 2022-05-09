@@ -180,6 +180,12 @@
     <ClInclude Include="UIManager.h">
       <Filter>헤더 파일\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>헤더 파일\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="HPBar.h">
+      <Filter>헤더 파일\UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp">
@@ -306,6 +312,12 @@
       <Filter>소스 파일\UI</Filter>
     </ClCompile>
     <ClCompile Include="UIManager.cpp">
+      <Filter>소스 파일\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>소스 파일\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="HPBar.cpp">
       <Filter>소스 파일\UI</Filter>
     </ClCompile>
   </ItemGroup>

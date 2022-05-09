@@ -56,7 +56,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     MSG msg;
 
     // 기본 메시지 루프입니다:
-    while (true)
+    while (  Application::GetIsPlaying() == true  )
     {
          //*************윈도우 실행부분******************//
          if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE) == TRUE)

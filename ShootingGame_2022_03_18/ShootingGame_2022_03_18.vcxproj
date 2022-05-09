@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="Application.h" />
     <ClInclude Include="BMP.h" />
     <ClInclude Include="Bomb.h" />
     <ClInclude Include="BombExp.h" />
@@ -173,6 +174,7 @@
     <ClInclude Include="GameOver.h" />
     <ClInclude Include="Graphic.h" />
     <ClInclude Include="Gun.h" />
+    <ClInclude Include="HPBar.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Laser.h" />
     <ClInclude Include="LaserExp.h" />
@@ -195,6 +197,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="Application.cpp" />
     <ClCompile Include="BMP.cpp" />
     <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="BombExp.cpp" />
@@ -219,6 +222,7 @@
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="Graphic.cpp" />
     <ClCompile Include="Gun.cpp" />
+    <ClCompile Include="HPBar.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Laser.cpp" />
     <ClCompile Include="LaserExp.cpp" />

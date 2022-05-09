@@ -111,5 +111,9 @@ void PopupQuit::Start()
 
 void PopupQuit::OnClick()
 {
-	printf("종료 하기\n");
+	//[1]종료 확인 단계
+	//[2]게임저장하기 
+	//..기타 필요한 게임 종료 단계..
+
+	Application::Quit();
 }
