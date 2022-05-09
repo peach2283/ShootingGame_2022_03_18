@@ -43,8 +43,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     Time::Init();    //타임초기화
     Random::Init();  //랜덤초기화
 
-    //게임매니저..추가하기//
+    //게임매니저/UI 매니저 추가하기//
     ObjectManager::Instantiate(new GameManager());
+    ObjectManager::Instantiate(new UIManager());
 
     //배경, 플레이어 등...게임객체 로딩 
     ObjectManager::Instantiate(new GameBG(0, 0));
@@ -52,12 +53,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
      
     ObjectManager::Instantiate(new EnemySpawner(WIDTH/2, 10        ));
     
-    //일시중지 버튼..추가하기
-    ObjectManager::Instantiate(new Pause(430, 5), 6);
-
-    //팝업 메뉴..추가하기
-    ObjectManager::Instantiate(new PopupMenu(122, 300), 6);
-
     MSG msg;
 
     // 기본 메시지 루프입니다:

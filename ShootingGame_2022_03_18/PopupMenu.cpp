@@ -25,7 +25,8 @@ void PopupMenu::Start()
 }
 
 void PopupMenu::Update()
-{}
+{
+}
 
 ///////////////팝업 메뉴..헤더.클래스//////////////////////////
 PopupHeader::PopupHeader(float px, float py) : Sprite("", "", true, px, py)

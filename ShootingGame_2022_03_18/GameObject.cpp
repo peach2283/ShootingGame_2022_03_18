@@ -66,7 +66,14 @@ void GameObject::SetName(string name)
 
 void GameObject::SetActive(bool active)
 {
+	//부모..활성화 변경
 	this->active = active;
+
+	//자식..활성화..변경하기
+	for (int i = 0; i < childObjects.size(); i++)
+	{
+		childObjects[i]->SetActive(active);
+	}
 }
 
 void GameObject::SetDead(bool dead)

@@ -42,6 +42,7 @@
 #include "Button.h"
 #include "Pause.h"
 #include "PopupMenu.h"
+#include "UIManager.h"
 
 #define WIDTH          480
 #define HEIGHT         800
