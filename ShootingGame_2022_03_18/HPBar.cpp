@@ -11,6 +11,11 @@ HPBar::~HPBar()
 void HPBar::Start()
 {
 	SetSprite("Asset/UI/Bar/GreenBar200.bmp");
+
+	//아이콘..자식객체 추가하기
+	AddChildObject(new Icon(-26, 0, "Asset/UI/Icon/HP_ICON24x24.bmp"), 6);
+
+	//텍스트..자식객체 추가하기
 }
 
 void HPBar::Update()

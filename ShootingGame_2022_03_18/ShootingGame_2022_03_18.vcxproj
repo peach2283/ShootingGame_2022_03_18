@@ -175,6 +175,7 @@
     <ClInclude Include="Graphic.h" />
     <ClInclude Include="Gun.h" />
     <ClInclude Include="HPBar.h" />
+    <ClInclude Include="Icon.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Laser.h" />
     <ClInclude Include="LaserExp.h" />
@@ -223,6 +224,7 @@
     <ClCompile Include="Graphic.cpp" />
     <ClCompile Include="Gun.cpp" />
     <ClCompile Include="HPBar.cpp" />
+    <ClCompile Include="Icon.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Laser.cpp" />
     <ClCompile Include="LaserExp.cpp" />

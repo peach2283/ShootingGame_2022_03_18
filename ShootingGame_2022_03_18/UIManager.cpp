@@ -15,7 +15,7 @@ void UIManager::Start()
     popupMenu = Instantiate(new PopupMenu(122, 300), 6);
 
     //체력바 추가하기
-    Instantiate(new HPBar(10, 10), 6);
+    hpBar = Instantiate(new HPBar(30, 10), 6);
 }
 
 void UIManager::Update()
@@ -23,6 +23,7 @@ void UIManager::Update()
     //게임매니저..가져오기//
     GameManager* manager = GameManager::Instance();
 
+    //일지정지 버튼..UI
     if (manager->GetPause() == true)
     {
         popupMenu->SetActive(true);
@@ -30,4 +31,9 @@ void UIManager::Update()
     else {
         popupMenu->SetActive(false);
     }
+
+    //플레이어 체력바
+    float hp=manager->GetPlayerHp();
+
+    ((HPBar*)hpBar)->SetFillAmount(hp/100); 
 }

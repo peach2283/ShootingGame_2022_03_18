@@ -8,6 +8,9 @@ private:
 	//팝업 메뉴..게임오브젝트..포인터//
 	GameObject* popupMenu;
 
+	//플레이어 체력바 게임오브젝트..포인터//
+	GameObject* hpBar;
+
 public:
 	UIManager();
 	~UIManager();

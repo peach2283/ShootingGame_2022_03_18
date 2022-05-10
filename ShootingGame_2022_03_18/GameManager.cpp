@@ -26,6 +26,8 @@ void GameManager::SpawnPlayer()
 
 	if (playerCount > 0)
 	{		
+		playerHp = 100;    //플레이어 체력 리셋
+
 		Instantiate(new Player(WIDTH / 2 - 34, HEIGHT + 100), 1);
 	}
 	else {
