@@ -13,7 +13,7 @@ Player::Player(float px, float py) : GameObject("플레이어","", true, px, py)
 	this->animTimer = 0;   //애니메니션 시간 측정 변수
 	this->animDelay = 0.1f;//애니메니션 지연 지정 변수
 
-	this->hp    = 100;            //플레이어 체력
+	//this->hp    = 100;            //플레이어 체력
 	this->state = State::showUp;  //상태 초기화
 
 	this->bulletCount = 1;  //플레이어 총알(레이저) 발사갯수
@@ -282,10 +282,12 @@ void Player::OnTriggerStay2D(GameObject * other)
 		{
 			if (shieldTimeOut < 0)  //실드가 완전히..제거되었을경우만..피해를 적용함
 			{
-				//적기총알 피해 적용하기//
-				hp -= 10;
+				GameManager* manager = GameManager::Instance();
 
-				if (hp <= 0)
+				//적기총알 피해 적용하기//
+				manager->DamagePlayer(10);
+
+				if (manager->GetPlayerHp() <= 0)
 				{
 					Explosion();
 				}

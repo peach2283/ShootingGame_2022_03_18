@@ -4,6 +4,8 @@
 class HPBar : public Sprite
 {
 private:
+	float fillAmount;
+
 public:
 	HPBar(float px, float py);
 	~HPBar();
@@ -11,5 +13,7 @@ public:
 	void Start();
 	void Update();
 	void Draw();
+
+	void SetFillAmount(float fill);
 };
 

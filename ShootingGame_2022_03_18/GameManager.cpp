@@ -4,6 +4,7 @@ GameManager* GameManager::instance = nullptr;
 
 GameManager::GameManager() : GameObject("", "", true, 0,0)
 {
+	this->playerHp   = 100;    //플레이어 체력 초기화
 	this->playerCount = 3;     //플레이어 갯수
 	this->pause       = false; //게임이 중지 아님
 }
@@ -40,6 +41,16 @@ void GameManager::SetPause(bool pause)
 bool GameManager::GetPause()
 {
 	return pause;
+}
+
+void GameManager::DamagePlayer(float damage)
+{
+	playerHp = playerHp - damage;
+}
+
+float GameManager::GetPlayerHp()
+{
+	return playerHp;
 }
 
 GameManager* GameManager::Instance()

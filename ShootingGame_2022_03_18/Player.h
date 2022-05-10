@@ -27,7 +27,7 @@ private:
 	float animDelay;
 
 	//플레이어 체력
-	float hp;
+	//float hp;
 
 	//상태 변수
 	State state;

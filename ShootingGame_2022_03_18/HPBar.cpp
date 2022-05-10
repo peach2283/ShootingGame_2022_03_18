@@ -1,7 +1,9 @@
 #include "ShootingGame.h"
 
 HPBar::HPBar(float px, float py) : Sprite("","",true, px, py)
-{}
+{
+	this->fillAmount = 1;
+}
 
 HPBar::~HPBar()
 {}
@@ -21,11 +23,11 @@ void HPBar::Draw()
 	ImageRect(width, height);
 
 	//게이지..그리기//
-	int x0 = GetPx();
-	int y0 = GetPy();
+	int x0 = GetPx() + 4;
+	int y0 = GetPy() + 4;
 
-	int x1 = x0 + width;
-	int y1 = y0 + height;
+	int x1 = x0 + (width -8) * fillAmount;
+	int y1 = y0 +  height-8;
 
 	for (int y = y0; y < y1; y++)
 	{
@@ -34,4 +36,12 @@ void HPBar::Draw()
 			SetPixel(x, y, 255, 0, 0);
 		}
 	}
+
+	//부모..클래스의 Draw 동작시키기//
+	Sprite::Draw();
+}
+
+void HPBar::SetFillAmount(float fill)
+{
+	this->fillAmount = fill;
 }
