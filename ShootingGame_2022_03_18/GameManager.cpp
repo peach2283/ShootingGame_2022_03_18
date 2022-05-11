@@ -55,6 +55,11 @@ float GameManager::GetPlayerHp()
 	return playerHp;
 }
 
+int GameManager::GetPlayerCount()
+{
+	return playerCount;
+}
+
 GameManager* GameManager::Instance()
 {
 	return instance;

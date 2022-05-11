@@ -46,6 +46,7 @@
 #include "Application.h"
 #include "HPBar.h"
 #include "Icon.h"
+#include "Score.h"
 
 #define WIDTH          480
 #define HEIGHT         800

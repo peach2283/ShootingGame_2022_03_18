@@ -30,6 +30,9 @@ public:
 	//플레이어 체력 가져오기//
 	float GetPlayerHp();
 
+	//플레이어 카운트 가져오기//
+	int GetPlayerCount();
+
 	static GameManager* Instance();
 };
 

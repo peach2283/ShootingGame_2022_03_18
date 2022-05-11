@@ -60,6 +60,7 @@ void EnemySpawner::Update()
 
 void EnemySpawner::OnDrawGizmos()
 {
+	/*************************************************
 	float px, py;
 	GetPosition(px, py);
 
@@ -68,6 +69,7 @@ void EnemySpawner::OnDrawGizmos()
 
 	//px, py를 중심으로..크기가 50인 수직직선 그리기//
 	DrawLine(px     , py-50, px     ,   py+50, 255, 0, 0);
+	**************************************************/
 }
 
 void EnemySpawner::AddDestroy()
