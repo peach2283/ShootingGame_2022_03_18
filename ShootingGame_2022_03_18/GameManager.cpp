@@ -4,8 +4,9 @@ GameManager* GameManager::instance = nullptr;
 
 GameManager::GameManager() : GameObject("", "", true, 0,0)
 {
-	this->playerHp   = 100;    //플레이어 체력 초기화
+	this->playerHp    = 100;   //플레이어 체력 초기화
 	this->playerCount = 3;     //플레이어 갯수
+	this->bombCount   = 5;     //폭탄 갯수
 	this->pause       = false; //게임이 중지 아님
 }
 
@@ -58,6 +59,21 @@ float GameManager::GetPlayerHp()
 int GameManager::GetPlayerCount()
 {
 	return playerCount;
+}
+
+int  GameManager::GetBombCount()
+{
+	return bombCount;
+}
+
+void GameManager::SubBombCount()
+{
+	bombCount--;
+}
+
+void GameManager::AddBombCount()
+{
+	bombCount++;
 }
 
 GameManager* GameManager::Instance()

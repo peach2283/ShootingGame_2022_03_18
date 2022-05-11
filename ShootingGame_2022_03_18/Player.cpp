@@ -17,7 +17,7 @@ Player::Player(float px, float py) : GameObject("플레이어","", true, px, py)
 	this->state = State::showUp;  //상태 초기화
 
 	this->bulletCount = 1;  //플레이어 총알(레이저) 발사갯수
-	this->bombCount   = 5;  //플레이어 남은 폭탄 갯수
+	//this->bombCount   = 5;  //플레이어 남은 폭탄 갯수
 
 	this->isBulletItemCollided = false;  //충돌 안됨으로..초기화
 
@@ -231,6 +231,7 @@ void Player::Fire()
 	}	
 
 	//폭탄 발사하기//
+	/***********************************************
 	GameManager* manager = GameManager::Instance();
 
 	if (manager->GetPause() == false) //게임이 중지일때는...폭탄 발사를 막음
@@ -252,6 +253,7 @@ void Player::Fire()
 			}
 		}
 	}
+	**********************************************/
 }
 
 void Player::Explosion()
@@ -319,9 +321,7 @@ void Player::OnTriggerStay2D(GameObject * other)
 			Destroy(other);
 
 			//폭탄 갯수 증가
-			bombCount++;
-
-			printf("폭탄 갯수 증가 %d\n", bombCount);
+			//bombCount++;
 
 		}
 	}

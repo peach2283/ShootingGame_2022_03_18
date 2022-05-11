@@ -8,7 +8,10 @@ private:
 	static GameManager* instance;
 	
 	float playerHp;     //플레이어 체력
+	
 	int   playerCount;  //플레이어 카운트
+	int   bombCount;    //폭탄 카운트
+
 	bool  pause;        //게임 일시 정지 ... 저장 변수(true 게임정지, false 게임진행)
 
 public:
@@ -32,6 +35,11 @@ public:
 
 	//플레이어 카운트 가져오기//
 	int GetPlayerCount();
+
+	//폭탄카운트 가져오기
+	int  GetBombCount();
+	void SubBombCount();
+	void AddBombCount();
 
 	static GameManager* Instance();
 };

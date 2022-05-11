@@ -36,7 +36,7 @@ private:
 	int bulletCount;
 
 	//폭탄 남은 갯수
-	int bombCount;
+	//int bombCount;
 
 	//총알(레이저) 아이템..충돌 확인 변수//
 	bool isBulletItemCollided;

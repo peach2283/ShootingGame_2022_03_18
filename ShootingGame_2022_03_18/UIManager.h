@@ -12,7 +12,10 @@ private:
 	GameObject* hpBar;
 
 	//플레이어 아이콘..객체 포인터//
-	GameObject* icons[3];
+	GameObject* playerIcons[3];
+
+	//폭탄 아이콘..객체 포인터//
+	GameObject* bombIcons[8];
 
 public:
 	UIManager();
