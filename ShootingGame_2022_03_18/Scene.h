@@ -8,7 +8,7 @@ public:
 	Scene();
 	~Scene();
 
-	void Load();
+	virtual void Load();
 	void Run();
 	void Unload();
 };

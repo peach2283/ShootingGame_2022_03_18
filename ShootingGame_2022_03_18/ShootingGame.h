@@ -48,6 +48,9 @@
 #include "Icon.h"
 #include "Score.h"
 #include "Scene.h"
+#include "TitleScene.h"
+#include "TitleBG.h"
+#include "TitleMenu.h"
 
 #define WIDTH          480
 #define HEIGHT         800

@@ -195,6 +195,9 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Time.h" />
+    <ClInclude Include="TitleBG.h" />
+    <ClInclude Include="TitleMenu.h" />
+    <ClInclude Include="TitleScene.h" />
     <ClInclude Include="UIManager.h" />
     <ClInclude Include="Wing.h" />
   </ItemGroup>
@@ -244,6 +247,9 @@
     <ClCompile Include="ShootingGame.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="TitleBG.cpp" />
+    <ClCompile Include="TitleMenu.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="Wing.cpp" />
   </ItemGroup>
