@@ -72,5 +72,16 @@ void UIManager::Update()
     }
 
     //ÆøÅº°¹¼ö..Ä«¿îÆ®
+    count = manager->GetBombCount();
 
+    for (int i = 0; i < 8; i++)
+    {
+        if (i < count)
+        {
+            bombIcons[i]->SetActive(true);
+        }
+        else {
+            bombIcons[i]->SetActive(false);
+        }
+    }
 }

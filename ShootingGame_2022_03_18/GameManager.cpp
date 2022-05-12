@@ -74,6 +74,11 @@ void GameManager::SubBombCount()
 void GameManager::AddBombCount()
 {
 	bombCount++;
+
+	if (bombCount > 8)  //최대 폭탄갯수는 8 개로..제한(아이콘 갯수)
+	{
+		bombCount = 8;
+	}
 }
 
 GameManager* GameManager::Instance()

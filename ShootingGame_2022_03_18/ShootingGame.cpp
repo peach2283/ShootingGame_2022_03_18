@@ -42,18 +42,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     Time::Init();    //타임초기화
     Random::Init();  //랜덤초기화
-
-    //게임매니저/UI 매니저 추가하기//
-    ObjectManager::Instantiate(new GameManager());
-    ObjectManager::Instantiate(new UIManager());
-
-    //배경, 플레이어 등...게임객체 로딩 
-    ObjectManager::Instantiate(new GameBG(0, 0));
-    ObjectManager::Instantiate(new Player(WIDTH/2 - 34 , HEIGHT+100), 1);
-     
-    ObjectManager::Instantiate(new EnemySpawner(WIDTH/2, 10        ));
-    
+      
     MSG msg;
+
+    //씬 객체 생성하기
+    Scene* scene = new Scene();
+    scene->Load(); //씬 로딩
 
     // 기본 메시지 루프입니다:
     while (  Application::GetIsPlaying() == true  )
@@ -77,18 +71,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
          //업데이트
          Time::Update();
          Input::Update();
-
-         //객체목록 업데이트
-         ObjectManager::Update();
-
-         //객체 충돌검사
-         ObjectManager::CheckCollision();
-
-         //삭제 대상 객체 제거하기//
-         ObjectManager::ClearDeadObject();
-
-         //그리기
-         ObjectManager::Draw();
+        
+         //씬 구동하기
+         scene->Run();
 
          //렌더링
          Render();
@@ -97,7 +82,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     //프로램종료
     STOP_DEBUG_CONSOLE();   //디버그 콘솔창 닫기
     ExitGraphic();          //그래픽 종료
-    ObjectManager::Clear(); //게임객체 목록..전체 삭제
+
+    //씬 언로딩 하기
+    scene->Unload();
 
     return (int) msg.wParam;
 }

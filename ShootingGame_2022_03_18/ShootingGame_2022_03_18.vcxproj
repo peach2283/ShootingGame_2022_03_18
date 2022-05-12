@@ -188,6 +188,7 @@
     <ClInclude Include="Radar.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Shield.h" />
     <ClInclude Include="ShootingGame.h" />
@@ -237,6 +238,7 @@
     <ClCompile Include="Propeller.cpp" />
     <ClCompile Include="Radar.cpp" />
     <ClCompile Include="Random.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="ShootingGame.cpp" />

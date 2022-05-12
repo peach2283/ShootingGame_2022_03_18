@@ -231,29 +231,25 @@ void Player::Fire()
 	}	
 
 	//ÆøÅº ¹ß»çÇÏ±â//
-	/***********************************************
 	GameManager* manager = GameManager::Instance();
 
 	if (manager->GetPause() == false) //°ÔÀÓÀÌ ÁßÁöÀÏ¶§´Â...ÆøÅº ¹ß»ç¸¦ ¸·À½
 	{
 		if (Input::GetKeyDown(KeyCode::Z) == true)
 		{
-			if (bombCount > 0)
+			if ( manager->GetBombCount() > 0)
 			{
 				float px = GetPx();
 				float py = GetPy();
 
-				Instantiate(new Bomb(px + 16, py - 100));
-				bombCount--;
-
-				printf("ÆøÅº °¹¼ö °¨¼Ò %d\n", bombCount);
+				Instantiate(new Bomb(px + 16, py - 100));				
+				manager->SubBombCount();			
 			}
 			else {
 				printf("³²Àº ÆøÅºÀÌ ¾øÀ½\n");
 			}
 		}
-	}
-	**********************************************/
+	}	
 }
 
 void Player::Explosion()
@@ -321,8 +317,8 @@ void Player::OnTriggerStay2D(GameObject * other)
 			Destroy(other);
 
 			//ÆøÅº °¹¼ö Áõ°¡
-			//bombCount++;
-
+			GameManager * manager=GameManager::Instance();
+			manager->AddBombCount();
 		}
 	}
 }
