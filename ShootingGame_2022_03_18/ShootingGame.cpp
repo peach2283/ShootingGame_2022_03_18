@@ -42,13 +42,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     Time::Init();    //타임초기화
     Random::Init();  //랜덤초기화
-      
-    MSG msg;
+    SceneManager::Init(); //씬매니저..초기화
 
-    //씬 객체 생성하기
-    Scene* scene = new TitleScene();
-    //Scene* scene = new GameScene();
-    scene->Load(); //씬 로딩
+    MSG msg;
 
     // 기본 메시지 루프입니다:
     while (  Application::GetIsPlaying() == true  )
@@ -73,8 +69,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
          Time::Update();
          Input::Update();
         
-         //씬 구동하기
-         scene->Run();
+         //씬 구동하기       
+         SceneManager::Run();
 
          //렌더링
          Render();
@@ -85,7 +81,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     ExitGraphic();          //그래픽 종료
 
     //씬 언로딩 하기
-    scene->Unload();
+    SceneManager::Unload();
 
     return (int) msg.wParam;
 }

@@ -5,7 +5,7 @@ class TitleScene : public Scene
 {
 private:
 public:
-	TitleScene();
+	TitleScene(string name);
 	~TitleScene();
 
 	void Load();

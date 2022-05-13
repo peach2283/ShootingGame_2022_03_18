@@ -1,6 +1,6 @@
 #include "ShootingGame.h"
 
-GameScene::GameScene() : Scene()
+GameScene::GameScene(string name) : Scene(name)
 {}
 
 GameScene::~GameScene()
@@ -8,6 +8,9 @@ GameScene::~GameScene()
 
 void GameScene::Load()
 {
+    //타임스케일..1로 지정하기
+    Time::timeScale = 1.0f;
+
     //게임매니저/UI 매니저 추가하기//
     ObjectManager::Instantiate(new GameManager());
     ObjectManager::Instantiate(new UIManager());

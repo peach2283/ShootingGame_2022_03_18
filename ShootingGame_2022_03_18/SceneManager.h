@@ -9,9 +9,13 @@ class SceneManager
 {
 private:
 	static Scene* sceneList[2];
+	static int    activeIndex;
 
 public:
 
 	static void Init();
+	static void Run();
+	static void Unload();
+
 	static void LoadScene(string name);
 };

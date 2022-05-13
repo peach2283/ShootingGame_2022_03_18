@@ -20,7 +20,7 @@ void StartBTN::Start()
 
 void StartBTN::OnClick()
 {
-	printf("게임시작");
+	SceneManager::LoadScene("Game");
 }
 
 ///////////////끝내기 버튼////////////////////////////

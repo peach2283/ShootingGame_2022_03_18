@@ -1,7 +1,9 @@
 #include "ShootingGame.h"
 
-Scene::Scene()
-{}
+Scene::Scene(string name)
+{
+    this->name = name;
+}
 
 Scene::~Scene()
 {}
@@ -28,4 +30,9 @@ void Scene::Run()
 void Scene::Unload()
 {
     ObjectManager::Clear(); //게임객체 목록..전체 삭제
+}
+
+string Scene::GetName()
+{
+    return name;
 }

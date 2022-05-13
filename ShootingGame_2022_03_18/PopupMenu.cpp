@@ -64,7 +64,7 @@ void PopupRestart::Start()
 
 void PopupRestart::OnClick()
 {
-	printf("게임 다시 시작하기\n");
+	SceneManager::LoadScene("Game");
 }
 
 ////////////////팝업 메뉴..아이템... 타이틀로 나가기 메뉴 /////////////////
@@ -88,7 +88,7 @@ void PopupTitle::Start()
 
 void PopupTitle::OnClick()
 {
-	printf("타이틀로..나가기\n");
+	SceneManager::LoadScene("Title");
 }
 
 ////////////////팝업 메뉴..아이템... 종료하기 /////////////////

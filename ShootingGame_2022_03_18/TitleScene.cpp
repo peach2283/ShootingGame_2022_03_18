@@ -1,6 +1,6 @@
 #include "ShootingGame.h"
 
-TitleScene::TitleScene() : Scene()
+TitleScene::TitleScene(string name) : Scene(name)
 {}
 
 TitleScene::~TitleScene()

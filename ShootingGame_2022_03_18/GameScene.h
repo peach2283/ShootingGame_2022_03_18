@@ -5,7 +5,7 @@ class GameScene : public Scene
 {
 private:
 public:
-	GameScene();
+	GameScene(string name);
 	~GameScene();
 
 	void Load();
