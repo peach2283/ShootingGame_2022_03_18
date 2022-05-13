@@ -172,6 +172,7 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameOver.h" />
+    <ClInclude Include="GameScene.h" />
     <ClInclude Include="Graphic.h" />
     <ClInclude Include="Gun.h" />
     <ClInclude Include="HPBar.h" />
@@ -189,6 +190,7 @@
     <ClInclude Include="Random.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Shield.h" />
     <ClInclude Include="ShootingGame.h" />
@@ -226,6 +228,7 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameOver.cpp" />
+    <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="Graphic.cpp" />
     <ClCompile Include="Gun.cpp" />
     <ClCompile Include="HPBar.cpp" />
@@ -242,6 +245,7 @@
     <ClCompile Include="Radar.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Shield.cpp" />
     <ClCompile Include="ShootingGame.cpp" />

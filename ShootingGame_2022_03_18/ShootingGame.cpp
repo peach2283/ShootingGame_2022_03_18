@@ -47,6 +47,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     //씬 객체 생성하기
     Scene* scene = new TitleScene();
+    //Scene* scene = new GameScene();
     scene->Load(); //씬 로딩
 
     // 기본 메시지 루프입니다:
