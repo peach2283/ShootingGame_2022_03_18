@@ -53,6 +53,8 @@
 #include "TitleMenu.h"
 #include "GameScene.h"
 #include "SceneManager.h"
+#include "EndingScene.h"
+#include "EndingBG.h"
 
 #define WIDTH          480
 #define HEIGHT         800

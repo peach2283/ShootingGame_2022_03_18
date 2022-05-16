@@ -245,3 +245,8 @@ GameObject* GameObject::Find(string name)
 	//찾으려는 자식 객체가 목록에 없음
 	return nullptr;
 }
+
+int GameObject::GetChildCount()
+{
+	return childObjects.size();
+}

@@ -85,7 +85,7 @@ void Boss::Update()
 
 			if (c != nullptr)
 			{
-				//c->OnStartFire();
+				c->OnStartFire();
 			}
 		}
 
@@ -104,7 +104,7 @@ void Boss::Update()
 
 					if (g != nullptr)
 					{
-						//g->OnFire();
+						g->OnFire();
 					}
 				}
 			}
@@ -132,7 +132,7 @@ void Boss::Update()
 			Destroy(this);
 
 			//스테이지 클리어//
-			printf("=======스테이지 클리어=======\n");
+			SceneManager::LoadScene("Ending");
 		}
 	}
 }
@@ -143,7 +143,8 @@ void Boss::OnChildDestroy(string name)
 	deadChildCount++;
 	printf("제거된 자식 카운트 : %d\n", deadChildCount);
 
-	if (deadChildCount == 25)  //보스의..모든 자식객체가..제거됨 (전체..자식갯수는 25개)
+	//if(deadChildCount == 25)  //보스의..모든 자식객체가..제거됨 (전체..자식갯수는 25개)
+	if( GetChildCount() == 0 )    //남은 자식객체가 없을때..최종 보스가 폭발됨
 	{
 		//보스..폭발...
 		float px = GetPx();

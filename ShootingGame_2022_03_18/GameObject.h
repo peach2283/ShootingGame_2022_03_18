@@ -80,5 +80,8 @@ public:
 
 	//자식객체 찾기 함수(이름으로)//
 	GameObject * Find(string name);
+
+	//자식갯수 구하기
+	int GetChildCount();
 };
 

@@ -8,7 +8,7 @@ using namespace std;
 class SceneManager
 {
 private:
-	static Scene* sceneList[2];
+	static Scene* sceneList[3];
 	static int    activeIndex;
 
 public:
