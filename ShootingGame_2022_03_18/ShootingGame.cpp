@@ -4,6 +4,12 @@
 #include "framework.h"
 #include "ShootingGame.h"
 
+#include <ft2build.h>
+#include <freetype/freetype.h>
+
+//lib(라이브러이)를 프로젝트에서 사용하기
+#pragma comment(lib, "freetype/freetype.lib")
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -39,6 +45,35 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     //초기화    
     START_DEBUG_CONSOLE();                  //디버그 콘솔창 열기
     InitGraphic(hWnd, 0, 0, WIDTH, HEIGHT); //그래픽 초기화
+
+    //////////////////////////////////////////////////////
+    //////////////////// 폰트 테스트하기 ///////////////////
+    FT_Library library;
+    FT_Face    face;
+
+    //폰트 라이브러리 초기화
+    if (FT_Init_FreeType(&library) == 0)
+    {
+       //폰트 파일(ttf)로드 하기
+        if (FT_New_Face(library, "Asset/Font/Medium.ttf", 0, &face) == 0)
+        {
+            //폰트 사용 옵션(폰트..크기)
+            FT_Set_Pixel_Sizes(face, 32, 32);
+
+            //폰트 파일에서..글꼴 찾아오기
+            char c = 'A';
+
+        }
+        else {
+            printf("폰트 파일 읽기 실패\n");
+        }
+    }
+    else {
+
+        printf("폰트 라이브러리..초기화 실패\n");
+    }
+
+    //////////////////////////////////////////////////////
 
     Time::Init();    //타임초기화
     Random::Init();  //랜덤초기화
