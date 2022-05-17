@@ -55,6 +55,7 @@
 #include "SceneManager.h"
 #include "EndingScene.h"
 #include "EndingBG.h"
+#include "Text.h"
 
 #define WIDTH          480
 #define HEIGHT         800

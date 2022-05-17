@@ -61,8 +61,40 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             FT_Set_Pixel_Sizes(face, 32, 32);
 
             //폰트 파일에서..글꼴 찾아오기
-            char c = 'A';
+            WCHAR text[4]   = L"가나다";
 
+            for (int i = 0; i < 3; i++)
+            {
+                    int index = FT_Get_Char_Index(face, text[i]);
+
+                    //폰트 파일에서 찾은 글꼴만 뽑아내서... face->glyph에 저장함
+                    FT_Load_Glyph(face, index, FT_LOAD_DEFAULT);
+
+                    //글꼴을 픽셀단위로...비트맵 이미지로..변환하기
+                    FT_Render_Glyph(face->glyph, FT_RENDER_MODE_NORMAL);
+
+                    //픽셀로..화면에..출력하기
+                    int width = face->glyph->bitmap.width;  //글꼴 비트맵 이미지 가로크기
+                    int height = face->glyph->bitmap.rows;   //글꼴 비트맵 이미지 세로크기
+
+                    unsigned char* buffer = face->glyph->bitmap.buffer;  //글꼴 이미지 비트맵 데이타
+
+                    for (int y = 0; y < height; y++)
+                    {
+                        for (int x = 0; x < width; x++)
+                        {
+                            unsigned char data = buffer[y * width + x];
+
+                            printf("%3d ", data);
+                        }
+
+                        printf("\n");
+                    }
+            }
+
+            //폰트 사용 닫기
+            FT_Done_Face(face);
+            FT_Done_FreeType(library);
         }
         else {
             printf("폰트 파일 읽기 실패\n");
@@ -72,6 +104,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
         printf("폰트 라이브러리..초기화 실패\n");
     }
+
+
 
     //////////////////////////////////////////////////////
 
