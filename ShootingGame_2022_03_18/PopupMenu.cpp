@@ -39,6 +39,9 @@ void PopupHeader::Start()
 {
 	//헤더 이미지//
 	SetSprite("Asset/UI/Menu2/heading.bmp");
+
+	//텍스트 추가하기//
+	AddChildObject(new Text(L"MENU", 22, 80, 26), 6);
 }
 
 void PopupHeader::Update()
@@ -60,6 +63,9 @@ void PopupRestart::Start()
 	SetNormalImg("Asset/UI/Menu2/normal.bmp");
 	SetHoverImg ("Asset/UI/Menu2/hover.bmp");
 	SetClickImg ("Asset/UI/Menu2/active.bmp");
+
+	//텍스트 추가하기//
+	AddChildObject(new Text(L"다시 시작하기", 22, 30, 26), 6);
 }
 
 void PopupRestart::OnClick()
@@ -84,6 +90,7 @@ void PopupTitle::Start()
 	SetHoverImg("Asset/UI/Menu2/hover.bmp");
 	SetClickImg("Asset/UI/Menu2/active.bmp");
 
+	AddChildObject(new Text(L"타이틀로 나가기", 22, 20, 26), 6);
 }
 
 void PopupTitle::OnClick()
@@ -107,6 +114,8 @@ void PopupQuit::Start()
 	SetNormalImg("Asset/UI/Menu2/normal.bmp");
 	SetHoverImg("Asset/UI/Menu2/hover.bmp");
 	SetClickImg("Asset/UI/Menu2/active.bmp");
+
+	AddChildObject(new Text(L"끝내기", 22, 70, 26), 6);
 }
 
 void PopupQuit::OnClick()

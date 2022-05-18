@@ -22,5 +22,5 @@ void GameScene::Load()
     //ObjectManager::Instantiate(new EnemySpawner(WIDTH / 2, 10));
 
     //텍스트 테스트하기//
-    ObjectManager::Instantiate(new Text(L"폰트 테스트하기", 100, 200), 6);
+    //ObjectManager::Instantiate(new Text(L"Font Test123", 32,  100, 200), 6);
 }
