@@ -9,7 +9,7 @@ void SceneManager::Init()
 	sceneList[1] = new GameScene  ("Game");
 	sceneList[2] = new EndingScene("Ending");
 
-	activeIndex = 0;
+	activeIndex = 1;
 	sceneList[activeIndex]->Load();  //목록의 제일 처음 씬 바로..로드하기	
 }
 

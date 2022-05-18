@@ -4,9 +4,6 @@
 #include "framework.h"
 #include "ShootingGame.h"
 
-#include <ft2build.h>
-#include <freetype/freetype.h>
-
 //lib(라이브러이)를 프로젝트에서 사용하기
 #pragma comment(lib, "freetype/freetype.lib")
 
@@ -45,69 +42,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     //초기화    
     START_DEBUG_CONSOLE();                  //디버그 콘솔창 열기
     InitGraphic(hWnd, 0, 0, WIDTH, HEIGHT); //그래픽 초기화
-
-    //////////////////////////////////////////////////////
-    //////////////////// 폰트 테스트하기 ///////////////////
-    FT_Library library;
-    FT_Face    face;
-
-    //폰트 라이브러리 초기화
-    if (FT_Init_FreeType(&library) == 0)
-    {
-       //폰트 파일(ttf)로드 하기
-        if (FT_New_Face(library, "Asset/Font/Medium.ttf", 0, &face) == 0)
-        {
-            //폰트 사용 옵션(폰트..크기)
-            FT_Set_Pixel_Sizes(face, 32, 32);
-
-            //폰트 파일에서..글꼴 찾아오기
-            WCHAR text[4]   = L"가나다";
-
-            for (int i = 0; i < 3; i++)
-            {
-                    int index = FT_Get_Char_Index(face, text[i]);
-
-                    //폰트 파일에서 찾은 글꼴만 뽑아내서... face->glyph에 저장함
-                    FT_Load_Glyph(face, index, FT_LOAD_DEFAULT);
-
-                    //글꼴을 픽셀단위로...비트맵 이미지로..변환하기
-                    FT_Render_Glyph(face->glyph, FT_RENDER_MODE_NORMAL);
-
-                    //픽셀로..화면에..출력하기
-                    int width = face->glyph->bitmap.width;  //글꼴 비트맵 이미지 가로크기
-                    int height = face->glyph->bitmap.rows;   //글꼴 비트맵 이미지 세로크기
-
-                    unsigned char* buffer = face->glyph->bitmap.buffer;  //글꼴 이미지 비트맵 데이타
-
-                    for (int y = 0; y < height; y++)
-                    {
-                        for (int x = 0; x < width; x++)
-                        {
-                            unsigned char data = buffer[y * width + x];
-
-                            printf("%3d ", data);
-                        }
-
-                        printf("\n");
-                    }
-            }
-
-            //폰트 사용 닫기
-            FT_Done_Face(face);
-            FT_Done_FreeType(library);
-        }
-        else {
-            printf("폰트 파일 읽기 실패\n");
-        }
-    }
-    else {
-
-        printf("폰트 라이브러리..초기화 실패\n");
-    }
-
-
-
-    //////////////////////////////////////////////////////
 
     Time::Init();    //타임초기화
     Random::Init();  //랜덤초기화
