@@ -76,7 +76,7 @@ public:
 	virtual void OnTriggerStay2D(GameObject * other);
 
 	//자식객체 추가 함수//
-	void AddChildObject(GameObject* child, int layer=0);
+	GameObject * AddChildObject(GameObject* child, int layer=0);
 
 	//자식객체 찾기 함수(이름으로)//
 	GameObject * Find(string name);

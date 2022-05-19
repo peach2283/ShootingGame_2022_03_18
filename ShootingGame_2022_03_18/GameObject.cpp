@@ -220,7 +220,7 @@ void GameObject::Destroy(GameObject* obj)
 	ObjectManager::Destroy(obj);
 }
 
-void GameObject::AddChildObject(GameObject* child, int layer)
+GameObject* GameObject::AddChildObject(GameObject* child, int layer)
 {
 	child->parent = this;  //this는 child 객체의 부모..객체포인터
 
@@ -230,6 +230,8 @@ void GameObject::AddChildObject(GameObject* child, int layer)
 	child->Translate(px, py);
 
 	ObjectManager::Instantiate(child, layer);
+
+	return child;
 }
 
 GameObject* GameObject::Find(string name)

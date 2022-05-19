@@ -16,6 +16,7 @@ void HPBar::Start()
 	AddChildObject(new Icon(-26, 0, "Asset/UI/Icon/HP_ICON24x24.bmp"), 6);
 
 	//텍스트..자식객체 추가하기
+	text = AddChildObject(new Text(L"100", 18, 84, 18), 6);
 }
 
 void HPBar::Update()
@@ -49,4 +50,13 @@ void HPBar::Draw()
 void HPBar::SetFillAmount(float fill)
 {
 	this->fillAmount = fill;
+}
+
+void HPBar::SetHP(float hp)
+{
+	WCHAR temp[10];
+
+	wsprintf(temp, L"%f", hp);
+
+	((Text*)text)->SetText(temp);
 }

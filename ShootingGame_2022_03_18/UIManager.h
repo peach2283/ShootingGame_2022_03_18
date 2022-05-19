@@ -17,6 +17,9 @@ private:
 	//폭탄 아이콘..객체 포인터//
 	GameObject* bombIcons[8];
 
+	//점수 출력 객체 포인터//
+	GameObject* score;
+
 public:
 	UIManager();
 	~UIManager();

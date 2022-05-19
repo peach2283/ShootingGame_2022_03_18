@@ -23,19 +23,18 @@ void UIManager::Start()
     playerIcons[2] = Instantiate(new Icon(350, 5, "Asset/UI/Icon/PlayerIcon.bmp"), 6);
 
     //스코어..추가하기
-    Instantiate(new Score(30, 10), 6);
+    score = Instantiate(new Score(30, 10), 6);
 
     //폭탄 카운트..아이콘 추가하기
-   bombIcons[0] = Instantiate(new Icon(10 + 25 * 0 , 740, "Asset/UI/Icon/BombIcon.bmp"), 6);
-   bombIcons[1] = Instantiate(new Icon(10 + 25 * 1 , 740, "Asset/UI/Icon/BombIcon.bmp"), 6);
-   bombIcons[2] = Instantiate(new Icon(10 + 25 * 2 , 740, "Asset/UI/Icon/BombIcon.bmp"), 6);
-   bombIcons[3] = Instantiate(new Icon(10 + 25 * 3 , 740, "Asset/UI/Icon/BombIcon.bmp"), 6);
+    bombIcons[0] = Instantiate(new Icon(10 + 25 * 0 , 740, "Asset/UI/Icon/BombIcon.bmp"), 6);
+    bombIcons[1] = Instantiate(new Icon(10 + 25 * 1 , 740, "Asset/UI/Icon/BombIcon.bmp"), 6);
+    bombIcons[2] = Instantiate(new Icon(10 + 25 * 2 , 740, "Asset/UI/Icon/BombIcon.bmp"), 6);
+    bombIcons[3] = Instantiate(new Icon(10 + 25 * 3 , 740, "Asset/UI/Icon/BombIcon.bmp"), 6);
 
-   bombIcons[4] = Instantiate(new Icon(10 + 25 * 4 , 740, "Asset/UI/Icon/BombIcon.bmp"), 6);
-   bombIcons[5] = Instantiate(new Icon(10 + 25 * 5 , 740, "Asset/UI/Icon/BombIcon.bmp"), 6);
-   bombIcons[6] = Instantiate(new Icon(10 + 25 * 6 , 740, "Asset/UI/Icon/BombIcon.bmp"), 6);
-   bombIcons[7] = Instantiate(new Icon(10 + 25 * 7 , 740, "Asset/UI/Icon/BombIcon.bmp"), 6);
-    
+    bombIcons[4] = Instantiate(new Icon(10 + 25 * 4 , 740, "Asset/UI/Icon/BombIcon.bmp"), 6);
+    bombIcons[5] = Instantiate(new Icon(10 + 25 * 5 , 740, "Asset/UI/Icon/BombIcon.bmp"), 6);
+    bombIcons[6] = Instantiate(new Icon(10 + 25 * 6 , 740, "Asset/UI/Icon/BombIcon.bmp"), 6);
+    bombIcons[7] = Instantiate(new Icon(10 + 25 * 7 , 740, "Asset/UI/Icon/BombIcon.bmp"), 6);    
 }
 
 void UIManager::Update()
@@ -84,4 +83,8 @@ void UIManager::Update()
             bombIcons[i]->SetActive(false);
         }
     }
+
+    //게임점수..표시하기
+    int s = manager->GetScore();
+    ((Score*)score)->SetScore(s);
 }

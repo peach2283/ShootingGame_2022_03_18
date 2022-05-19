@@ -283,7 +283,7 @@ void Player::OnTriggerStay2D(GameObject * other)
 				GameManager* manager = GameManager::Instance();
 
 				//적기총알 피해 적용하기//
-				//manager->DamagePlayer(10);
+				manager->DamagePlayer(10);
 
 				if (manager->GetPlayerHp() <= 0)
 				{

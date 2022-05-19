@@ -96,3 +96,8 @@ void Text::Draw()
         fonty = fonty - face->glyph->advance.y / 64;
     }
 }
+
+void Text::SetText(wstring text)
+{
+    this->text = text;
+}

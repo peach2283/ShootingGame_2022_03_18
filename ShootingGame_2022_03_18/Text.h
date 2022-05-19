@@ -28,4 +28,6 @@ public:
 	void Start();
 	void Update();
 	void Draw();
+
+	void SetText(wstring text);
 };

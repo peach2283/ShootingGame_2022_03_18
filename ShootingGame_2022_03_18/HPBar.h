@@ -4,7 +4,9 @@
 class HPBar : public Sprite
 {
 private:
+	
 	float fillAmount;
+	GameObject* text;
 
 public:
 	HPBar(float px, float py);
@@ -15,5 +17,6 @@ public:
 	void Draw();
 
 	void SetFillAmount(float fill);
+	void SetHP(float hp);
 };
 
