@@ -183,6 +183,10 @@ void Enemy::Explosion()
 	{
 		Instantiate(new BombItem(px + (190 - 22) / 2, py + (137 - 40) / 2));
 	}
+
+	//게임 점수 올리기//
+	GameManager* manager = GameManager::Instance();
+	manager->AddScore(20);
 }
 
 void Enemy::OnTriggerStay2D(GameObject * other)

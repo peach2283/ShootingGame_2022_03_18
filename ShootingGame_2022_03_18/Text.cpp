@@ -75,7 +75,18 @@ void Text::Draw()
 
                 if (data != 0)
                 {
-                    SetPixel(fontx + x + left, fonty + y - top, r, g, b);
+                    float a = data / 255.0f;  //알파값 (0 ~1 사이값으로..변환)
+
+                    //배경색 가져오기
+                    unsigned char br, bg, bb;
+                    GetPixel(fontx + x + left, fonty + y - top, br, bg, bb);
+
+                    //배경색과 폰트색 블렌딩(알파블렌딩)
+                    unsigned char fr = a * r  + (1 - a) * br;
+                    unsigned char fg = a * g  + (1 - a) * bg;
+                    unsigned char fb = a * b  + (1 - a) * bb;
+
+                    SetPixel(fontx + x + left, fonty + y - top, fr, fg, fb);
                 }                  
             }          
         }

@@ -8,6 +8,7 @@ GameManager::GameManager() : GameObject("", "", true, 0,0)
 	this->playerCount = 3;     //플레이어 갯수
 	this->bombCount   = 5;     //폭탄 갯수
 	this->pause       = false; //게임이 중지 아님
+	this->score		  = 0;     //게임점수 초기화
 }
 
 GameManager::~GameManager()
@@ -64,6 +65,18 @@ int GameManager::GetPlayerCount()
 int  GameManager::GetBombCount()
 {
 	return bombCount;
+}
+
+void GameManager::AddScore(int score)
+{
+	this->score = this->score + score;
+
+	printf("게임 점수 : %d\n", this->score);
+}
+
+int GameManager::GetScore()
+{
+	return score;
 }
 
 void GameManager::SubBombCount()
