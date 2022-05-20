@@ -40,7 +40,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
 
     //초기화    
-    START_DEBUG_CONSOLE();                  //디버그 콘솔창 열기
+    //START_DEBUG_CONSOLE();                  //디버그 콘솔창 열기
     InitGraphic(hWnd, 0, 0, WIDTH, HEIGHT); //그래픽 초기화
 
     Time::Init();    //타임초기화
@@ -80,7 +80,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
 
     //프로램종료
-    STOP_DEBUG_CONSOLE();   //디버그 콘솔창 닫기
+    //STOP_DEBUG_CONSOLE();   //디버그 콘솔창 닫기
     ExitGraphic();          //그래픽 종료
 
     //씬 언로딩 하기

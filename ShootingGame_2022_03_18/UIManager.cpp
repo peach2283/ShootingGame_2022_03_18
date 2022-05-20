@@ -55,6 +55,7 @@ void UIManager::Update()
     float hp=manager->GetPlayerHp();
 
     ((HPBar*)hpBar)->SetFillAmount(hp/100); 
+    ((HPBar*)hpBar)->SetHP(hp);
 
     //플레이어 카운트
     int count = manager->GetPlayerCount();

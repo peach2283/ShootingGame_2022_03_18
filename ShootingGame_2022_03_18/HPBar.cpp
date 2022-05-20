@@ -56,7 +56,7 @@ void HPBar::SetHP(float hp)
 {
 	WCHAR temp[10];
 
-	wsprintf(temp, L"%f", hp);
+	wsprintf(temp, L"%d", (int)hp);
 
 	((Text*)text)->SetText(temp);
 }

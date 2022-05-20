@@ -106,7 +106,7 @@ void ObjectManager::Draw()
 			if (gameObjects[layer][i]->GetActive() == true)
 			{
 				gameObjects[layer][i]->Draw();			//객체 그리기
-				gameObjects[layer][i]->OnDrawGizmos(); //기즈모..그리기
+				//gameObjects[layer][i]->OnDrawGizmos(); //기즈모..그리기
 			}
 		}
 	}
